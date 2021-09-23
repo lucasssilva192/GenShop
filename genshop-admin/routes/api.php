@@ -31,3 +31,9 @@ Route::get('/product', [ProductController::class, 'index']);
 Route::get('/product/{product}', [ProductController::class, 'show']);
 Route::put('/product/{product}', [ProductController::class, 'update']);
 Route::delete('/product/{product}', [ProductController::class, 'destroy']);
+
+Route::post('/customer', [CustomerController::class, 'store']);
+Route::get('/customer', [CustomerController::class, 'index']);
+Route::get('/customer/{customer}', [CustomerController::class, 'show']);
+Route::put('/customer/{customer}', [CustomerController::class, 'update']);
+Route::delete('/customer/{customer}', [CustomerController::class, 'destroy']);
