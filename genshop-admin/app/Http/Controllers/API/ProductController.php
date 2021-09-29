@@ -42,12 +42,15 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
-        if($request->image){
+        if($request->image)
+        {
             $image = $request->file('image')->store('product');
             $image = "storage/" . $image;
            if($product->image != "storage/product/imagem.jpg"){
                 Storage::delete(str_replace('storage/','',$product->image));}
-        }else{
+        }
+        else
+        {
             $image = "storage/product/imagem.jpg";
         }
         $product = Product::update([
