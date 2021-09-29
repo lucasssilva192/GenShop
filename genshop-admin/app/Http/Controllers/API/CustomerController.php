@@ -15,24 +15,24 @@ class CustomerController extends Controller
 
     public function store(Request $request)
     {
-        $product = Customer::create($request->all());
-        return response()->json($product);
+        $customer = Customer::create($request->all());
+        return response()->json($customer);
     }
 
-    public function show(Customer $product)
+    public function show(Customer $customer)
     {
-        return response()->json($product);
+        return response()->json($customer);
     }
 
-    public function update(Request $request, Customer $product)
+    public function update(Request $request, Customer $customer)
     {
-        $product->update($request->all());
-        return response()->json($product);
+        $customer->update($request->all());
+        return response()->json($customer);
     }
 
-    public function destroy(Customer $product)
+    public function destroy(Customer $customer)
     {
-        $product->delete();
-        return response()->json($product);
+        $customer->delete();
+        return response()->json($customer);
     }
 }
