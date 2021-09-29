@@ -14,24 +14,24 @@ class OrderProductController extends Controller
 
     public function store(Request $request)
     {
-        $store = OrderProduct::create($request->all());
-        return response()->json($store);
+        $orderProduct = OrderProduct::create($request->all());
+        return response()->json($orderProduct);
     }
 
-    public function show(OrderProduct $store)
+    public function show(OrderProduct $orderProduct)
     {
-        return response()->json($store);
+        return response()->json($orderProduct);
     }
 
-    public function update(Request $request, OrderProduct $store)
+    public function update(Request $request, OrderProduct $orderProduct)
     {
-        $store->update($request->all());
-        return response()->json($store);
+        $orderProduct->update($request->all());
+        return response()->json($orderProduct);
     }
 
-    public function destroy(OrderProduct $store)
+    public function destroy(OrderProduct $orderProduct)
     {
-        $store->delete();
-        return response()->json($store);
+        $orderProduct->delete();
+        return response()->json($orderProduct);
     }
 }
