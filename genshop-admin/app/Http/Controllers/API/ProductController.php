@@ -16,7 +16,22 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $product = Product::create($request->all());
+        if($request->image)
+        {
+            $image = $request->file('image')->store('product');
+            $image = "storage/" . $image;
+        }
+        else
+        {
+            $image = "storage/product/imagem.jpg";
+        }
+        $product = Product::create([
+            'store_id' => $request->store_id,
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'picture' => $image
+        ]);
         return response()->json($product);
     }
 
@@ -27,7 +42,24 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
-        $product->update($request->all());
+        if($request->image)
+        {
+            $image = $request->file('image')->store('product');
+            $image = "storage/" . $image;
+           if($product->image != "storage/product/imagem.jpg"){
+                Storage::delete(str_replace('storage/','',$product->image));}
+        }
+        else
+        {
+            $image = "storage/product/imagem.jpg";
+        }
+        $product = Product::update([
+            'store_id' => $request->store_id,
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'picture' => $image
+        ]);
         return response()->json($product);
     }
 

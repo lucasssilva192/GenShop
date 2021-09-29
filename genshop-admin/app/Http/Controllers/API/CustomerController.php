@@ -15,24 +15,60 @@ class CustomerController extends Controller
 
     public function store(Request $request)
     {
-        $product = Customer::create($request->all());
-        return response()->json($product);
+        if($request->image)
+        {
+            $image = $request->file('image')->store('product');
+            $image = "storage/" . $image;
+        }
+        else
+        {
+            $image = "storage/product/imagem.jpg";
+        }
+        $customer = Customer::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'birth_date' => $request->birth_date,
+            'cpf' => $request->cpf,
+            'cellphone' => $request->cellphone,
+            'telephone' => $request->telephone,
+            'profile_pic' => $request->profile_pic
+        ]);
+        return response()->json($customer);
     }
 
-    public function show(Customer $product)
+    public function show(Customer $customer)
     {
-        return response()->json($product);
+        return response()->json($customer);
     }
 
-    public function update(Request $request, Customer $product)
+    public function update(Request $request, Customer $customer)
     {
-        $product->update($request->all());
-        return response()->json($product);
+        if($request->image)
+        {
+            $image = $request->file('image')->store('product');
+            $image = "storage/" . $image;
+           if($product->image != "storage/product/imagem.jpg"){
+                Storage::delete(str_replace('storage/','',$product->image));}
+        }
+        else
+        {
+            $image = "storage/product/imagem.jpg";
+        }
+        $customer = Customer::update([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'birth_date' => $request->birth_date,
+            'cpf' => $request->cpf,
+            'cellphone' => $request->cellphone,
+            'telephone' => $request->telephone,
+            'profile_pic' => $request->profile_pic
+        ]);
+        return response()->json($customer);
     }
 
-    public function destroy(Customer $product)
+    public function destroy(Customer $customer)
     {
-        $product->delete();
-        return response()->json($product);
+        $customer->delete();
+        return response()->json($customer);
     }
 }
