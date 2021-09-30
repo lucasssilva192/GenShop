@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
                 'store_id' => $i,
                 'name' => Str::random(10),
                 'description' => Str::random(50),
+                'price' => mt_rand(5, 100),
                 'picture' => '...'
             ]);
 
