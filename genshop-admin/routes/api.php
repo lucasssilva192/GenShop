@@ -17,10 +17,10 @@ use App\Http\Controllers\UserController;
 |
 */
 
+//Mudar redirect do middleware para redirect com rota que retornar json informando que nao esta logado.
 Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::get('/product', [ProductController::class, 'index']);
 });
-
 Route::post('/login', [UserController::class, 'login']);
 
 Route::post('/store', [StoreController::class, 'store']);
