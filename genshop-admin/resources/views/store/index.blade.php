@@ -67,46 +67,48 @@
 </header>
 
 <body>
-<h1> Lojas </h1>
-<a class="nav-link" href="{{ route('store.create') }}" >Novo</a>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Nome</th>
-      <th scope="col">CNPJ</th>
-      <th scope="col">Celular</th>
-      <th scope="col">Telefone</th>
-      <th scope="col">Endereço</th>
-      <th scope="col">Opções</th>
-    </tr>
-  </thead>
-  <tbody>
-      @foreach($stores as $store)
-    <tr>
-      <td>{{$store->id}}</td>
-      <td>{{$store->name}}</td>
-      <td>{{$store->cnpj}}</td>
-      <td>{{$store->cellphone}}</td>
-      <td>{{$store->telephone}}</td>
-      <td>{{$store->address}}</td>
-      <td> 
-            <a href="#" class="btn btn-primary btn-sm">Visualizar</a>
-            <a href="#" class="btn btn-primary btn-sm">Editar</a>
-            <form class="d-inline" method="POST" action="remover" onsubmit="">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-primary btn-sm">Apagar</button>
-            </form>
-    </td>
-    </tr>
-    @endforeach
-  </tbody>
-</table>  
+  <div class="container">
+    <h1> Lojas </h1>
+    <a class="nav-link" href="{{ route('store.create') }}" >Novo</a>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">CNPJ</th>
+          <th scope="col">Celular</th>
+          <th scope="col">Telefone</th>
+          <th scope="col">Endereço</th>
+          <th scope="col">Opções</th>
+        </tr>
+      </thead>
+      <tbody>
+          @foreach($stores as $store)
+        <tr>
+          <td>{{$store->id}}</td>
+          <td>{{$store->name}}</td>
+          <td>{{$store->cnpj}}</td>
+          <td>{{$store->cellphone}}</td>
+          <td>{{$store->telephone}}</td>
+          <td>{{$store->address}}</td>
+          <td> 
+                <a href="#" class="btn btn-primary btn-sm">Visualizar</a>
+                <a href="#" class="btn btn-primary btn-sm">Editar</a>
+                <form class="d-inline" method="POST" action="remover" onsubmit="">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-primary btn-sm">Apagar</button>
+                </form>
+        </td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>  
+  </div>
 
 </body>
   <!--Footer-->
-  <footer class="bg-light text-lg-start">
+  <footer class="bg-light text-lg-start fixed-bottom">
     
     <div class="text-center py-4 align-items-center">
       <a href="https://twitter.com/MDBootstrap" class="btn btn-primary m-1" role="button" rel="nofollow"

@@ -67,33 +67,35 @@
 </header>
 
 <body>
-<h1> Pedidos </h1>
+  <div class="container">
+    <h1> Pedidos </h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Preço</th>
+          <th scope="col">Status</th>
+          <th scope="col">Opções</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>X</td>
+          <td>Y</td>
+          <td>Z</td>
+          <td> 
+                <a href="#" class="btn btn-primary btn-sm">Visualizar</a>
+                <a href="#" class="btn btn-primary btn-sm">Editar</a>
+        </td>
+        </tr>
+      </tbody>
+    </table>  
+  </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Preço</th>
-      <th scope="col">Status</th>
-      <th scope="col">Opções</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>X</td>
-      <td>Y</td>
-      <td>Z</td>
-      <td> 
-            <a href="#" class="btn btn-primary btn-sm">Visualizar</a>
-            <a href="#" class="btn btn-primary btn-sm">Editar</a>
-    </td>
-    </tr>
-  </tbody>
-</table>  
 </body>
 
   <!--Footer-->
-  <footer class="bg-light text-lg-start">
+  <footer class="bg-light text-lg-start fixed-bottom">
     
     <div class="text-center py-4 align-items-center">
       <a href="https://twitter.com/MDBootstrap" class="btn btn-primary m-1" role="button" rel="nofollow"

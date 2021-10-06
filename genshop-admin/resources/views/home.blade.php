@@ -80,7 +80,7 @@
 <body>
     <hr class="my-5" />
     <!--Section: Content-->
-    <section class="text-center">
+    <section class="text-center container">
     <h4 class="mb-5"><strong>BEM VINDO</strong></h4>
 
     <div class="row">
@@ -136,7 +136,7 @@
 
     </body>
   <!--Footer-->
-  <footer class="bg-light text-lg-start">
+  <footer class="bg-light text-lg-start fixed-bottom">
     
     <div class="text-center py-4 align-items-center">
       <a href="https://twitter.com/MDBootstrap" class="btn btn-primary m-1" role="button" rel="nofollow"

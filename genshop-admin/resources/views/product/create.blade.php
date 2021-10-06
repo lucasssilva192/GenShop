@@ -43,7 +43,7 @@
 </body>
 
   <!--Footer-->
-  <footer class="bg-light text-lg-start">
+  <footer class="bg-light text-lg-start fixed-bottom">
     
     <div class="text-center py-4 align-items-center">
       <a href="https://twitter.com/MDBootstrap" class="btn btn-primary m-1" role="button" rel="nofollow"
