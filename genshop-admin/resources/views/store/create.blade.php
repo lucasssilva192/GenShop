@@ -23,8 +23,10 @@
 </header>
 
 <body>
-<form style="margin-left:35%;margin-top:1vh">
-<h1> Produtos </h1>
+<form style="margin-left:35%;margin-top:1vh" method="POST" action="{{ Route('store.store') }}" enctype="multipart/form-data">
+@csrf
+<h1> Lojas </h1>
+<input type="text" name="store_id" id="store_id" class="d-none" value="1"/>
   <div class="form-outline mb-4">
     <input type="text" id="nome" name="nome" placeholder="Nome da Loja" style="width:450px"/>
   </div>
@@ -42,15 +44,12 @@
   </div>
 
   <div class="form-outline mb-4">
-    <input type="text" id="foto_perfil" name="foto_perfil" placeholder="Foto de perfil" style="width:450px"/>
-  </div>
+            <span class="form-label">Imagem:</span>
+            <input type="file" class="form-control" name="foto_perfil">
+        </div>
 
   <div class="form-outline mb-4">
     <input type="text" id="endereco" name="endereco" placeholder="Endereço" style="width:450px"/>
-  </div>
-
-  <div class="form-outline mb-4">
-    <textarea id="descricao" name="descricao" placeholder="Descrição do Produto" rows="4" style="width:450px"></textarea>
   </div>
 
   <button type="submit" style="width:150px" class="btn btn-primary btn-block mb-4">Cadastrar</button>

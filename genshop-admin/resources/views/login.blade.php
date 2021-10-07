@@ -1,9 +1,5 @@
 @extends('template.principal')
-<script> 
-        function remover(){
-            return confirm('Você deseja realmente remover o produto?');
-        }
-</script>
+
 @section('css')
 <style>
       /* Carousel styling */
@@ -53,6 +49,17 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">GenShop Admin</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -71,53 +78,46 @@
 </header>
 
 <body>
-<h1> Produtos </h1>
-<a class="nav-link" href="{{ route('product.create') }}" >Novo</a>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Descrição</th>
-      <th scope="col">Preço</th>
-      <th scope="col">Opções</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach($products as $product)
-    <tr>
-      <td>{{$product->id}}</td>
-      <td>{{$product->name}}</td>
-      <td>{{$product->description}}</td>
-      <td>{{$product->price}}</td>
-      <td> 
-            <a href="{{route('product.show', $product->id)}}" class="btn btn-primary btn-sm">Visualizar</a>
-            <a href="{{route('product.edit', $product->id)}}" class="btn btn-primary btn-sm">Editar</a>
-            <form class="d-inline" method="POST" action="{{ route('product.destroy', $product->id) }}" onsubmit="return remover();">
-              @csrf
-              @method('DELETE')
-              <button type="submit" class="btn btn-primary btn-sm">Apagar</button>
-            </form>
-    </td>
-    </tr>
-    @endforeach
-  </tbody>
-</table>  
 
-</body>
+
+<form action="{{Route('/login')}}"> 
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input type="email" id="form2Example1" class="form-control" />
+    <label class="form-label" for="form2Example1">Email address</label>
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+    <input type="password" id="form2Example2" class="form-control" />
+    <label class="form-label" for="form2Example2">Password</label>
+  </div>
+
+  <!-- 2 column grid layout for inline styling -->
+  <div class="row mb-4">
+    <div class="col d-flex justify-content-center">
+      <!-- Checkbox -->
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="form2Example3"
+          checked
+        />
+        <label class="form-check-label" for="form2Example3"> Remember me </label>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+</form>
+    </body>
   <!--Footer-->
   <footer class="bg-light text-lg-start">
-    
-    <div class="text-center py-4 align-items-center">
-      <a href="https://twitter.com/MDBootstrap" class="btn btn-primary m-1" role="button" rel="nofollow"
-        target="_blank">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="https://github.com/mdbootstrap/mdb-ui-kit" class="btn btn-primary m-1" role="button" rel="nofollow"
-        target="_blank">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
 
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">

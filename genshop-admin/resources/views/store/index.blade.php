@@ -91,12 +91,12 @@
       <td>{{$store->telephone}}</td>
       <td>{{$store->address}}</td>
       <td> 
-            <a href="#" class="btn btn-primary btn-sm">Visualizar</a>
-            <a href="#" class="btn btn-primary btn-sm">Editar</a>
-            <form class="d-inline" method="POST" action="remover" onsubmit="">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-primary btn-sm">Apagar</button>
+            <a href="{{route('store.show', $store->id)}}" class="btn btn-primary btn-sm">Visualizar</a>
+            <a href="{{route('store.edit', $store->id)}}" class="btn btn-primary btn-sm">Editar</a>
+            <form class="d-inline" method="POST" action="{{ route('store.destroy', $store->id) }}" onsubmit="return remover();">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn btn-primary btn-sm">Apagar</button>
             </form>
     </td>
     </tr>

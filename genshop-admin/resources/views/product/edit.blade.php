@@ -23,21 +23,22 @@
 </header>
 
 <body>
-<form style="margin-left:35%;margin-top:1vh" method="POST" action="{{ Route('product.store') }}" >
+<form style="margin-left:35%;margin-top:1vh" method="POST" action="{{ Route('product.update', $product->id) }}" >
 @csrf
+@METHOD('PATCH')
 <h1> Produtos </h1>
-    <input type="text" name="store_id" id="store_id" class="d-none" value="1"/>
+    <input type="text" name="store_id" id="store_id" class="d-none" value="1" style="width:450px"/>
   <div class="form-outline mb-4">
-    <input type="text" id="nome" name="nome" placeholder="Nome do Produto" style="width:450px"/>
+    <input type="text" id="nome" name="nome" value="{{$product->name}}" placeholder="Nome do Produto" style="width:450px"/>
   </div>
   <div class="form-outline mb-4">
-    <input type="text" id="preco" name="preco" placeholder="Preço do Produto" style="width:450px"/>
+    <input type="text" id="preco" name="preco" value="{{$product->price}}" placeholder="Preço do Produto" style="width:450px"/>
   </div>
   <div class="form-outline mb-4">
-    <input type="text" id="foto" name="foto" placeholder="Foto" style="width:450px"/>
+    <input type="text" id="foto" name="foto" value="{{$product->picture}}" placeholder="Foto" style="width:450px"/>
   </div>
   <div class="form-outline mb-4">
-    <textarea id="descricao" name="descricao" placeholder="Descrição do Produto" rows="4" style="width:450px"></textarea>
+    <textarea id="descricao" name="descricao" placeholder="Descrição do Produto" rows="4" style="width:450px">{{$product->description}}</textarea>
   </div>
   <button type="submit" style="width:150px" class="btn btn-primary btn-block mb-4">Cadastrar</button>
 </form>
