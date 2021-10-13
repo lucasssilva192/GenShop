@@ -13,6 +13,7 @@
     <!-- import the MDB javascript file https://mdbootstrap.com/ -->
     <script type="text/javascript" src="{{ asset('js/mdb/mdb.min.js') }}"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/mdb/mdb-input.js') }}"></script>
     @yield('js')
     <title>GenShop</title>
 </head>
