@@ -63,6 +63,21 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('order.index') }}">Pedidos</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('category.index') }}">Categorias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Bem-Vindo {{Auth()->user()->name}}</a>
+          </li>
+          <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Sair') }}
+                            </x-dropdown-link>
+                        </form>
         </ul>
       </div>
     </div>

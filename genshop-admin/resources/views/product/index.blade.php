@@ -64,6 +64,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('order.index') }}">Pedidos</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('category.index') }}">Categorias</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -84,6 +87,7 @@
     </tr>
   </thead>
   <tbody>
+    @if($products)
     @foreach($products as $product)
     <tr>
       <td>{{$product->id}}</td>
@@ -101,6 +105,7 @@
           </td>
         </tr>
         @endforeach
+      @endif
       </tbody>
     </table>
   </div>

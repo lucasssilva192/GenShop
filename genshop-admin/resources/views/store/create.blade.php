@@ -16,6 +16,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('order.index') }}">Pedidos</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('category.index') }}">Categorias</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -26,7 +29,7 @@
 <form style="margin-left:35%;margin-top:1vh" method="POST" action="{{ Route('store.store') }}" enctype="multipart/form-data">
 @csrf
 <h1> Lojas </h1>
-<input type="text" name="store_id" id="store_id" class="d-none" value="1"/>
+  <input type="text" name="user_id" id="user_id" class="d-none" value="{{Auth()->user()->id}}"/>
   <div class="form-outline mb-4">
     <input type="text" id="nome" name="nome" placeholder="Nome da Loja" style="width:450px"/>
   </div>
@@ -36,11 +39,15 @@
   </div>
 
     <div class="form-outline mb-4">
-      <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ" style="width:450px" />
+      <input type="text" id="celular" name="celular" placeholder="Celular" style="width:450px" />
     </div>
 
     <div class="form-outline mb-4">
-      <input type="text" id="celular" name="celular" placeholder="Celular" style="width:450px" />
+      <input type="text" id="telefone" name="telefone" placeholder="Telefone" style="width:450px" />
+    </div>
+
+    <div class="form-outline mb-4">
+      <input type="text" id="endereco" name="endereco" placeholder="Endereço" style="width:450px" />
     </div>
 
   <div class="form-outline mb-4">
@@ -48,15 +55,8 @@
             <input type="file" class="form-control" name="foto_perfil">
         </div>
 
-    <div class="form-outline mb-4">
-      <input type="text" id="foto_perfil" name="foto_perfil" placeholder="Foto de perfil" style="width:450px" />
-    </div>
-
   <button type="submit" style="width:150px" class="btn btn-primary btn-block mb-4">Cadastrar</button>
 </form>
-
-    <button type="submit" style="width:150px" class="btn btn-primary btn-block mb-4">Cadastrar</button>
-  </form>
 </body>
 
 <!--Footer-->

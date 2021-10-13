@@ -60,6 +60,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('order.index') }}">Pedidos</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('category.index') }}">Categorias</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -67,8 +70,11 @@
 </header>
 
 <body>
-<h1> Lojas </h1>
+<h1> Sua Loja </h1>
+@if(!$store)
 <a class="nav-link" href="{{ route('store.create') }}" >Novo</a>
+@endif
+@if($store)
 <table class="table">
   <thead>
     <tr>
@@ -82,7 +88,6 @@
     </tr>
   </thead>
   <tbody>
-      @foreach($stores as $store)
     <tr>
       <td>{{$store->id}}</td>
       <td>{{$store->name}}</td>
@@ -100,9 +105,9 @@
             </form>
           </td>
         </tr>
-        @endforeach
       </tbody>
     </table>
+@endif
   </div>
 </body>
 

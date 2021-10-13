@@ -60,6 +60,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('order.index') }}">Pedidos</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('category.index') }}">Categorias</a>
+          </li>
         </ul>
       </div>
     </div>

@@ -4,29 +4,46 @@ namespace App\Http\Controllers\ADM;
 
 use App\Http\Controllers\Controller;
 use App\Models\ADM\Product;
+use App\Models\ADM\Store;
+use App\Models\ADM\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     public function index()
-    {
-        return view('product.index')->with('products', Product::all());
+    {   
+        $store_id = Store::where('user_id',Auth()->user()->id)->first();
+        if($store_id){
+            $products = Product::where('store_id', $store_id->id)->get();
+            return view('product.index', compact('products'));
+        }   else {
+            $products = 0;
+            return view('product.index', compact('products'));
+        }
     }
 
     public function create()
     {
-        return view('product.create');
+        $store_id = Store::where('user_id',Auth()->user()->id)->first();
+        if($store_id){
+            return view('product.create')->with(['categories' => Category::all()]);
+        } else {
+            $products = 0;
+            return redirect(route('product.index', compact('products')))->with(['categories' => Category::all()]);
+        }
     }
 
     public function store(Request $request)
     {
+        $loja = Store::where('user_id', Auth()->user()->id)->first();
         //dd($request);
         $product = Product::create([
-            'store_id' => $request->store_id,
+            'store_id' => $loja->id,
             'name' => $request->nome,
             'description' => $request->descricao,
             'price' => $request->preco,
-            'picture' => $request->foto
+            'picture' => $request->foto,
+            'category_id' => $request->category_id
         ]);
         session()->flash('success', 'Produto criado com sucesso');
         return redirect(route('product.index'));
