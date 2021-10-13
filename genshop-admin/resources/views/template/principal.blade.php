@@ -27,6 +27,7 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
+                    @if(Auth()->user())
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('store.index') }}">Lojas</a>
@@ -37,7 +38,30 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('order.index') }}">Pedidos</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('category.index') }}">Categorias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Bem-Vindo {{Auth()->user()->name}}</a>
+                        </li>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <x-dropdown-link class="nav-link" :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+                                {{ __('Sair') }}
+                            </x-dropdown-link>
+                        </form>
                     </ul>
+                    @endif
+                    @if(!Auth()->user())
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">Registrar</a>
+                        </li>
+                    </ul>
+                    @endif
                 </div>
             </div>
         </nav>

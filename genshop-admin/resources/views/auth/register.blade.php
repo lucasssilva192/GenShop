@@ -45,40 +45,6 @@
 @endsection
 
 @section('content')
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">GenShop Admin</a>
-      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-        @if(Auth()->user())
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('store.index') }}">Lojas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('product.index') }}">Produtos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('order.index') }}">Pedidos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link">Bem-Vindo {{Auth()->user()->name}}</a>
-          </li>
-          @endif
-          @if(!Auth()->user())
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('register') }}">Registrar</a>
-          </li>
-          @endif
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
-
 <body>
 <x-guest-layout>
     <x-auth-card>
