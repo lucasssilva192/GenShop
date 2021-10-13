@@ -3,6 +3,7 @@ package com.teyvat.genshop
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.core.widget.doOnTextChanged
 import com.teyvat.genshop.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -13,9 +14,16 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        binding.txtUsuario.doOnTextChanged { text, start, before, count -> binding.txtUsuarioLayout.isErrorEnabled = false }
+
+        binding.txtSenha.doOnTextChanged { text, start, before, count ->  binding.txtSenhaLayout.isErrorEnabled = false  }
+
         //Evento Botão listar
         binding.btnLogin.setOnClickListener(){
-            this.fazerLogin()
+            if(validarFormulario()){
+                this.fazerLogin()
+            }
         }
 
         //Evento Botão Cadastrar
@@ -26,6 +34,7 @@ class LoginActivity : AppCompatActivity() {
         binding.lblEsqueciSenha.setOnClickListener(){
             abrirEsqueciSenha()
         }
+
     }
 
     fun fazerLogin(){
@@ -42,4 +51,21 @@ class LoginActivity : AppCompatActivity() {
     fun abrirEsqueciSenha(){
         Log.d("Login", "AbrirEsqueciSenha")
     }
+
+    fun validarFormulario(): Boolean {
+        if(binding.txtUsuario.text.isNullOrEmpty()){
+            binding.txtUsuarioLayout.error = "Digite o Usuario"
+            binding.txtUsuario.requestFocus()
+            return false
+        }
+        else if(binding.txtSenha.text.isNullOrEmpty()){
+            binding.txtSenhaLayout.error = "Digite a Senha"
+            binding.txtSenha.requestFocus()
+            return false
+        }
+        else {
+            return true
+        }
+    }
+
 }

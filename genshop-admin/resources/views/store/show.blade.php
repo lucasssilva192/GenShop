@@ -20,44 +20,17 @@
             <a class="nav-link" href="{{ route('category.index') }}">Categorias</a>
           </li>
       </ul>
+  <div class="container py-5">
+    <div class="row">
+        <div class="text-center">
+            <h2 class="lt-branca"> {{ $store->name }} </h2>
+            <p class="lt-branca"> {{ $store->cnpj }} </p>
+            <p class="lt-branca"> {{ $store->cellphone }} </p>
+            <p class="lt-branca"> {{ $store->telephone }} </p>
+            <p class="lt-branca"> {{ $store->address }} </p>
+            <img src="asset($store->profile_pic) ">
+            <img src="{{ $store->profile_pic }}">
+        </div>
     </div>
   </div>
-</nav>
-</header>
-
-<body>
-<div class="row">
-    <div class="col-6 text-center">
-        <h2 class="lt-branca"> {{ $store->name }} </h2>
-        <p class="lt-branca"> {{ $store->cnpj }} </p>
-        <p class="lt-branca"> {{ $store->cellphone }} </p>
-        <p class="lt-branca"> {{ $store->telephone }} </p>
-        <p class="lt-branca"> {{ $store->address }} </p>
-        <img src="asset($store->profile_pic) ">
-        <img src="{{ $store->profile_pic }}">
-    </div>
-</div>
-</body>
-
-  <!--Footer-->
-  <footer class="bg-light text-lg-start">
-    
-    <div class="text-center py-4 align-items-center">
-      <a href="https://twitter.com/MDBootstrap" class="btn btn-primary m-1" role="button" rel="nofollow"
-        target="_blank">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="https://github.com/mdbootstrap/mdb-ui-kit" class="btn btn-primary m-1" role="button" rel="nofollow"
-        target="_blank">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2020 Copyright:
-      <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-    </div>
-    <!-- Copyright -->
-  </footer>
 @endsection

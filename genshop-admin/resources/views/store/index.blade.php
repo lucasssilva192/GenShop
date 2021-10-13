@@ -105,28 +105,43 @@
             </form>
           </td>
         </tr>
+  <div class="container py-5">
+    <h1> Lojas </h1>
+    <a class="nav-link" href="{{ route('store.create') }}" >Novo</a>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">CNPJ</th>
+          <th scope="col">Celular</th>
+          <th scope="col">Telefone</th>
+          <th scope="col">Endereço</th>
+          <th scope="col">Opções</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($stores as $store)
+          <tr>
+            <td>{{$store->id}}</td>
+            <td>{{$store->name}}</td>
+            <td>{{$store->cnpj}}</td>
+            <td>{{$store->cellphone}}</td>
+            <td>{{$store->telephone}}</td>
+            <td>{{$store->address}}</td>
+            <td> 
+              <a href="{{route('store.show', $store->id)}}" class="btn btn-primary btn-sm">Visualizar</a>
+              <a href="{{route('store.edit', $store->id)}}" class="btn btn-primary btn-sm">Editar</a>
+              <form class="d-inline" method="POST" action="{{ route('store.destroy', $store->id) }}" onsubmit="return remover();">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-primary btn-sm">Apagar</button>
+              </form>
+            </td>
+          </tr>
+        @endforeach
       </tbody>
     </table>
 @endif
   </div>
-</body>
-
-<!--Footer-->
-<footer class="bg-light text-lg-start fixed-bottom">
-  <div class="text-center py-4 align-items-center">
-    <a href="https://twitter.com/MDBootstrap" class="btn btn-primary m-1" role="button" rel="nofollow" target="_blank">
-      <i class="fab fa-twitter"></i>
-    </a>
-    <a href="https://github.com/mdbootstrap/mdb-ui-kit" class="btn btn-primary m-1" role="button" rel="nofollow" target="_blank">
-      <i class="fab fa-github"></i>
-    </a>
-  </div>
-
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2020 Copyright:
-    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
-</footer>
 @endsection

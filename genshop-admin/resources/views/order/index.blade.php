@@ -70,7 +70,7 @@
 </header>
 
 <body>
-  <div class="container">
+  <div class="container py-5">
     <h1> Pedidos </h1>
     <table class="table">
       <thead>
@@ -94,25 +94,4 @@
       </tbody>
     </table>
   </div>
-</body>
-
-<!--Footer-->
-<footer class="bg-light text-lg-start fixed-bottom">
-
-  <div class="text-center py-4 align-items-center">
-    <a href="https://twitter.com/MDBootstrap" class="btn btn-primary m-1" role="button" rel="nofollow" target="_blank">
-      <i class="fab fa-twitter"></i>
-    </a>
-    <a href="https://github.com/mdbootstrap/mdb-ui-kit" class="btn btn-primary m-1" role="button" rel="nofollow" target="_blank">
-      <i class="fab fa-github"></i>
-    </a>
-  </div>
-
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2020 Copyright:
-    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
-</footer>
 @endsection

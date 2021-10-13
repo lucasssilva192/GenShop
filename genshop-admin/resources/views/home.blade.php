@@ -85,10 +85,9 @@
 </header>
 
 <body>
-  <hr class="my-5" />
-  <!--Section: Content-->
-  <section class="text-center container">
-    <h4 class="mb-5"><strong>BEM VINDO</strong></h4>
+  
+  <section class="text-center container py-5">
+    <h4 class="mb-5"><strong>BEM-VINDO</strong></h4>
 
     <div class="row">
 
@@ -96,7 +95,7 @@
 
         <div class="card">
           <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-            <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80" class="img-fluid" />
+            <img src="{{ asset('storage/images/gato.png') }}" class="img-fluid" />
             <a href="#!">
               <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
             </a>
@@ -110,7 +109,7 @@
       <div class="col-lg-4 col-md-6 mb-3">
         <div class="card">
           <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-            <img src="https://images.unsplash.com/photo-1593998066526-65fcab3021a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80" class="img-fluid" />
+            <img src="{{ asset('storage/images/ning.png') }}" class="img-fluid" />
             <a href="#!">
               <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
             </a>
@@ -124,7 +123,7 @@
       <div class="col-lg-4 col-md-6 mb-3">
         <div class="card">
           <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1469&q=80" class="img-fluid" />
+            <img src="{{ asset('storage/images/qiqi.png') }}" class="img-fluid" />
             <a href="#!">
               <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
             </a>
@@ -136,28 +135,4 @@
       </div>
     </div>
   </section>
-  <!--Section: Content-->
-
-  <hr class="my-5" />
-</body>
-
-<!--Footer-->
-<footer class="bg-light text-lg-start fixed-bottom">
-
-  <div class="text-center py-4 align-items-center">
-    <a href="https://twitter.com/MDBootstrap" class="btn btn-primary m-1" role="button" rel="nofollow" target="_blank">
-      <i class="fab fa-twitter"></i>
-    </a>
-    <a href="https://github.com/mdbootstrap/mdb-ui-kit" class="btn btn-primary m-1" role="button" rel="nofollow" target="_blank">
-      <i class="fab fa-github"></i>
-    </a>
-  </div>
-
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2020 Copyright:
-    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
-</footer>
 @endsection

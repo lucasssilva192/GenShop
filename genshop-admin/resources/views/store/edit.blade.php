@@ -30,55 +30,43 @@
 @csrf
 @METHOD('PATCH')
 <h1> Produtos </h1>
+  <div class="container py-5">
+    <form method="POST" action="{{ Route('store.update', $store->id) }}">
+      @csrf
+      @METHOD('PATCH')
+      <h1 class="pb-4">Editar Loja</h1>
   
-  <div class="form-outline mb-4">
-    <input type="text" id="nome" name="nome" value="{{$store->name}}" placeholder="Nome da Loja" style="width:450px"/>
-  </div>
-
-  <div class="form-outline mb-4">
-    <input type="text" id="cnpj" name="cnpj" value="{{$store->cnpj}}" placeholder="CNPJ" style="width:450px"/>
-  </div>
-
-  <div class="form-outline mb-4">
-    <input type="text" id="celular" name="celular" value="{{$store->cellphone}}" placeholder="Celular" style="width:450px"/>
-  </div>
-
-  <div class="form-outline mb-4">
-    <input type="text" id="telefone" name="telefone" placeholder="Telefone" value="{{$store->telephone}}" style="width:450px"/>
-  </div>
-
-  <div class="form-outline mb-4">
-            <span class="form-label">Imagem:</span>
-            <input type="file" class="form-control" name="foto_perfil">
+      <div class="form-outline mb-4">
+          <input class="form-control active" type="text" id="nome" name="nome" value="{{$store->name}}"/>
+          <label class="form-label" for="nome">Nome da Loja</label> 
         </div>
-
-  <div class="form-outline mb-4">
-    <input type="text" id="endereco" name="endereco" value="{{$store->address}}" placeholder="Endereço" style="width:450px"/>
+  
+        <div class="form-outline mb-4">
+          <input class="form-control active" type="text" id="endereco" name="endereco" value="{{$store->address}}"/>
+          <label class="form-label" for="endereco">Endereço</label> 
+        </div>
+  
+        <div class="form-outline mb-4">
+          <input class="form-control active" type="text" id="cnpj" name="cnpj" value="{{$store->cnpj}}"/>
+          <label class="form-label" for="cnpj">CNPJ</label> 
+        </div>
+  
+        <div class="form-outline mb-4">
+          <input class="form-control active" type="text" id="celular" name="celular" value="{{$store->cellphone}}"/>
+          <label class="form-label" for="celular">Celular</label> 
+        </div>
+  
+        <div class="form-outline mb-4">
+          <input class="form-control active" type="text" id="telefone" name="telefone" value="{{$store->telephone}}"/>
+          <label class="form-label" for="telefone">Telefone</label> 
+        </div>
+  
+        <div class="form-group mb-4">
+          <label for="foto_perfil">Foto</label>
+          <input class="form-control" type="file" class="form-control" name="foto_perfil" value="{{$store->profile_pic}}">
+        </div>
+  
+        <button type="submit" class="btn btn-primary btn-block mb-4">Salvar</button>
+    </form>
   </div>
-  <button type="submit" style="width:150px" class="btn btn-primary btn-block mb-4">Cadastrar</button>
-</form>
-
-</body>
-
-  <!--Footer-->
-  <footer class="bg-light text-lg-start">
-    
-    <div class="text-center py-4 align-items-center">
-      <a href="https://twitter.com/MDBootstrap" class="btn btn-primary m-1" role="button" rel="nofollow"
-        target="_blank">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="https://github.com/mdbootstrap/mdb-ui-kit" class="btn btn-primary m-1" role="button" rel="nofollow"
-        target="_blank">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2020 Copyright:
-      <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-    </div>
-    <!-- Copyright -->
-  </footer>
 @endsection

@@ -54,24 +54,33 @@
   <button type="submit" style="width:150px" class="btn btn-primary btn-block mb-4">Cadastrar</button>
 </form>
 </body>
+  <div class="container py-5">
+    <form method="POST" action="{{ Route('product.store') }}">
+      @csrf
+      <h1 class="pb-4">Cadastrar Produto</h1>
+      <input type="text" name="store_id" id="store_id" class="d-none" value="1" />
 
-<!--Footer-->
-<footer class="bg-light text-lg-start fixed-bottom">
+      <div class="form-outline mb-4">
+        <input class="form-control" type="text" id="nome" name="nome"/>
+        <label class="form-label" for="nome">Nome do Produto</label>      
+      </div>
 
-  <div class="text-center py-4 align-items-center">
-    <a href="https://twitter.com/MDBootstrap" class="btn btn-primary m-1" role="button" rel="nofollow" target="_blank">
-      <i class="fab fa-twitter"></i>
-    </a>
-    <a href="https://github.com/mdbootstrap/mdb-ui-kit" class="btn btn-primary m-1" role="button" rel="nofollow" target="_blank">
-      <i class="fab fa-github"></i>
-    </a>
+      <div class="form-outline mb-4">
+        <input class="form-control" type="text" id="preco" name="preco"/>
+        <label class="form-label" for="preco">Preço do Produto</label>
+      </div>
+      
+      <div class="form-outline mb-4">
+        <textarea class="form-control" id="descricao" name="descricao" rows="4"></textarea>
+        <label class="form-label" for="descricao">Descrição do Produto</label>
+      </div>
+
+      <div class="form-group mb-4">
+        <label for="foto">Foto</label>
+        <input class="form-control" type="file" class="form-control" name="foto">
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block mb-4">Cadastrar</button>
+    </form>
   </div>
-
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2020 Copyright:
-    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
-</footer>
 @endsection
