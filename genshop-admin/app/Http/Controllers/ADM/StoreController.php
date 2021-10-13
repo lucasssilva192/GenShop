@@ -11,7 +11,8 @@ class StoreController extends Controller
 {
     public function index()
     {
-        return view('store.index')->with('stores', Store::all());
+        $store = Store::where('user_id', Auth()->user()->id)->first();
+        return view('store.index', compact('store'));
     }
 
     public function create()
@@ -39,7 +40,7 @@ class StoreController extends Controller
         }
 */
         $store = Store::create([
-            'user_id' => $request->store_id,
+            'user_id' => $request->user_id,
             'name' => $request->nome,
             'cnpj' => $request->cnpj,
             'cellphone' => $request->celular,

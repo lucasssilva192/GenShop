@@ -26,7 +26,7 @@ class UserController extends Controller
             ]);
         }
         else{
-            return response()->json($user->createToken($request->device_name)->plainTextToken);
+            return view('home');
         }
     }
 }

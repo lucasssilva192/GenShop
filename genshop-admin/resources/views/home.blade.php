@@ -45,6 +45,47 @@
 @endsection
 
 @section('content')
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">GenShop Admin</a>
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('store.index') }}">Lojas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('product.index') }}">Produtos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('order.index') }}">Pedidos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('category.index') }}">Categorias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Bem-Vindo {{Auth()->user()->name}}</a>
+          </li>
+          <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Sair') }}
+                            </x-dropdown-link>
+                        </form>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<body>
+  
   <section class="text-center container py-5">
     <h4 class="mb-5"><strong>BEM-VINDO</strong></h4>
 
