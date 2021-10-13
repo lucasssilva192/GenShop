@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GenShop">
         <activity
+            android:name=".menu.MenuActivity"
+            android:exported="true" />
+        <activity
             android:name=".CadastroClienteActivity"
             android:exported="true">
             <intent-filter>
