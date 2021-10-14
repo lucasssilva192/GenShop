@@ -11,6 +11,7 @@
   <div class="container py-5">
   <h1> Categorias </h1>
   <a class="nav-link" href="{{ route('category.create') }}">Novo</a>
+  @if($categories)
   <table class="table">
     <thead>
       <tr>
@@ -20,7 +21,6 @@
       </tr>
     </thead>
     <tbody>
-      @if($categories)
       @foreach($categories as $category)
       <tr>
         <td>{{$category->id}}</td>
@@ -35,8 +35,8 @@
         </td>
       </tr>
       @endforeach
-      @endif
     </tbody>
+    @endif
   </table>
   </div>
   </div>

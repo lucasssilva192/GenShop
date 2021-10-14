@@ -16,8 +16,7 @@ class CategoryController extends Controller
             $categories = Category::where('store_id', $store_id->user_id)->get();
             return view('category.index', compact('categories'));
         }   else {
-            $category = 0;
-            return view('category.index', compact('category'));
+            return view('category.index');
         }
     }
 

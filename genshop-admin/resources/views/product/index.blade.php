@@ -4,6 +4,7 @@
   <div class="container py-5">
     <h1> Produtos </h1>
     <a class="nav-link" href="{{ route('product.create') }}">Novo</a>
+    @if($products)
     <table class="table">
       <thead>
         <tr>
@@ -34,6 +35,7 @@
         @endforeach
       </tbody>
     </table>
+    @endif
   </div>
 </body>
 @endsection
