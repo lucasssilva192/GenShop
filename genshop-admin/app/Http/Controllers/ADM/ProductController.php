@@ -26,7 +26,7 @@ class ProductController extends Controller
     {
         $store_id = Store::where('user_id',Auth()->user()->id)->first();
         if($store_id){
-            return view('product.create')->with(['categories' => Category::all()]);
+            return view('product.create')->with(['categories' => Category::where('store_id', Auth()->user()->id)->get()]);
         } else {
             $products = null;
             return redirect(route('product.index', compact('products')));
