@@ -10,8 +10,8 @@
     <input type="text" name="user_id" id="user_id" class="d-none" value="{{Auth()->user()->id}}" />
 
     <div class="form-outline mb-4">
-      <input class="form-control" type="text" id="nome" name="nome" name="endereco" />
-      <label class="form-label" for="endereco">Endereço</label>
+      <input class="form-control" type="text" id="nome" name="nome"/>
+      <label class="form-label" for="nome">Nome da Loja</label>
     </div>
 
     <div class="form-outline mb-4">
