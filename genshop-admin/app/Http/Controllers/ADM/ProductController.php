@@ -29,7 +29,7 @@ class ProductController extends Controller
             return view('product.create')->with(['categories' => Category::all()]);
         } else {
             $products = null;
-            return redirect(route('product.index', compact('products')))->with(['categories' => Category::where('store_id', $store_id)]);
+            return redirect(route('product.index', compact('products')));
         }
     }
 
