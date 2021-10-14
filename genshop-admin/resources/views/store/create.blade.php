@@ -3,6 +3,7 @@
 @section('content')
 
 <body>
+<div class="container py-5">
   <form method="POST" action="{{ Route('store.store') }}" enctype="multipart/form-data">
     @csrf
     <h1> Lojas </h1>
@@ -40,5 +41,6 @@
 
     <button type="submit" class="btn btn-primary btn-block mb-4">Cadastrar</button>
   </form>
+  </div>
 </body>
 @endsection

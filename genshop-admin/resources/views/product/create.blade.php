@@ -3,8 +3,6 @@
 @section('content')
 
 <body>
-  <form method="POST" action="{{ Route('product.store') }}">
-    @csrf
     <div class="container py-5">
       <form method="POST" action="{{ Route('product.store') }}">
         @csrf

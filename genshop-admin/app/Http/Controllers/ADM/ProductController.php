@@ -17,7 +17,8 @@ class ProductController extends Controller
             $products = Product::where('store_id', $store_id->id)->get();
             return view('product.index', compact('products'));
         }   else {
-            return view('product.index');
+            $products = null;
+            return view('product.index', compact('products'));
         }
     }
 
@@ -25,10 +26,10 @@ class ProductController extends Controller
     {
         $store_id = Store::where('user_id',Auth()->user()->id)->first();
         if($store_id){
-            return view('product.create')->with(['categories' => Category::where('store_id', $store_id)]);
+            return view('product.create')->with(['categories' => Category::all()]);
         } else {
             $products = 0;
-            return redirect(route('product.index', compact('products')))->with(['categories' => Category::where('store_id', $store_idx)]);
+            return redirect(route('product.index', compact('products')))->with(['categories' => Category::where('store_id', $store_id)]);
         }
     }
 
