@@ -28,7 +28,7 @@ class ProductController extends Controller
         if($store_id){
             return view('product.create')->with(['categories' => Category::all()]);
         } else {
-            $products = 0;
+            $products = null;
             return redirect(route('product.index', compact('products')))->with(['categories' => Category::where('store_id', $store_id)]);
         }
     }

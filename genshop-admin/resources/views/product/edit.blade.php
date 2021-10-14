@@ -1,12 +1,13 @@
 @extends('template.principal')
 
 @section('content')
-  <div class="container py-5">
+<body>
+<div class="container py-5">
     <form method="POST" action="{{ Route('product.update', $product->id) }}">
       @csrf
       @METHOD('PATCH')
       <h1 class="pb-4">Editar Produto</h1>
-        <input type="text" name="store_id" id="store_id" class="d-none" value="1" />
+        <input type="text" name="store_id" id="store_id" class="d-none" value="{{Auth()->user()->id}}" />
   
         <div class="form-outline mb-4">
           <input class="form-control active" type="text" id="nome" name="nome" value="{{$product->name}}"/>
@@ -31,4 +32,5 @@
         <button type="submit" class="btn btn-primary btn-block mb-4">Salvar</button>
     </form>
   </div>
+</body>
 @endsection
