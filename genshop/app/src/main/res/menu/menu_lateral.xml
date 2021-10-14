@@ -3,38 +3,50 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/pesquisa"
-        android:icon="@drawable/ic_outline_search_24"
-        android:title="Pesquisa"
-        app:showAsAction="always" />
+        android:id="@+id/menuLojas"
+        android:title="Lojas">
+        <menu>
+            <item
+                android:id="@+id/pesquisa"
+                android:icon="@drawable/ic_outline_search_24"
+                android:title="Pesquisa"
+                app:showAsAction="always" />
+            <item
+                android:id="@+id/favoritos"
+                android:icon="@drawable/ic_baseline_favorite_border_24"
+                android:title="Favoritos"
+                app:showAsAction="always" />
+            <item
+                android:id="@+id/pedidos"
+                android:icon="@drawable/ic_outline_pending_actions_24"
+                android:title="Pedidos"
+                app:showAsAction="always" />
+        </menu>
+    </item>
     <item
-        android:id="@+id/favoritos"
-        android:icon="@drawable/ic_baseline_favorite_border_24"
-        android:title="Favoritos"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/pedidos"
-        android:icon="@drawable/ic_outline_pending_actions_24"
-        android:title="Pedidos"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/dados"
-        android:icon="@drawable/ic_manage_accounts_black_24dp"
-        android:title="Meu Dados"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/enderecos"
-        android:icon="@drawable/ic_outline_location_on_24"
-        android:title="Endereços"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/suporte"
-        android:icon="@drawable/ic_outline_contact_support_24"
-        android:title="Suporte"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/sair"
-        android:icon="@drawable/ic_baseline_logout_24"
-        android:title="Sair"
-        app:showAsAction="always" />
+        android:id="@+id/menuConfiguracoes"
+        android:title="Configurações">
+        <menu>
+            <item
+                android:id="@+id/dados"
+                android:icon="@drawable/ic_manage_accounts_black_24dp"
+                android:title="Meu Dados" />
+            <item
+                android:id="@+id/enderecos"
+                android:icon="@drawable/ic_outline_location_on_24"
+                android:title="Endereços" />
+            <item
+                android:id="@+id/suporte"
+                android:icon="@drawable/ic_outline_contact_support_24"
+                android:title="Suporte" />
+            <item
+                android:id="@+id/sair"
+                android:icon="@drawable/ic_baseline_logout_24"
+                android:title="Sair" />
+            <item
+                android:id="@+id/entrar"
+                android:icon="@drawable/ic_baseline_login_24"
+                android:title="Entrar" />
+        </menu>
+    </item>
 </menu>
