@@ -42,7 +42,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('category.index') }}">Categorias</a>
                         </li>
-                    </ul>
+                    </ul>                                        
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link">Bem-Vindo {{Auth()->user()->name}}</a>
@@ -53,6 +53,17 @@
                                 {{ __('Sair') }}
                             </x-dropdown-link>
                         </form>
+                    </ul>
+                    @endif
+                    
+                    @if(!Auth()->user())
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">Registrar</a>
+                        </li>
                     </ul>
                     @endif
                 </div>
