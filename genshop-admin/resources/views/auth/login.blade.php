@@ -3,26 +3,29 @@
 @section('content')
 
 <body>
-  <x-guest-layout>
-    <x-auth-card>
-      <x-slot name="logo">
-        <a href="/"></a>
-      </x-slot>
+  <div class="container py-5">
+    <x-guest-layout>
+      <x-auth-card>
+        <x-slot name="logo">
+          <a href="/"></a>
+        </x-slot>
 
-      <x-auth-session-status class="mb-4" :status="session('status')" />
+        <x-auth-session-status class="mb-4" :status="session('status')" />
 
-      <x-auth-validation-errors class="mb-4" :errors="$errors" />
-      <div class="container py-5">
+        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
+        <h1 class="pb-4">Login</h1>
+        
         <form method="POST" action="{{ route('login') }}">
           @csrf
           <div class="form-outline mb-4">
-            <x-label for="email" :value="__('Email')" />
-            <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+            <input class="form-control" type="email" id="email" name="email" :value="old('email')" required />
+            <label class="form-label" for="email">Email</label>
           </div>
 
           <div class="form-outline mb-4">
-            <x-label for="password" :value="__('Senha')" />
-            <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+            <input class="form-control" type="password" id="password" name="password" required />
+            <label class="form-label" for="password">Senha</label>
           </div>
 
           <!-- Remember Me -->
@@ -44,8 +47,8 @@
             </a>
             @endif
         </form>
-      </div>
-    </x-auth-card>
-  </x-guest-layout>
+      </x-auth-card>
+    </x-guest-layout>
+  </div>
 </body>
 @endsection
