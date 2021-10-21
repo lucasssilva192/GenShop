@@ -3,6 +3,7 @@
 @section('content')
 <body>
   <div class="container py-5">
+  <div class="card container-sm">
     <h1> Lojas </h1>
     @if(!$store)
     <a class="nav-link" href="{{ route('store.create') }}" >Novo</a>
@@ -36,5 +37,6 @@
       </tbody>
     </table>
 @endif
+  </div>
   </div>
 @endsection

@@ -36,38 +36,52 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $loja = Store::where('user_id', Auth()->user()->id)->first();
-        //dd($request);
-        $product = Product::create([
-            'store_id' => $loja->id,
-            'name' => $request->nome,
-            'description' => $request->descricao,
-            'price' => $request->preco,
-            'picture' => $request->foto,
-            'category_id' => $request->category_id
-        ]);
+        $produto = new Product();
+
+        $produto->store_id = $loja->id;
+        $produto->name = $request->nome;
+        $produto->description = $request->descricao;
+        $produto->price = $request->preco;
+        $produto->category_id = $request->category_id;
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImage->move(public_path('img/products'),  $imageName);
+            $produto->picture = $imageName;
+        }
+        $produto->save();
+
         session()->flash('success', 'Produto criado com sucesso');
         return redirect(route('product.index'));
     }
 
     public function show(Product $product)
     {
-        return view('product.show')->with(['product' => $product]);
+        $category = Category::find($product->category_id);
+        return view('product.show')->with(['product' => $product, 'category' => $category]);
     }
 
     public function edit(Product $product)
     {
-        return view('product.edit')->with('product', $product);
+        return view('product.edit')->with(['product' => $product, 'categories' => Category::where('store_id', Auth()->user()->id)->get()]);
     }
 
     public function update(Request $request, Product $product)
     {
-        $product = Product::where('id', $product->id)->update([
-            'store_id' => $request->store_id,
-            'name' => $request->nome,
-            'description' => $request->descricao,
-            'price' => $request->preco,
-            'picture' => $request->foto
-        ]);
+        $produto = Product::find($product->id);
+        $produto->name = $request->nome;
+        $produto->description = $request->descricao;
+        $produto->price = $request->preco;
+        $produto->category_id = $request->category_id;
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImage->move(public_path('img/products'),  $imageName);
+            $produto->picture = $imageName;
+        }
+        $produto->update();
 
         session()->flash('success', 'Produto alterado com sucesso');
         return redirect(route('product.index'));

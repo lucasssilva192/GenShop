@@ -4,36 +4,39 @@
 <div class="container py-5">
   <div class="card mb-3" style="max-width: 1500px;">
     <div class="row g-0">
-      <div class="col-md-4">
-        <img src="/img/products/{{$product->picture}}" alt="..." class="img-fluid" />
-      </div>
-      <div class="col-md-8">
+      <div class="col-md-7">
         <div class="card-body">
-          <h2 class="card-title">{{ $product->name }}</h2>
+          <h2 class="card-title">{{ $store->name }}</h2>
           <p class="card-text mt-n0">
-          <h6>Descrição do produto:</h6>
+          <h6>CNPJ:</h6>
           </p>
           <p class="card-text">
-            {{ $product->description }}
+            {{ $store->cnpj }}
           </p>
           <div class="d-flex align-items-center bg-light mb-3" style="height: 100px;">
             <div class="col">
             <p class="card-text">
-              <h6>Preço do produto:</h6>
+              <h6>Celular:</h6>
             </p>
             <p class="card-text">
-            {{ $product->price }}
+            {{ $store->cellphone }}
           </p>
             </div>
             <div class="col">
             <p class="card-text">
-              <h6>Categoria:</h6>
+              <h6>Telefone:</h6>
             </p>
             <p class="card-text">
-            {{ $category->name }}
+            {{ $store->telephone }}
           </p>
             </div>
           </div>
+          <p class="card-text mt-n0">
+          <h6>Endereço:</h6>
+          </p>
+          <p class="card-text">
+            {{ $store->address }}
+          </p>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@
 @section('content')
 <body>
   <div class="container py-5">
+  <div class="card container-sm">
     <h1> Pedidos </h1>
     <table class="table">
       <thead>
@@ -25,5 +26,6 @@
         </tr>
       </tbody>
     </table>
+  </div>
   </div>
 @endsection

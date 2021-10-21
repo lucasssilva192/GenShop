@@ -3,10 +3,11 @@
 @section('content')
 
 <body>
-<form method="POST" action="{{ Route('store.update', $store->id) }}" >
+<div class="container py-5">
+<div class="card container-sm">
+<form method="POST" action="{{ Route('store.update', $store->id) }}" enctype="multipart/form-data">
 @csrf
 @METHOD('PATCH')
-  <div class="container py-5">
     <form method="POST" action="{{ Route('store.update', $store->id) }}">
       @csrf
       @METHOD('PATCH')
@@ -38,11 +39,11 @@
         </div>
   
         <div class="form-group mb-4">
-          <label for="foto_perfil">Foto</label>
-          <input class="form-control" type="file" class="form-control" name="foto_perfil" value="{{$store->profile_pic}}">
-        </div>
-  
+      <label for="image">Foto</label>
+      <input class="form-control-file" type="file" name="image">
         <button type="submit" class="btn btn-primary btn-block mb-4">Salvar</button>
     </form>
   </div>
+  </div>
+</body>
 @endsection

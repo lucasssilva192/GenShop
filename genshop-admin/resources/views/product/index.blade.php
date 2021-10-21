@@ -2,6 +2,7 @@
 @section('content')
 <body>
   <div class="container py-5">
+  <div class="card container-sm">
     <h1> Produtos </h1>
     <a class="nav-link" href="{{ route('product.create') }}">Novo</a>
     @if($products)
@@ -36,6 +37,7 @@
       </tbody>
     </table>
     @endif
+  </div>
   </div>
 </body>
 @endsection

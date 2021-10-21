@@ -9,6 +9,7 @@
 
 <body>
   <div class="container py-5">
+  <div class="card container-sm">
   <h1> Categorias </h1>
   <a class="nav-link" href="{{ route('category.create') }}">Novo</a>
   @if($categories)
@@ -38,6 +39,7 @@
     </tbody>
     @endif
   </table>
+  </div>
   </div>
   </div>
 </body>

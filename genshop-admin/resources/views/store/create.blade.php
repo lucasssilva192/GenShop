@@ -4,6 +4,7 @@
 
 <body>
 <div class="container py-5">
+<div class="card container-sm">
   <form method="POST" action="{{ Route('store.store') }}" enctype="multipart/form-data">
     @csrf
     <h1> Lojas </h1>
@@ -35,12 +36,13 @@
     </div>
 
     <div class="form-group mb-4">
-      <label for="foto_perfil">Foto</label>
-      <input class="form-control" type="file" class="form-control" name="foto_perfil">
+      <label for="image">Foto</label>
+      <input class="form-control-file" type="file" name="image">
     </div>
 
     <button type="submit" class="btn btn-primary btn-block mb-4">Cadastrar</button>
   </form>
+  </div>
   </div>
 </body>
 @endsection
