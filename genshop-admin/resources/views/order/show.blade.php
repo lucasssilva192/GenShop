@@ -15,20 +15,20 @@
           </p>
           <div class="d-flex align-items-center bg-light mb-3" style="height: 100px;">
             <div class="col">
-            <p class="card-text">
+              <p class="card-text">
               <h6>Celular:</h6>
-            </p>
-            <p class="card-text">
-            {{ $store->cellphone }}
-          </p>
+              </p>
+              <p class="card-text">
+                {{ $store->cellphone }}
+              </p>
             </div>
             <div class="col">
-            <p class="card-text">
+              <p class="card-text">
               <h6>Telefone:</h6>
-            </p>
-            <p class="card-text">
-            {{ $store->telephone }}
-          </p>
+              </p>
+              <p class="card-text">
+                {{ $store->telephone }}
+              </p>
             </div>
           </div>
           <p class="card-text mt-n0">
