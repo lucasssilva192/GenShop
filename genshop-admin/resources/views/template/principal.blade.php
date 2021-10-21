@@ -16,10 +16,16 @@
     <script type="text/javascript" src="{{ asset('js/mdb/mdb-input.js') }}"></script>
     @yield('js')
     <title>GenShop</title>
+    <style>
+        .bg-home{
+            background-image: url('http://localhost:8000/storage/images/albergue.png');
+            background-size: cover;
+            background-position: top;
+        }
+    </style>
 </head>
 
-<body>
-    <div class="bg-home"></div>
+<body class="bg-home">
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
@@ -55,7 +61,7 @@
                         </form>
                     </ul>
                     @endif
-                    
+
                     @if(!Auth()->user())
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
