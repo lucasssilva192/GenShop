@@ -22,13 +22,41 @@ class StoreController extends Controller
 
     public function store(Request $request)
     {
+
+
         $loja = new Store();
         $loja->user_id = $request->user_id;
         $loja->name = $request->nome;
         $loja->cnpj = $request->cnpj;
         $loja->cellphone = $request->celular;
         $loja->telephone = $request->telefone;
-        if($request->hasFile('image') && $request->file('image')->isValid()){
+        switch ($request->tipo) {
+            case 1:
+                $loja->type = "Restaurante";
+                break;
+            case 2:
+                $loja->type = "Ferraria";
+                break;
+            case 3:
+                $loja->type = "Lembranças";
+                break;
+            case 4:
+                $loja->type = "Mercado";
+                break;
+            case 5:
+                $loja->type = "Alquimia";
+                break;
+            case 6:
+                $loja->type = "Móveis";
+                break;
+            case 7:
+                $loja->type = "Paisagismo";
+                break;
+            case 8:
+                $loja->type = "Pesca";
+                break;
+        }
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $requestImage = $request->image;
             $extension = $requestImage->extension();
             $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
@@ -58,7 +86,7 @@ class StoreController extends Controller
         $loja->cnpj = $request->cnpj;
         $loja->cellphone = $request->celular;
         $loja->telephone = $request->telefone;
-        if($request->hasFile('image') && $request->file('image')->isValid()){
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $requestImage = $request->image;
             $extension = $requestImage->extension();
             $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;

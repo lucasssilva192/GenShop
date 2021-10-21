@@ -16,6 +16,12 @@
           <p class="card-text">
             {{ $store->cnpj }}
           </p>
+          <p class="card-text mt-n0">
+          <h6>Categoria:</h6>
+          </p>
+          <p class="card-text">
+            {{ $store->type }}
+          </p>
           <div class="d-flex align-items-center bg-light mb-3" style="height: 100px;">
             <div class="col">
             <p class="card-text">

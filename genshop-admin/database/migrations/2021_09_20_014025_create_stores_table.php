@@ -20,6 +20,7 @@ class CreateStoresTable extends Migration
             $table->string('cnpj');
             $table->string('cellphone');
             $table->string('telephone');
+            $table->string('type');
             $table->string('profile_pic');
             $table->string('address');
             $table->timestamps();

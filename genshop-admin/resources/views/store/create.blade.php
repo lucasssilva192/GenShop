@@ -35,9 +35,23 @@
           <label class="form-label" for="telefone">Telefone</label>
         </div>
 
+        <div class="form-outline mb-4">
+        <select class="form-control" name="tipo">
+          <option value="0" disabled selected>Escolha o tipo da sua loja</option>
+          <option value="1">Restaurante</option>
+          <option value="2">Ferraria</option>
+          <option value="3">Lembranças</option>
+          <option value="4">Mercado</option>
+          <option value="5">Alquimia</option>
+          <option value="6">Móveis</option>
+          <option value="7">Paisagismo</option>
+          <option value="8">Pesca</option>
+        </select>
+        </div>
+
         <div class="form-group mb-4">
           <label for="image">Foto</label>
-          <input class="form-control-file" type="file" name="image">
+          <input class="form-control" type="file" name="image">
         </div>
 
         <button type="submit" class="btn btn-primary btn-block mb-4">Cadastrar</button>
