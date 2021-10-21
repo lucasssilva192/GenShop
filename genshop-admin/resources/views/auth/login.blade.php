@@ -5,7 +5,7 @@
 <body>
   <div class="container py-5">
     <x-guest-layout>
-      <x-auth-card>
+      <div class="card container-sm p-4">
         <x-slot name="logo">
           <a href="/"></a>
         </x-slot>
@@ -47,7 +47,7 @@
             </a>
             @endif
         </form>
-      </x-auth-card>
+      </div>
     </x-guest-layout>
   </div>
 </body>

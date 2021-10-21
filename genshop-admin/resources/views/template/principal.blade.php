@@ -21,6 +21,7 @@
             background-image: url('http://localhost:8000/storage/images/albergue.png');
             background-size: cover;
             background-position: top;
+            background-repeat: no-repeat;
         }
     </style>
 </head>
