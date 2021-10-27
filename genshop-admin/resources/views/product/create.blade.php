@@ -3,8 +3,9 @@
 @section('content')
 
 <body>
-    <div class="container py-5">
-      <form method="POST" action="{{ Route('product.store') }}">
+  <div class="container py-5">
+    <div class="card container-sm p-4">
+      <form method="POST" action="{{ Route('product.store') }}" enctype="multipart/form-data">
         @csrf
         <h1 class="pb-4">Cadastrar Produto</h1>
         <input type="text" name="store_id" id="store_id" class="d-none" value="1" />
@@ -32,11 +33,12 @@
           </select>
         </div>
         <div class="form-group mb-4">
-          <label for="foto">Foto</label>
-          <input class="form-control" type="file" class="form-control" name="foto">
+          <label for="image">Foto do produto</label>
+          <input type="file" class="form-control-file" name="image">
         </div>
 
         <button type="submit" class="btn btn-primary btn-block mb-4">Cadastrar</button>
       </form>
     </div>
-    @endsection
+  </div>
+  @endsection

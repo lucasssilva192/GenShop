@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\API\Customer;
+use App\Models\API\Category;
 use Illuminate\Http\Request;
 
-class CustomerController extends Controller
+class CategoryController extends Controller
 {
     public function index()
     {
-        return response()->json(Customer::all());
+        return response()->json(Category::all());
     }
 
     public function store(Request $request)
@@ -24,7 +24,7 @@ class CustomerController extends Controller
         {
             $image = "storage/product/imagem.jpg";
         }
-        $customer = Customer::create([
+        $category = Category::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'birth_date' => $request->birth_date,
@@ -33,17 +33,17 @@ class CustomerController extends Controller
             'telephone' => $request->telephone,
             'profile_pic' => 'abc' /*$request->profile_pic*/
         ]);
-        return response()->json($customer);
+        return response()->json($category);
     }
 
-    public function show(Customer $customer)
+    public function show(Category $category)
     {
-        return response()->json($customer);
+        return response()->json($category);
     }
 
-    public function update(Request $request, Customer $customer)
+    public function update(Request $request, Category $category)
     {
-        $customer = Customer::where('id', $request['id'])->update([
+        $category = Category::where('id', $request['id'])->update([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'birth_date' => $request->birth_date,
@@ -52,12 +52,13 @@ class CustomerController extends Controller
             'telephone' => $request->telephone,
             'profile_pic' => $request->profile_pic
         ]);
-        return response()->json($customer);
+        return response()->json($category);
     }
 
-    public function destroy(Customer $customer)
+    public function destroy(Category $category)
     {
-        $customer->delete();
-        return response()->json($customer);
+        $category->delete();
+        return response()->json($category);
     }
+    
 }

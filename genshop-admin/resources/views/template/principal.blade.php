@@ -16,9 +16,17 @@
     <script type="text/javascript" src="{{ asset('js/mdb/mdb-input.js') }}"></script>
     @yield('js')
     <title>GenShop</title>
+    <style>
+        .bg-home{
+            background-image: url('http://localhost:8000/storage/images/albergue.png');
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 
-<body>
+<body class="bg-home">
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
@@ -41,6 +49,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('category.index') }}">Categorias</a>
                         </li>
+                    </ul>                                        
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link">Bem-Vindo {{Auth()->user()->name}}</a>
                         </li>
@@ -52,8 +62,9 @@
                         </form>
                     </ul>
                     @endif
+
                     @if(!Auth()->user())
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">Login</a>
                         </li>
@@ -74,7 +85,7 @@
     <footer class="bg-light text-lg-start fixed-bottom">
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             © 2021 Copyright:
-            <a class="text-dark" href="https://mdbootstrap.com/">Genshão Food Enterprises</a>
+            <a class="text-dark">Genshão Food Enterprises</a>
         </div>
     </footer>
 </body>

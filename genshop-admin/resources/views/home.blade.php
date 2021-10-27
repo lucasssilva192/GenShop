@@ -1,10 +1,8 @@
 @extends('template.principal')
 
-@section('content')
-<body>
-  
+@section('content')  
   <section class="text-center container py-5">
-    <h4 class="mb-5"><strong>BEM-VINDO</strong></h4>
+    <h4 class="mb-5 text-white"><strong>BEM-VINDO</strong></h4>
 
     <div class="row">
 
