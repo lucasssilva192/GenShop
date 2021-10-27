@@ -57,13 +57,13 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun abrirCadastro(){
-        //Utilitarios.abrirTela(this, CadastroActivity::class.java)
-        setTheme(R.style.Theme_GenShop)
+        Utilitarios.abrirTela(this, CadastroActivity::class.java)
+        //setTheme(R.style.Theme_GenShop)
     }
 
     fun abrirEsqueciSenha(){
-        //Utilitarios.snackBar(binding.root, "Recuperação de senha enviada ao e-mail", Snackbar.LENGTH_LONG)
-        setTheme(R.style.Theme_GenShopHydro)
+        Utilitarios.snackBar(binding.root, "Recuperação de senha enviada ao e-mail", Snackbar.LENGTH_LONG)
+        //setTheme(R.style.Theme_GenShopHydro)
     }
 
     fun validarFormulario(): Boolean {
