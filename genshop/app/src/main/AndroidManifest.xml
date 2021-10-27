@@ -14,7 +14,8 @@
             android:exported="true" />
         <activity
             android:name=".CadastroClienteActivity"
-            android:exported="true">
+            android:exported="true"
+            android:parentActivityName=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,10 +24,10 @@
         </activity>
         <activity
             android:name=".CadastroActivity"
-            android:exported="true">
+            android:exported="true"
+            android:parentActivityName=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -35,7 +36,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -44,7 +44,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.core.widget.doOnTextChanged
 import com.teyvat.genshop.databinding.ActivityCadastroClienteBinding
+import com.teyvat.genshop.menu.MenuActivity
+import com.teyvat.genshop.utils.Sessao
+import com.teyvat.genshop.utils.Utilitarios
 
 class CadastroClienteActivity : AppCompatActivity() {
     lateinit var binding: ActivityCadastroClienteBinding
@@ -47,10 +50,16 @@ class CadastroClienteActivity : AppCompatActivity() {
         Log.d("CadastrarCliente", "CPF: $cpf")
         Log.d("CadastrarCliente", "Telefone: $telefone")
         Log.d("CadastrarCliente", "Celular: $celular")
+
+        //Preenche a sessão do novo usuario
+        Sessao.token = "123456848"
+        Sessao.cliente.nome = nome
+        Utilitarios.abrirTela(this, MenuActivity::class.java)
     }
 
     fun cancelarCadastro(){
-        Log.d("Cadastrar", "Voltar para pagina anterior")
+        Utilitarios.abrirTela(this, LoginActivity::class.java)
+        finish()
     }
 
     fun validarFormulario(): Boolean {

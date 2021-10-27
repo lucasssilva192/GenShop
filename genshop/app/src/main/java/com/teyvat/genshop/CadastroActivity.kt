@@ -1,11 +1,16 @@
 package com.teyvat.genshop
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.textfield.TextInputLayout
 import com.teyvat.genshop.databinding.ActivityCadastroBinding
+import com.teyvat.genshop.models.Cliente
+import com.teyvat.genshop.utils.Sessao
+import com.teyvat.genshop.utils.Utilitarios
+
 
 class CadastroActivity : AppCompatActivity() {
     lateinit var binding: ActivityCadastroBinding
@@ -39,14 +44,15 @@ class CadastroActivity : AppCompatActivity() {
         val senha = binding.txtSenha.text.toString()
         val confirmarSenha = binding.txtConfirmarSenha.text.toString()
 
-        Log.d("Cadastrar", "Usuario: $usuario")
-        Log.d("Cadastrar", "Email: $email")
-        Log.d("Cadastrar", "Senha: $senha")
-        Log.d("Cadastrar", "Confirmar Senha: $confirmarSenha")
+        Sessao.token = "123456848"
+        Sessao.cliente.email = email
+        Utilitarios.abrirTela(this, CadastroClienteActivity::class.java)
     }
 
     fun cancelar() {
-        Log.d("Cadastrar", "Voltar para pagina de login")
+        Sessao.token = ""
+        Sessao.cliente = Cliente("","")
+        finish()
     }
 
     fun validarFormulario(): Boolean {
