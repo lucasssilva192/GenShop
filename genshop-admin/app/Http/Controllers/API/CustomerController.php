@@ -15,15 +15,6 @@ class CustomerController extends Controller
 
     public function store(Request $request)
     {
-        if($request->image)
-        {
-            $image = $request->file('image')->store('product');
-            $image = "storage/" . $image;
-        }
-        else
-        {
-            $image = "storage/product/imagem.jpg";
-        }
         $customer = Customer::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,

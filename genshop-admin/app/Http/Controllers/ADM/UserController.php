@@ -26,7 +26,7 @@ class UserController extends Controller
             ]);
         }
         else{
-            return view('home');
-        }
+           return view('home');
+        } 
     }
 }
