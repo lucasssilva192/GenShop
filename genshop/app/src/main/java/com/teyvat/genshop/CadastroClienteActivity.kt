@@ -51,13 +51,12 @@ class CadastroClienteActivity : AppCompatActivity() {
         Log.d("CadastrarCliente", "Telefone: $telefone")
         Log.d("CadastrarCliente", "Celular: $celular")
 
-        //Preenche a sessão do novo usuario
-        Sessao.token = "123456848"
-        Sessao.cliente.nome = nome
+        //Preencher Cliente da sessao aqui
         Utilitarios.abrirTela(this, MenuActivity::class.java)
     }
 
     fun cancelarCadastro(){
+        //Limpar usuairo da sessao aqui
         Utilitarios.abrirTela(this, LoginActivity::class.java)
         finish()
     }

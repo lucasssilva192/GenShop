@@ -65,7 +65,7 @@ class DadosFragment : Fragment() {
         Log.d("CadastrarCliente", "Telefone: $telefone")
         Log.d("CadastrarCliente", "Celular: $celular")
 
-        Sessao.cliente.nome = nome
+        //Atualizar Usuario aqui
         ativaDesativaAlteracao(false)
     }
 

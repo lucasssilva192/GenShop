@@ -7,10 +7,29 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.snackbar.Snackbar
+import com.teyvat.genshop.api.UsuarioAPI
 import com.teyvat.genshop.databinding.ActivityLoginBinding
 import com.teyvat.genshop.menu.MenuActivity
+import com.teyvat.genshop.models.Usuario
 import com.teyvat.genshop.utils.Sessao
 import com.teyvat.genshop.utils.Utilitarios;
+import com.teyvat.genshop.utils.Utilitarios.snackBar
+import okhttp3.OkHttpClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
+import com.google.gson.GsonBuilder
+
+import com.google.gson.Gson
+
+import android.R.string.no
+import android.content.Context
+import com.google.gson.JsonObject
+import com.teyvat.genshop.api.API
+
 
 class LoginActivity : AppCompatActivity() {
     lateinit var binding:ActivityLoginBinding
@@ -23,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
         binding.txtUsuario.doOnTextChanged { text, start, before, count -> binding.txtUsuarioLayout.isErrorEnabled = false }
         binding.txtSenha.doOnTextChanged { text, start, before, count ->  binding.txtSenhaLayout.isErrorEnabled = false  }
 
-        //Evento Botão listar
+        //Evento Botão Logar
         binding.btnLogin.setOnClickListener(){
             if(validarFormulario()){
                 this.fazerLogin()
@@ -44,26 +63,53 @@ class LoginActivity : AppCompatActivity() {
     fun fazerLogin(){
         val usuario = binding.txtUsuario.text.toString()
         val senha = binding.txtSenha.text.toString()
-        if (usuario == getString(R.string.loginTeste) && senha == getString(R.string.senhaTeste))
-        {
-            Sessao.token = "123456789"
-            Sessao.cliente.nome = "Teste"
-            Sessao.cliente.email = "Teste"
-            Utilitarios.abrirTela(this, MenuActivity::class.java)
-        }else
-        {
-            Utilitarios.snackBar(binding.root, "Credenciais Invalidas", Snackbar.LENGTH_SHORT)
+        requisicaoLogin(usuario, senha)
+    }
+
+    fun requisicaoLogin(usuario: String, senha: String){
+        val callback = object : Callback<Usuario> {
+            override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
+                //desabilitarCarregamento()
+
+                if(response.isSuccessful) {
+                    Sessao.usuario = response.body()
+                    gravarUsuarioLocal()
+
+                    Utilitarios.abrirTela(this@LoginActivity, MenuActivity::class.java)
+                }
+                else {
+                    val error = response.errorBody().toString()
+                    Utilitarios.snackBar(binding.root, "Credenciais Invalidas", Snackbar.LENGTH_LONG)
+                    Log.e("ERROR", response.errorBody().toString())
+                }
+            }
+            override fun onFailure(call: Call<Usuario>, t: Throwable) {
+                //desabilitarCarregamento()
+                Utilitarios.snackBar(binding.root, "Falha ao conectar com o servidor.", Snackbar.LENGTH_LONG)
+            }
         }
+
+        var requisao = JsonObject()
+        requisao.addProperty("email", usuario)
+        requisao.addProperty("password", senha)
+        requisao.addProperty("device_name", "Android")
+        API(this).usuario.logar(requisao).enqueue(callback)
+    }
+
+    fun gravarUsuarioLocal(){
+        val usuarioPref = getSharedPreferences("UsuarioInfo", Context.MODE_PRIVATE).edit()
+        usuarioPref.putString("nome", Sessao.usuario?.nome)
+        usuarioPref.putString("token", Sessao.usuario?.token)
+        usuarioPref.putString("email", Sessao.usuario?.email)
+        usuarioPref.commit()
     }
 
     fun abrirCadastro(){
         Utilitarios.abrirTela(this, CadastroActivity::class.java)
-        //setTheme(R.style.Theme_GenShop)
     }
 
     fun abrirEsqueciSenha(){
         Utilitarios.snackBar(binding.root, "Recuperação de senha enviada ao e-mail", Snackbar.LENGTH_LONG)
-        //setTheme(R.style.Theme_GenShopHydro)
     }
 
     fun validarFormulario(): Boolean {

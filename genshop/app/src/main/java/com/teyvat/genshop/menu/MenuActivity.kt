@@ -1,18 +1,19 @@
 package com.teyvat.genshop.menu
 
+import android.content.Context
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.drawerlayout.widget.DrawerLayout
+import androidx.preference.PreferenceManager
 import com.teyvat.genshop.R
 import com.teyvat.genshop.databinding.ActivityMenuBinding
-import androidx.fragment.app.Fragment
-import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.teyvat.genshop.LoginActivity
+import com.teyvat.genshop.menu.configuracoes.ConfiguracoesFragment
 import com.teyvat.genshop.menu.configuracoes.DadosFragment
 import com.teyvat.genshop.menu.configuracoes.EnderecosFragment
 import com.teyvat.genshop.menu.configuracoes.SuporteFragment
@@ -20,6 +21,7 @@ import com.teyvat.genshop.menu.pesquisa.FavoritosFragment
 import com.teyvat.genshop.menu.pesquisa.PedidosFragment
 import com.teyvat.genshop.menu.pesquisa.PesquisaFragment
 import com.teyvat.genshop.models.Cliente
+import com.teyvat.genshop.models.Usuario
 import com.teyvat.genshop.utils.Sessao
 import com.teyvat.genshop.utils.Utilitarios
 
@@ -30,6 +32,7 @@ class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMenuBinding.inflate(layoutInflater)
+        Utilitarios.aplicarTema(this, delegate)
         setContentView(binding.root)
 
         //#region Configuração inicial do menu
@@ -40,12 +43,8 @@ class MenuActivity : AppCompatActivity() {
         gerarBotoes()
         configurarMenu();
         //#endregion
+        delegate
 
-
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return toggle.onOptionsItemSelected(item)
     }
 
     override fun onResume() {
@@ -53,14 +52,45 @@ class MenuActivity : AppCompatActivity() {
         super.onResume()
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.config -> {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.menuContainer, ConfiguracoesFragment())
+                    .commit()
+                return super.onOptionsItemSelected(item)
+            }
+        }
+
+        return toggle.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_configuracoes, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
     fun verificaUsuarioLogado(): Boolean{
-        return Sessao.token != ""
+        val auto = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("auto_login", true)
+
+        //Caso auto login esteja ligado
+        if(auto){
+            val usuarioPref = getSharedPreferences("UsuarioInfo", Context.MODE_PRIVATE)
+            val usuario = usuarioPref.getString("nome", null)
+            val token = usuarioPref.getString("token", null)
+            val email = usuarioPref.getString("email", null)
+
+            if(usuario != null && token != null && email != null)
+                Sessao.usuario = Usuario(usuario,email,token)
+        }
+
+        return Sessao.usuario != null
     }
 
     fun configurarMenu(){
-        Log.d("Logado:", verificaUsuarioLogado().toString())
         if(verificaUsuarioLogado()){
-            Utilitarios.snackBar(binding.root, "Bem-vindo ${Sessao.cliente.nome} - Token: ${Sessao.token}}", Snackbar.LENGTH_LONG)
+            Utilitarios.snackBar(binding.root, "Bem-vindo ${Sessao.usuario!!.nome} - Token: ${Sessao.usuario!!.token}}", Snackbar.LENGTH_LONG)
             binding.navigationView.menu.findItem(R.id.entrar).setVisible(false)
 
             binding.navigationView.menu.findItem(R.id.favoritos).setVisible(true)
@@ -69,6 +99,7 @@ class MenuActivity : AppCompatActivity() {
             binding.navigationView.menu.findItem(R.id.enderecos).setVisible(true)
             binding.navigationView.menu.findItem(R.id.sair).setVisible(true)
         }
+        //Caso nao esteja logado
         else {
             binding.navigationView.menu.findItem(R.id.entrar).setVisible(true)
 
@@ -109,8 +140,7 @@ class MenuActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction().replace(R.id.menuContainer, frag).commit()
                 }
                 R.id.sair -> {
-                    Sessao.cliente = Cliente("","")
-                    Sessao.token = ""
+                    Sessao.usuario = null
                     Utilitarios.abrirTela(this, LoginActivity::class.java)
                 }
                 R.id.entrar -> {

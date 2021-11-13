@@ -4,6 +4,5 @@
     <string name="fechar_menu">Fechar Menu</string>
     <string name="loginTeste">admin</string>
     <string name="senhaTeste">admin</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

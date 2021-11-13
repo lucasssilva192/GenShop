@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.teyvat.genshop">
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,42 +10,28 @@
         android:theme="@style/Theme.GenShop">
         <activity
             android:name=".menu.MenuActivity"
-            android:exported="true" />
-        <activity
-            android:name=".CadastroClienteActivity"
-            android:exported="true"
-            android:parentActivityName=".LoginActivity">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:parentActivityName=".menu.MenuActivity"/>
         <activity
             android:name=".CadastroActivity"
             android:exported="true"
-            android:parentActivityName=".LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:parentActivityName=".LoginActivity"/>
         <activity
-            android:name=".LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".CadastroClienteActivity"
+            android:exported="true"
+            android:parentActivityName=".LoginActivity"/>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"/>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

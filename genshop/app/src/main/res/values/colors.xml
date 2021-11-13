@@ -7,4 +7,40 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="red_200">#cf6679</color>
+    <color name="red_600">#b00020</color>
+    <color name="white_50">#ffffff</color>
+    <color name="black_800">#221212</color>
+    <color name="black_900">#220000</color>
+
+
+    <color name="hydro_200">#82d9ff</color>
+    <color name="hydro_500">#00b2ff</color>
+    <color name="hydro_700">#0090db</color>
+
+    <color name="geo_200">#eee99b</color>
+    <color name="geo_500">#e1d642</color>
+    <color name="geo_700">#dcaf34</color>
+
+    <color name="cryo_200">#73d9d2</color>
+    <color name="cryo_500">#00ac9d</color>
+    <color name="cryo_700">#008d7e</color>
+
+    <color name="electro_200">#c189db</color>
+    <color name="electro_500">#8110b0</color>
+    <color name="electro_700">#5d0ea3</color>
+
+    <color name="anemo_200">#87e6cd</color>
+    <color name="anemo_500">#31c29a</color>
+    <color name="anemo_700">#27a17b</color>
+
+    <color name="pyro_200">#ffab87</color>
+    <color name="pyro_500">#fb5b00</color>
+    <color name="pyro_700">#e24e00</color>
+
+    <color name="dendro_200">#8ad1ad</color>
+    <color name="dendro_500">#00a65e</color>
+    <color name="dendro_700">#008548</color>
+
 </resources>

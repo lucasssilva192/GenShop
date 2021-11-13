@@ -18,15 +18,20 @@ class UserController extends Controller
         ]);
 
         $user = User::where('email', $request->email)->first();
-
         //Caso necessario validar durações do tokens para gerar novos.
         if(!$user || !Hash::check($request->password, $user->password)){
+            error_log($request->email);
             return response()->json([
                 'error' => 'Credenciais invalidas'
-            ]);
+            ], 401);
         }
         else{
-            return view('home');
+            //error_log($request);
+            $data = [
+                'nome' => $user->name,
+                'email' => $user->email,
+                'token' => $user->createToken($request->device_name)->plainTextToken];
+            return response()->json($data);
         }
     }
 }

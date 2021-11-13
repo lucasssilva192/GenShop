@@ -1,9 +1,7 @@
 package com.teyvat.genshop
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.textfield.TextInputLayout
 import com.teyvat.genshop.databinding.ActivityCadastroBinding
@@ -44,14 +42,12 @@ class CadastroActivity : AppCompatActivity() {
         val senha = binding.txtSenha.text.toString()
         val confirmarSenha = binding.txtConfirmarSenha.text.toString()
 
-        Sessao.token = "123456848"
-        Sessao.cliente.email = email
+        //Limpar usuairo da sessao aqui
         Utilitarios.abrirTela(this, CadastroClienteActivity::class.java)
     }
 
     fun cancelar() {
-        Sessao.token = ""
-        Sessao.cliente = Cliente("","")
+        //Limpar usuairo da sessao aqui
         finish()
     }
 

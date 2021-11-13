@@ -1,0 +1,11 @@
+<resources>
+    <string-array name="theme_values">
+        <item>Pyro</item>
+        <item>Hydro</item>
+        <item>Electro</item>
+        <item>Cryo</item>
+        <item>Anemo</item>
+        <item>Geo</item>
+        <item>Dendro</item>
+    </string-array>
+</resources>
