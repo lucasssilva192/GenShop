@@ -18,7 +18,6 @@ class UserController extends Controller
         ]);
 
         $user = User::where('email', $request->email)->first();
-        $data = [$user->name, $user->email, $user->createToken($request->device_name)->plainTextToken];
         //Caso necessario validar durações do tokens para gerar novos.
         if(!$user || !Hash::check($request->password, $user->password)){
             error_log($request->email);
