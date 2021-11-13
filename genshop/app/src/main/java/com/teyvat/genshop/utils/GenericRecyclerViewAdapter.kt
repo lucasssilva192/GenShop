@@ -1,8 +1,10 @@
 package com.teyvat.genshop.utils
 
+import android.transition.Visibility
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.teyvat.genshop.databinding.ItemEnderecoBinding
@@ -26,8 +28,11 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
             * item is Address => Verifica tipo do item
             */
             if(binding is ItemEnderecoBinding && item is Address){
-                binding.txtNomeEndereco.text = "Teste"
+                binding.txtNomeEndereco.text = item.cep
                 binding.txtEndereco.text = "${item.address} - ${item.cep}"
+                if(item.main.equals("Não")){
+                    binding.iconeAtivo.isVisible = false
+                }
 
                 binding.root.setOnClickListener(){
                     Toast.makeText(binding.root.context, "Cliclou no endereço ${item.address}", Toast.LENGTH_LONG).show()
