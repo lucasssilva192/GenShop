@@ -29,11 +29,12 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
 
 Route::get('/product', [ProductController::class, 'index']);
 Route::post('/login', [UserController::class, 'login']);
-Route::post('/store', [StoreController::class, 'store']);
+Route::post('/register', [UserController::class, 'register']);
 
 Route::get('/store', [StoreController::class, 'index']);
 Route::get('/store/image/{store}', [StoreController::class, 'show_image']);
 Route::get('/store/{store}', [StoreController::class, 'show']);
+Route::post('/store', [StoreController::class, 'store']);
 Route::put('/store/{store}', [StoreController::class, 'update']);
 Route::delete('/store/{store}', [StoreController::class, 'destroy']);
 

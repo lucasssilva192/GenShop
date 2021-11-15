@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\API\Address;
+use App\Models\API\Customer;
 use Illuminate\Http\Request;
 
 class AddressController extends Controller
@@ -15,7 +16,15 @@ class AddressController extends Controller
 
     public function store(Request $request)
     {
-        $address = Address::create($request->all());
+        $address = Address::create([
+            'customer_id' => Customer::custumerID(auth('sanctum')->user()->id),
+            'cep' => $request->cep,
+            'state' => $request->state,
+            'city' => $request->city,
+            'address' => $request->address,
+            'number' => $request->number,
+            'main' => $request->main
+        ]);
         return response()->json($address);
     }
 

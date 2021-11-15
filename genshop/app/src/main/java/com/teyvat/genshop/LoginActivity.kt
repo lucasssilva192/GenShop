@@ -1,31 +1,19 @@
 package com.teyvat.genshop
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.snackbar.Snackbar
-import com.teyvat.genshop.api.UsuarioAPI
 import com.teyvat.genshop.databinding.ActivityLoginBinding
 import com.teyvat.genshop.menu.MenuActivity
 import com.teyvat.genshop.models.Usuario
 import com.teyvat.genshop.utils.Sessao
 import com.teyvat.genshop.utils.Utilitarios;
-import com.teyvat.genshop.utils.Utilitarios.snackBar
-import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.TimeUnit
-import com.google.gson.GsonBuilder
 
-import com.google.gson.Gson
-
-import android.R.string.no
 import android.content.Context
 import com.google.gson.JsonObject
 import com.teyvat.genshop.api.API
@@ -99,7 +87,7 @@ class LoginActivity : AppCompatActivity() {
 
     fun gravarUsuarioLocal(){
         val usuarioPref = getSharedPreferences("UsuarioInfo", Context.MODE_PRIVATE).edit()
-        usuarioPref.putString("nome", Sessao.usuario?.nome)
+        usuarioPref.putString("nome", Sessao.usuario?.name)
         usuarioPref.putString("token", Sessao.usuario?.token)
         usuarioPref.putString("email", Sessao.usuario?.email)
         usuarioPref.commit()

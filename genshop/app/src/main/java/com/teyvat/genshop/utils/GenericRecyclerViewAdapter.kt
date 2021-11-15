@@ -1,19 +1,18 @@
     package com.teyvat.genshop.utils
 
-import android.transition.Visibility
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.squareup.picasso.Picasso
+//import com.squareup.picasso.Picasso
 import com.teyvat.genshop.databinding.ItemEnderecoBinding
 import com.teyvat.genshop.databinding.ItemLojaBinding
 import com.teyvat.genshop.databinding.ItemProdutoBinding
-import com.teyvat.genshop.models.Address
-import com.teyvat.genshop.models.Loja
-import com.teyvat.genshop.models.Produto
+import com.teyvat.genshop.models.Endereco
+//import com.teyvat.genshop.models.Loja
+//import com.teyvat.genshop.models.Produto
 
     /*
     *  Parametros para utilizar o binding generico
@@ -32,7 +31,7 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
             * binding is ItemEnderecoBinding => Verifica tipo do binding
             * item is Address => Verifica tipo do item
             */
-            if(binding is ItemEnderecoBinding && item is Address){
+            if(binding is ItemEnderecoBinding && item is Endereco){
                 binding.txtNomeEndereco.text = item.cep
                 binding.txtEndereco.text = "${item.address} - ${item.cep}"
                 if(item.main.equals("Não")){
@@ -43,7 +42,7 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
                     Toast.makeText(binding.root.context, "Cliclou no endereço ${item.address}", Toast.LENGTH_LONG).show()
                 }
             }
-            if(binding is ItemProdutoBinding && item is Produto){
+            /*if(binding is ItemProdutoBinding && item is Produto){
                 binding.txtNomeProduto.text = item.name
                 binding.txtCategoriaProd.text = item.category_id.toString()
                 binding.txtPreco.text = item.price
@@ -52,7 +51,7 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
             if(binding is ItemLojaBinding && item is Loja){
                 binding.txtNomeLoja.text = item.name
                 Picasso.get().load("http://192.168.3.26/api/store/image/${item.id}").into(binding.imgLoja)
-            }
+            }*/
 
         }
     }

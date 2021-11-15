@@ -1,13 +1,23 @@
 package com.teyvat.genshop
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.core.widget.doOnTextChanged
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
+import com.google.gson.JsonObject
+import com.teyvat.genshop.api.API
 import com.teyvat.genshop.databinding.ActivityCadastroBinding
+import com.teyvat.genshop.menu.MenuActivity
 import com.teyvat.genshop.models.Cliente
+import com.teyvat.genshop.models.Usuario
 import com.teyvat.genshop.utils.Sessao
 import com.teyvat.genshop.utils.Utilitarios
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class CadastroActivity : AppCompatActivity() {
@@ -37,13 +47,45 @@ class CadastroActivity : AppCompatActivity() {
     }
 
     fun cadastrar() {
+        val callback = object : Callback<Usuario> {
+            override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
+                if(response.isSuccessful) {
+                    Sessao.usuario = response.body()
+                    gravarUsuarioLocal()
+
+                    Utilitarios.abrirTela(this@CadastroActivity, CadastroClienteActivity::class.java)
+                }
+                else {
+                    val error = response.errorBody().toString()
+                    Utilitarios.snackBar(binding.root, "Credenciais Invalidas", Snackbar.LENGTH_LONG)
+                    Log.e("ERROR", response.errorBody().toString())
+                }
+            }
+            override fun onFailure(call: Call<Usuario>, t: Throwable) {
+                Utilitarios.snackBar(binding.root, "Falha ao conectar com o servidor. ${t.message}", Snackbar.LENGTH_LONG)
+                Log.e("ERROR","${t.message}")
+            }
+        }
+
+
         val usuario = binding.txtUsuario.text.toString()
         val email = binding.txtEmail.text.toString()
         val senha = binding.txtSenha.text.toString()
-        val confirmarSenha = binding.txtConfirmarSenha.text.toString()
 
-        //Limpar usuairo da sessao aqui
-        Utilitarios.abrirTela(this, CadastroClienteActivity::class.java)
+        var requisao = JsonObject()
+        requisao.addProperty("name", usuario)
+        requisao.addProperty("email", email)
+        requisao.addProperty("password", senha)
+        requisao.addProperty("device_name", "Android")
+        API().usuario.cadastrar(requisao).enqueue(callback)
+    }
+
+    fun gravarUsuarioLocal(){
+        val usuarioPref = getSharedPreferences("UsuarioInfo", Context.MODE_PRIVATE).edit()
+        usuarioPref.putString("nome", Sessao.usuario?.name)
+        usuarioPref.putString("token", Sessao.usuario?.token)
+        usuarioPref.putString("email", Sessao.usuario?.email)
+        usuarioPref.commit()
     }
 
     fun cancelar() {

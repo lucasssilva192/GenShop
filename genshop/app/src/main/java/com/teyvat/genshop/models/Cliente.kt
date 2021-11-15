@@ -1,11 +1,12 @@
 package com.teyvat.genshop.models
 
+import java.util.*
+
 data class Cliente(
-    var usuario: Usuario?,
-    var nome: String,
-    var sobrenome: String,
-    var dataNascimento: String,
+    var first_name: String,
+    var last_name: String,
+    var birth_date: String,
     var cpf: String,
-    var telefone: String,
-    var celular: String
+    var telephone: String,
+    var cellphone: String
 )

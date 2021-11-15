@@ -1,7 +1,9 @@
 package com.teyvat.genshop.models
 
+import android.os.Build
+
 data class Usuario(
-    var nome: String,
+    var name: String,
     var email: String,
     var token: String
 )

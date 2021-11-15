@@ -1,6 +1,6 @@
 package com.teyvat.genshop.models
 
-data class Address(
+data class Endereco(
     var costumer_id: Number?,
     var cep: String,
     var state: String,

@@ -12,4 +12,7 @@ interface UsuarioAPI {
     @POST("/api/login")
     fun logar(@Body request: JsonObject): Call<Usuario>
 
+    @POST("/api/register")
+    fun cadastrar(@Body request: JsonObject): Call<Usuario>
+
 }

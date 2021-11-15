@@ -1,10 +1,8 @@
 package com.teyvat.genshop.menu
 
 import android.content.Context
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -17,8 +15,6 @@ import com.teyvat.genshop.menu.configuracoes.*
 import com.teyvat.genshop.menu.pesquisa.FavoritosFragment
 import com.teyvat.genshop.menu.pesquisa.PedidosFragment
 import com.teyvat.genshop.menu.pesquisa.PesquisaFragment
-import com.teyvat.genshop.models.Cliente
-import com.teyvat.genshop.models.Loja
 import com.teyvat.genshop.models.Usuario
 import com.teyvat.genshop.utils.Sessao
 import com.teyvat.genshop.utils.Utilitarios
@@ -88,7 +84,7 @@ class MenuActivity : AppCompatActivity() {
 
     fun configurarMenu(){
         if(verificaUsuarioLogado()){
-            Utilitarios.snackBar(binding.root, "Bem-vindo ${Sessao.usuario!!.nome} - Token: ${Sessao.usuario!!.token}}", Snackbar.LENGTH_LONG)
+            Utilitarios.snackBar(binding.root, "Bem-vindo ${Sessao.usuario!!.name} - Token: ${Sessao.usuario!!.token}}", Snackbar.LENGTH_LONG)
             binding.navigationView.menu.findItem(R.id.entrar).setVisible(false)
 
             binding.navigationView.menu.findItem(R.id.favoritos).setVisible(true)
