@@ -13,8 +13,13 @@
         android:theme="@style/Theme.GenShop"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ListaProdutoActivity"
-            android:exported="true" />
+            android:name=".ShowLojaActivity"
+            android:exported="true"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".ShowProdutoActivity"
+            android:exported="true"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".menu.MenuActivity"
             android:exported="true">

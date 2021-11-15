@@ -1,12 +1,17 @@
     package com.teyvat.genshop.utils
 
+import android.content.Context
+import android.content.Intent
+import android.transition.Visibility
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-//import com.squareup.picasso.Picasso
+import com.squareup.picasso.Picasso
+import com.teyvat.genshop.ShowLojaActivity
+import com.teyvat.genshop.ShowProdutoActivity
 import com.teyvat.genshop.databinding.ItemEnderecoBinding
 import com.teyvat.genshop.databinding.ItemLojaBinding
 import com.teyvat.genshop.databinding.ItemProdutoBinding
@@ -47,11 +52,29 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
                 binding.txtCategoriaProd.text = item.category_id.toString()
                 binding.txtPreco.text = item.price
                 Picasso.get().load("http://192.168.3.26/api/product/image/${item.id}").into(binding.imgProduto)
+                binding.root.setOnClickListener {
+                    val intent = Intent(binding.root.context, ShowProdutoActivity::class.java)
+                    intent.putExtra("nomeProd", item.name)
+                    intent.putExtra("precoProd", item.price)
+                    intent.putExtra("id", item.id)
+                    intent.putExtra("descProd", item.description)
+                    binding.root.context.startActivity(intent)
+                }
             }
             if(binding is ItemLojaBinding && item is Loja){
                 binding.txtNomeLoja.text = item.name
                 Picasso.get().load("http://192.168.3.26/api/store/image/${item.id}").into(binding.imgLoja)
-            }*/
+                binding.root.setOnClickListener {
+                    val intent = Intent(binding.root.context, ShowLojaActivity::class.java)
+                    intent.putExtra("nomeLoja", item.name)
+                    intent.putExtra("tipoLoja", item.type)
+                    intent.putExtra("telefone", item.telephone)
+                    intent.putExtra("celular", item.cellphone)
+                    intent.putExtra("endereco", item.address)
+                    intent.putExtra("id", item.id)
+                    binding.root.context.startActivity(intent)
+                }
+            }
 
         }
     }
