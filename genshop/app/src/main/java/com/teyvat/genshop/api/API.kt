@@ -6,8 +6,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-class API(context: Context) { //val context: Context
-    private val baseUrl = "http://192.168.0.19:80"
+class API() { //val context: Context
+    private val baseUrl = "http://192.168.3.26:80"
     private val timeout = 30L
 
     private val retrofit: Retrofit
@@ -29,5 +29,15 @@ class API(context: Context) { //val context: Context
     val usuario: UsuarioAPI
         get() {
             return retrofit.create(UsuarioAPI::class.java)
+        }
+
+    val produto : ProdutoAPI
+        get() {
+            return retrofit.create(ProdutoAPI::class.java)
+        }
+
+    val loja : LojaAPI
+        get() {
+            return retrofit.create(LojaAPI::class.java)
         }
 }

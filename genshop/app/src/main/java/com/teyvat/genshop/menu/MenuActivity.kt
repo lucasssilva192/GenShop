@@ -13,14 +13,12 @@ import com.teyvat.genshop.R
 import com.teyvat.genshop.databinding.ActivityMenuBinding
 import com.google.android.material.snackbar.Snackbar
 import com.teyvat.genshop.LoginActivity
-import com.teyvat.genshop.menu.configuracoes.ConfiguracoesFragment
-import com.teyvat.genshop.menu.configuracoes.DadosFragment
-import com.teyvat.genshop.menu.configuracoes.EnderecosFragment
-import com.teyvat.genshop.menu.configuracoes.SuporteFragment
+import com.teyvat.genshop.menu.configuracoes.*
 import com.teyvat.genshop.menu.pesquisa.FavoritosFragment
 import com.teyvat.genshop.menu.pesquisa.PedidosFragment
 import com.teyvat.genshop.menu.pesquisa.PesquisaFragment
 import com.teyvat.genshop.models.Cliente
+import com.teyvat.genshop.models.Loja
 import com.teyvat.genshop.models.Usuario
 import com.teyvat.genshop.utils.Sessao
 import com.teyvat.genshop.utils.Utilitarios
@@ -117,6 +115,14 @@ class MenuActivity : AppCompatActivity() {
             when(it.itemId ) {
                 R.id.pesquisa -> {
                     var frag = PesquisaFragment.newInstance()
+                    supportFragmentManager.beginTransaction().replace(R.id.menuContainer, frag).commit()
+                }
+                R.id.produtos -> {
+                    var frag = ListaProdutoFragment.newInstance()
+                    supportFragmentManager.beginTransaction().replace(R.id.menuContainer, frag).commit()
+                }
+                R.id.lojas -> {
+                    var frag = LojasFragment.newInstance()
                     supportFragmentManager.beginTransaction().replace(R.id.menuContainer, frag).commit()
                 }
                 R.id.favoritos -> {

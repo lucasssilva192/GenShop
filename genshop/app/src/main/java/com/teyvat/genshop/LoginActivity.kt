@@ -85,7 +85,8 @@ class LoginActivity : AppCompatActivity() {
             }
             override fun onFailure(call: Call<Usuario>, t: Throwable) {
                 //desabilitarCarregamento()
-                Utilitarios.snackBar(binding.root, "Falha ao conectar com o servidor.", Snackbar.LENGTH_LONG)
+                Utilitarios.snackBar(binding.root, "Falha ao conectar com o servidor. ${t.message}", Snackbar.LENGTH_LONG)
+                Log.e("ERROR","${t.message}")
             }
         }
 
@@ -93,7 +94,7 @@ class LoginActivity : AppCompatActivity() {
         requisao.addProperty("email", usuario)
         requisao.addProperty("password", senha)
         requisao.addProperty("device_name", "Android")
-        API(this).usuario.logar(requisao).enqueue(callback)
+        API().usuario.logar(requisao).enqueue(callback)
     }
 
     fun gravarUsuarioLocal(){

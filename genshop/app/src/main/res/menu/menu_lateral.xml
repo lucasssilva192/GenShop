@@ -4,8 +4,18 @@
 
     <item
         android:id="@+id/menuLojas"
-        android:title="Lojas">
+        android:title="Lojas e Produtos">
         <menu>
+            <item
+                android:id="@+id/produtos"
+                android:icon="@drawable/ic_outline_search_24"
+                android:title="Produtos"
+                app:showAsAction="always" />
+            <item
+                android:id="@+id/lojas"
+                android:icon="@drawable/ic_outline_search_24"
+                android:title="Lojas"
+                app:showAsAction="always" />
             <item
                 android:id="@+id/pesquisa"
                 android:icon="@drawable/ic_outline_search_24"

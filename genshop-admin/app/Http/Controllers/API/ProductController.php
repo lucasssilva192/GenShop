@@ -5,6 +5,9 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\API\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 
 class ProductController extends Controller
 {
@@ -61,6 +64,12 @@ class ProductController extends Controller
             'picture' => $image
         ]);
         return response()->json($product);
+    }
+
+    public function show_image(Product $product)
+    {
+        $path = public_path().'/img/products/'.$product->picture;
+        return response()->file($path);
     }
 
     public function destroy(Product $product)
