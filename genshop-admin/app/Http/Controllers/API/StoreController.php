@@ -73,6 +73,14 @@ class StoreController extends Controller
         return response()->json($store);
     }
 
+    public function show_image(Store $store)
+    {
+        //$store = Store::find($id);
+        $path = public_path() . '/img/stores/'. $store->profile_pic;
+        return response()->file($path);
+        //return $path;
+    }
+
     public function destroy(Store $store)
     {
         $store->delete();
