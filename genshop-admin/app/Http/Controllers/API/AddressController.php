@@ -18,11 +18,13 @@ class AddressController extends Controller
     {
         $address = Address::create([
             'customer_id' => Customer::custumerID(auth('sanctum')->user()->id),
+            'name' => $request->name,
             'cep' => $request->cep,
             'state' => $request->state,
             'city' => $request->city,
             'address' => $request->address,
             'number' => $request->number,
+            'complement' => $request->number,
             'main' => $request->main
         ]);
         return response()->json($address);

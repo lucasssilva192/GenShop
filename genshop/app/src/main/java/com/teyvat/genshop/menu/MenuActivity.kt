@@ -3,6 +3,7 @@ package com.teyvat.genshop.menu
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -77,6 +78,9 @@ class MenuActivity : AppCompatActivity() {
 
             if(usuario != null && token != null && email != null)
                 Sessao.usuario = Usuario(usuario,email,token)
+
+            Log.d("Cliente", "${Sessao.cliente?.first_name} - ${Sessao.cliente?.cpf}")
+            Log.d("Endereco", "${Sessao.endereco?.name} - ${Sessao.endereco?.address}")
         }
 
         return Sessao.usuario != null

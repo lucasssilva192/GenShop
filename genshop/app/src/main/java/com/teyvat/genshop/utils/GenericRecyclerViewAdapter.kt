@@ -16,8 +16,8 @@ import com.teyvat.genshop.databinding.ItemEnderecoBinding
 import com.teyvat.genshop.databinding.ItemLojaBinding
 import com.teyvat.genshop.databinding.ItemProdutoBinding
 import com.teyvat.genshop.models.Endereco
-//import com.teyvat.genshop.models.Loja
-//import com.teyvat.genshop.models.Produto
+import com.teyvat.genshop.models.Loja
+import com.teyvat.genshop.models.Produto
 
     /*
     *  Parametros para utilizar o binding generico
@@ -47,7 +47,7 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
                     Toast.makeText(binding.root.context, "Cliclou no endereço ${item.address}", Toast.LENGTH_LONG).show()
                 }
             }
-            /*if(binding is ItemProdutoBinding && item is Produto){
+            if(binding is ItemProdutoBinding && item is Produto){
                 binding.txtNomeProduto.text = item.name
                 binding.txtCategoriaProd.text = item.category_id.toString()
                 binding.txtPreco.text = item.price

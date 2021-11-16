@@ -1,11 +1,12 @@
 package com.teyvat.genshop.models
 
 data class Endereco(
-    var costumer_id: Number?,
+    var name: String,
     var cep: String,
     var state: String,
     var city: String,
     var address: String,
+    var complement: String,
     var number: String,
     var main: String
 )

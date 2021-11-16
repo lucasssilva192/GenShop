@@ -13,7 +13,6 @@ import com.teyvat.genshop.api.ProdutoAPI
 import com.teyvat.genshop.databinding.FragmentEnderecosBinding
 import com.teyvat.genshop.databinding.FragmentListaProdutoBinding
 import com.teyvat.genshop.databinding.ItemProdutoBinding
-import com.teyvat.genshop.models.Address
 import com.teyvat.genshop.models.Produto
 import com.teyvat.genshop.utils.EnumTipoLista
 import com.teyvat.genshop.utils.GenericRecyclerViewAdapter

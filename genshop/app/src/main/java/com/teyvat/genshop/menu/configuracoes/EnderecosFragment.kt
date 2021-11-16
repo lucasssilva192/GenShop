@@ -1,6 +1,6 @@
 package com.teyvat.genshop.menu.configuracoes
 
-import com.teyvat.genshop.models.Address
+import com.teyvat.genshop.models.Endereco
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -21,27 +21,9 @@ class EnderecosFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentEnderecosBinding.inflate(inflater)
 
-        val listaEnderecos = listOf(
-            Address(1, "04074-031","São Paulo","São Paulo","Avenida Moreira Guimarães","551", "Não"),
-            Address(2, "08265-130","São Paulo","São Paulo","Rua João Barreiros","41", "Não"),
-            Address(3, "04459-040","São Paulo","São Paulo","Avenida Teste","878645","Sim"),
-            Address(4, "03239-080","São Paulo","São Paulo","Rua Doutor Nogueira de Noronha","2086", "Não")
-        )
-        adapter = GenericRecyclerViewAdapter(listaEnderecos, EnumTipoLista.ListaEndereco.valor)
-        binding.recyclerview.adapter = adapter
-        binding.recyclerview.layoutManager = LinearLayoutManager(activity)
-
-        /*for (i in 1..10) {
-            val itemBinding = ItemEnderecoBinding.inflate(layoutInflater)
-            itemBinding.txtNomeEndereco.text = "Casa - ${i}"
-            itemBinding.txtEndereco.text = "Av. Eng. Eusébio Stevaux, ${i} - Santo Amaro, São Paulo - SP, 04696-000"
-            if(i != 7)
-            {
-                itemBinding.iconeAtivo.isVisible = false
-            }
-            binding.container.addView(itemBinding.root)
-        }*/
-
+        //adapter = GenericRecyclerViewAdapter(listaEnderecos, EnumTipoLista.ListaEndereco.valor)
+        //binding.recyclerview.adapter = adapter
+        //binding.recyclerview.layoutManager = LinearLayoutManager(activity)
 
         return binding.root
     }

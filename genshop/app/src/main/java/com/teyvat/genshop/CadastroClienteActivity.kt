@@ -54,7 +54,8 @@ class CadastroClienteActivity : AppCompatActivity() {
         val callback = object : Callback<Cliente> {
             override fun onResponse(call: Call<Cliente>, response: Response<Cliente>) {
                 if(response.isSuccessful) {
-                    Utilitarios.abrirTela(this@CadastroClienteActivity, MenuActivity::class.java)
+                    Sessao.cliente = response.body()
+                    Utilitarios.abrirTela(this@CadastroClienteActivity, CadastroEnderecoActivity::class.java)
                 }
                 else {
                     val error = response.errorBody().toString()
