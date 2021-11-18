@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container py-5">
-  <div class="card mb-3" style="max-width: 1500px;">
-    <div class="row g-0">
+  <div class="card mb-3 bg-card" style="max-width: 1500px;">
+    <div class="row g-0 p-3">
       <div class="col-md-4">
         <img src="/img/products/{{$product->picture}}" alt="..." class="img-fluid" />
       </div>
@@ -16,7 +16,7 @@
           <p class="card-text">
             {{ $product->description }}
           </p>
-          <div class="d-flex align-items-center bg-light mb-3" style="height: 100px;">
+          <div class="d-flex align-items-center" style="height: 100px;">
             <div class="col">
             <p class="card-text">
               <h6>Preço do produto:</h6>

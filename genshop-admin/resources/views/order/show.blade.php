@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container py-5">
-  <div class="card mb-3" style="max-width: 1500px;">
-    <div class="row g-0">
+  <div class="card mb-3 bg-card" style="max-width: 1500px;">
+    <div class="row g-0 p-3">
       <div class="col-md-7">
         <div class="card-body">
           <h2 class="card-title">{{ $store->name }}</h2>

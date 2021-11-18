@@ -4,14 +4,14 @@
 
 <body>
   <div class="container py-5">
-    <div class="card container-sm p-4">
+    <div class="card container-sm p-4 bg-card">
       <form method="POST" action="{{ Route('store.update', $store->id) }}" enctype="multipart/form-data">
         @csrf
         @METHOD('PATCH')
         <form method="POST" action="{{ Route('store.update', $store->id) }}">
           @csrf
           @METHOD('PATCH')
-          <h1 class="pb-4">Editar Loja</h1>
+          <h1 class="text-center pb-4">Editar Loja</h1>
 
           <div class="form-outline mb-4">
             <input class="form-control active" type="text" id="nome" name="nome" value="{{$store->name}}" />
@@ -41,7 +41,9 @@
           <div class="form-group mb-4">
             <label for="image">Foto</label>
             <input class="form-control-file" type="file" name="image">
-            <button type="submit" class="btn btn-primary btn-block mb-4">Salvar</button>
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-block mb-4">Salvar</button>
         </form>
     </div>
   </div>

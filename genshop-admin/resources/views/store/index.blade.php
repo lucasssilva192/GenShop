@@ -4,8 +4,8 @@
 
 <body>
   <div class="container py-5">
-    <div class="card container-sm p-4">
-      <h1> Lojas </h1>
+    <div class="card container-sm p-4 bg-card">
+      <h1 class="text-center pb-4"> Lojas </h1>
       @if(!$store)
       <a class="nav-link" href="{{ route('store.create') }}">Novo</a>
       @endif

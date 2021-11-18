@@ -4,10 +4,10 @@
 
 <body>
   <div class="container py-5">
-    <div class="card container-sm p-4">
+    <div class="card container-sm p-4 bg-card">
       <form method="POST" action="{{ Route('product.store') }}" enctype="multipart/form-data">
         @csrf
-        <h1 class="pb-4">Cadastrar Produto</h1>
+        <h1 class="text-center pb-4">Cadastrar Produto</h1>
         <input type="text" name="store_id" id="store_id" class="d-none" value="1" />
 
         <div class="form-outline mb-4">

@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <!-- MDB -->
     <link rel="stylesheet" href="{{ asset('css/mdb/mdb.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/custom/style.css') }}" />
     @yield('css')
     <!-- import the MDB javascript file https://mdbootstrap.com/ -->
     <script type="text/javascript" src="{{ asset('js/mdb/mdb.min.js') }}"></script>
@@ -18,7 +19,7 @@
     <title>GenShop</title>
     <style>
         .bg-home{
-            background-image: url('http://localhost:8000/storage/images/albergue.png');
+            background-image: url('http://localhost:8000/storage/images/bg-login.jpg');
             background-size: cover;
             background-position: top;
             background-repeat: no-repeat;
@@ -28,7 +29,7 @@
 
 <body class="bg-home">
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/home">GenShop Admin</a>
                 <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,10 +83,10 @@
         @yield('content')
     </main>
 
-    <footer class="bg-light text-lg-start fixed-bottom">
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    <footer class="bg-dark text-lg-start fixed-bottom">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); color: white;">
             © 2021 Copyright:
-            <a class="text-dark">Genshão Food Enterprises</a>
+            <span class="font-weight-bold">Genshão Food Enterprises</span>
         </div>
     </footer>
 </body>
