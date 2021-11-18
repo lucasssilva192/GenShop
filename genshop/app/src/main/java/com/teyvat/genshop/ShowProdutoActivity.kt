@@ -20,11 +20,13 @@ class ShowProdutoActivity : AppCompatActivity() {
         val nomeProd = intent.getStringExtra("nomeProd")
         val precoProd = intent.getStringExtra("precoProd")
         val descProd = intent.getStringExtra("descProd")
+        val categoriaProd = intent.getStringExtra("categoriaProd")
         val id = intent.getIntExtra("id", 0)
 
         binding.txtNomeProd.text = nomeProd
         binding.txtPreco.text = precoProd
         binding.txtDescricao.text = descProd
+        binding.txtCatProd.text = categoriaProd
         Picasso.get().load("http://192.168.3.26/api/product/image/${id}").into(binding.imgProd)
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\CustomerController;
 use App\Http\Controllers\API\AddressController;
 use App\Http\Controllers\API\CartController;
+use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\OrderProductController;
 use App\Http\Controllers\UserController;
@@ -33,11 +34,14 @@ Route::post('/store', [StoreController::class, 'store']);
 
 Route::get('/store', [StoreController::class, 'index']);
 Route::get('/store/image/{store}', [StoreController::class, 'show_image']);
+Route::post('/store/search', [StoreController::class, 'search']);
 Route::get('/store/{store}', [StoreController::class, 'show']);
+Route::get('/store/products/{store}', [StoreController::class, 'products']);
 Route::put('/store/{store}', [StoreController::class, 'update']);
 Route::delete('/store/{store}', [StoreController::class, 'destroy']);
 
 Route::post('/product', [ProductController::class, 'store']);
+Route::post('/product/search', [ProductController::class, 'search']);
 Route::get('/product/image/{product}', [ProductController::class, 'show_image']);
 Route::get('/product/{product}', [ProductController::class, 'show']);
 Route::put('/product/{product}', [ProductController::class, 'update']);
@@ -66,3 +70,6 @@ Route::get('/order', [OrderController::class, 'index']);
 Route::get('/order/{order}', [OrderController::class, 'show']);
 Route::put('/order/{order}', [OrderController::class, 'update']);
 Route::delete('/order/{order}', [OrderController::class, 'destroy']);
+
+Route::post('/category', [CategoryController::class, 'index']);
+Route::get('/category/{category}', [CategoryController::class, 'show']);

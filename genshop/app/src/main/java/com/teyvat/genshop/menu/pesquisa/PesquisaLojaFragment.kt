@@ -7,64 +7,62 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.JsonObject
-import com.teyvat.genshop.R
 import com.teyvat.genshop.api.API
-import com.teyvat.genshop.databinding.FragmentPesquisaBinding
+import com.teyvat.genshop.databinding.FragmentPesquisaLojaBinding
 import com.teyvat.genshop.models.Loja
-import com.teyvat.genshop.models.Produto
 import com.teyvat.genshop.utils.EnumTipoLista
 import com.teyvat.genshop.utils.GenericRecyclerViewAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
-class PesquisaFragment : Fragment() {
-    lateinit var binding: FragmentPesquisaBinding
+class PesquisaLojaFragment : Fragment() {
+    lateinit var binding: FragmentPesquisaLojaBinding
     lateinit var adapter: GenericRecyclerViewAdapter
 
-    val listaProdutos = arrayListOf<Produto>()
+    val listaLojas = arrayListOf<Loja>()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentPesquisaBinding.inflate(inflater)
-        adapter = GenericRecyclerViewAdapter(listaProdutos, EnumTipoLista.ListaProduto.valor)
+    override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = FragmentPesquisaLojaBinding.inflate(inflater)
+        adapter = GenericRecyclerViewAdapter(listaLojas, EnumTipoLista.ListaLoja.valor)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(activity)
 
-        binding.btnBusca.setOnClickListener {
-            val busca = binding.editBuscaProd.text.toString()
+        binding.btnBuscaLoja.setOnClickListener {
+            val busca = binding.editBuscaLoja.text.toString()
+
             requisicaoPesquisa(busca)
         }
 
         return binding.root
     }
 
-    fun requisicaoPesquisa(busca: String){
-        val callback = object : Callback<List<Produto>> {
-            override fun onResponse(call: Call<List<Produto>>, response: Response<List<Produto>>) {
+    fun requisicaoPesquisa(busca: String) {
+        val callback = object: Callback<List<Loja>> {
+            override fun onResponse(call: Call<List<Loja>>, response: Response<List<Loja>>) {
                 if(response.isSuccessful){
                     val produtos = response.body()
                     produtos?.let {
-                        listaProdutos.clear()
-                        listaProdutos.addAll(it)
+                        listaLojas.clear()
+                        listaLojas.addAll(it)
                         adapter.notifyDataSetChanged()
                     }
                 } else {
 
                 }
             }
-            override fun onFailure(call: Call<List<Produto>>, t: Throwable) {
+            override fun onFailure(call: Call<List<Loja>>, t: Throwable) {
             }
         }
         var requisao = JsonObject()
         requisao.addProperty("name", busca)
-        API().produto.pesquisar(requisao).enqueue(callback)
+        API().loja.pesquisar(requisao).enqueue(callback)
     }
 
     companion object {
         @JvmStatic
-        fun newInstance() = PesquisaFragment()
+        fun newInstance() = PesquisaLojaFragment()
     }
 
-
 }
+

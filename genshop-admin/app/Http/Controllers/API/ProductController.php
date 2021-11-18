@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\API\Category;
 use App\Models\API\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -39,7 +40,9 @@ class ProductController extends Controller
     }
 
     public function show(Product $product)
-    {
+    {  
+        $category = Category::where('id', $product->category_id)->first();
+        $product->category_id = $category->name;
         return response()->json($product);
     }
 
@@ -71,6 +74,18 @@ class ProductController extends Controller
         $path = public_path().'/img/products/'.$product->picture;
         return response()->file($path);
     }
+
+
+    public function search(Request $request)
+    {
+        $products = Product::where('name', 'like', '%'.$request->name.'%')->get();
+        foreach($products as $product){
+            $categoria = Category::find($product->category_id);
+            $product->category_id = $categoria->name;
+        }
+        return response()->json($products);
+    }
+
 
     public function destroy(Product $product)
     {
