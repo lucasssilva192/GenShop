@@ -15,12 +15,14 @@ import com.teyvat.genshop.utils.GenericRecyclerViewAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
 
 class PesquisaLojaFragment : Fragment() {
     lateinit var binding: FragmentPesquisaLojaBinding
     lateinit var adapter: GenericRecyclerViewAdapter
 
     val listaLojas = arrayListOf<Loja>()
+    var listaCategorias = arrayOf<String>()
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentPesquisaLojaBinding.inflate(inflater)
@@ -30,8 +32,34 @@ class PesquisaLojaFragment : Fragment() {
 
         binding.btnBuscaLoja.setOnClickListener {
             val busca = binding.editBuscaLoja.text.toString()
-
             requisicaoPesquisa(busca)
+        }
+        binding.chipFerraria.setOnClickListener {
+            pesquisaFiltro("Ferraria")
+        }
+        binding.chipRestaurante.setOnClickListener {
+            pesquisaFiltro("Restaurante")
+        }
+        binding.chipAlquimia.setOnClickListener {
+            pesquisaFiltro("Alquimia")
+        }
+        binding.chipLembrancas.setOnClickListener {
+            pesquisaFiltro("Lembrancas")
+        }
+        binding.chipMercado.setOnClickListener {
+            pesquisaFiltro("Mercado")
+        }
+        binding.chipMoveis.setOnClickListener {
+            pesquisaFiltro("Moveis")
+        }
+        binding.chipPesca.setOnClickListener {
+            pesquisaFiltro("Pesca")
+        }
+        binding.chipPaisagismo.setOnClickListener {
+            pesquisaFiltro("Paisagismo")
+        }
+        binding.chipTodos.setOnClickListener {
+            pesquisaFiltro("")
         }
 
         return binding.root
@@ -57,6 +85,28 @@ class PesquisaLojaFragment : Fragment() {
         var requisao = JsonObject()
         requisao.addProperty("name", busca)
         API().loja.pesquisar(requisao).enqueue(callback)
+    }
+
+    fun pesquisaFiltro(categoria: String) {
+        val callback = object: Callback<List<Loja>> {
+            override fun onResponse(call: Call<List<Loja>>, response: Response<List<Loja>>) {
+                if(response.isSuccessful){
+                    val lojas = response.body()
+                    lojas?.let {
+                        listaLojas.clear()
+                        listaLojas.addAll(it)
+                        adapter.notifyDataSetChanged()
+                    }
+                } else {
+
+                }
+            }
+            override fun onFailure(call: Call<List<Loja>>, t: Throwable) {
+            }
+        }
+        var requisao = JsonObject()
+        requisao.addProperty("name", categoria)
+        API().loja.pesquisa_categoria(requisao).enqueue(callback)
     }
 
     companion object {

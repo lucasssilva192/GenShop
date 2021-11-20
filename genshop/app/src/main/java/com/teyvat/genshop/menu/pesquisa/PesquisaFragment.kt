@@ -36,6 +36,31 @@ class PesquisaFragment : Fragment() {
             requisicaoPesquisa(busca)
         }
 
+        binding.chipArmasUtilitarios.setOnClickListener {
+            pesquisa_categoria("Armas/Utilitários")
+        }
+        binding.chipComidasBebidas.setOnCloseIconClickListener {
+            pesquisa_categoria("Comidas/Bebidas")
+        }
+        binding.chipMuambas.setOnClickListener {
+            pesquisa_categoria("Muambas")
+        }
+        binding.chipIngredientes.setOnClickListener {
+            pesquisa_categoria("Ingredientes")
+        }
+        binding.chipPocoes.setOnCloseIconClickListener {
+            pesquisa_categoria("Poções")
+        }
+        binding.chipDecoracoesMoveis.setOnClickListener {
+            pesquisa_categoria("Decorações/Móveis")
+        }
+        binding.chipArvoresFlores.setOnClickListener {
+            pesquisa_categoria("Árvores/Flores")
+        }
+        binding.chipIscasVaras.setOnClickListener {
+            pesquisa_categoria("Iscas/Varas")
+        }
+
         return binding.root
     }
 
@@ -59,6 +84,28 @@ class PesquisaFragment : Fragment() {
         var requisao = JsonObject()
         requisao.addProperty("name", busca)
         API().produto.pesquisar(requisao).enqueue(callback)
+    }
+
+    fun pesquisa_categoria(categoria: String){
+        val callback = object : Callback<List<Produto>> {
+            override fun onResponse(call: Call<List<Produto>>, response: Response<List<Produto>>) {
+                if(response.isSuccessful){
+                    val produtos = response.body()
+                    produtos?.let {
+                        listaProdutos.clear()
+                        listaProdutos.addAll(it)
+                        adapter.notifyDataSetChanged()
+                    }
+                } else {
+
+                }
+            }
+            override fun onFailure(call: Call<List<Produto>>, t: Throwable) {
+            }
+        }
+        var requisao = JsonObject()
+        requisao.addProperty("name", categoria)
+        API().produto.pesquisa_categoria(requisao).enqueue(callback)
     }
 
     companion object {

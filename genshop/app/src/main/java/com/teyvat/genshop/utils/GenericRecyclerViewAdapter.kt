@@ -1,8 +1,6 @@
     package com.teyvat.genshop.utils
 
-import android.content.Context
 import android.content.Intent
-import android.transition.Visibility
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -49,14 +47,14 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
             }
             if(binding is ItemProdutoBinding && item is Produto){
                 binding.txtNomeProduto.text = item.name
-                binding.txtCategoriaProd.text = item.category_id
+                binding.txtCategoriaProd.text = item.category
                 binding.txtPreco.text = item.price
                 Picasso.get().load("http://192.168.3.26/api/product/image/${item.id}").into(binding.imgProduto)
                 binding.root.setOnClickListener {
                     val intent = Intent(binding.root.context, ShowProdutoActivity::class.java)
                     intent.putExtra("nomeProd", item.name)
                     intent.putExtra("precoProd", item.price)
-                    intent.putExtra("categoriaProd", item.category_id)
+                    intent.putExtra("categoriaProd", item.category)
                     intent.putExtra("id", item.id)
                     intent.putExtra("descProd", item.description)
                     binding.root.context.startActivity(intent)

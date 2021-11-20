@@ -18,4 +18,7 @@ interface LojaAPI {
 
     @POST("/api/store/search")
     fun pesquisar(@Body request: JsonObject): Call<List<Loja>>
+
+    @POST("/api/store/search_category")
+    fun pesquisa_categoria(@Body request: JsonObject): Call<List<Loja>>
 }
