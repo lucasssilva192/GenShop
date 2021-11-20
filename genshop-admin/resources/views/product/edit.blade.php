@@ -33,11 +33,17 @@
         </div>
         <div class="form-outline mb-4">
           <span class="form-label"> Categoria </span>
-          <select class="form-select" name="category_id">
-            @foreach($categories as $category)
-            <option value="{{$category->id}}"> {{$category->name}} </option>
-            @endforeach
-          </select>
+          <select class="form-control" name="category">
+            <option value="0" disabled selected>Escolha a categoria do seu produto:</option>
+            <option value="Comidas/Bebidas">Comidas / Bebidas</option>
+            <option value="Armas/Utilitários">Armas / Utilitários</option>
+            <option value="Muambas">Muambas</option>
+            <option value="Ingredientes">Ingredientes</option>
+            <option value="Poções">Poções</option>
+            <option value="Decorações/Móveis">Decorações / Móveis</option>
+            <option value="Árvores/Flores">Árvores / Flores</option>
+            <option value="Iscas/Varas">Iscas / Varas</option>
+        </select>
         </div>
         <button type="submit" class="btn btn-primary btn-block mb-4">Salvar</button>
       </form>

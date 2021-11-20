@@ -35,6 +35,7 @@ Route::post('/store', [StoreController::class, 'store']);
 Route::get('/store', [StoreController::class, 'index']);
 Route::get('/store/image/{store}', [StoreController::class, 'show_image']);
 Route::post('/store/search', [StoreController::class, 'search']);
+Route::post('/store/search_category', [StoreController::class, 'search_category']);
 Route::get('/store/{store}', [StoreController::class, 'show']);
 Route::get('/store/products/{store}', [StoreController::class, 'products']);
 Route::put('/store/{store}', [StoreController::class, 'update']);
@@ -42,6 +43,7 @@ Route::delete('/store/{store}', [StoreController::class, 'destroy']);
 
 Route::post('/product', [ProductController::class, 'store']);
 Route::post('/product/search', [ProductController::class, 'search']);
+Route::post('/product/search_category', [ProductController::class, 'search_category']);
 Route::get('/product/image/{product}', [ProductController::class, 'show_image']);
 Route::get('/product/{product}', [ProductController::class, 'show']);
 Route::put('/product/{product}', [ProductController::class, 'update']);
