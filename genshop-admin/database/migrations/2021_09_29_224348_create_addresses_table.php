@@ -19,7 +19,7 @@ class CreateAddressesTable extends Migration
             $table->integer('customer_id');
             //
             $table->string('cep', 11);
-            $table->string('state', 2);
+            $table->string('state');
             $table->string('city');
             $table->string('address');
             $table->string('number');

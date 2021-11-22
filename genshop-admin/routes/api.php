@@ -32,16 +32,13 @@ Route::get('/product', [ProductController::class, 'index']);
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/register', [UserController::class, 'register']);
 
+Route::post('/store', [StoreController::class, 'store']);
 Route::get('/store', [StoreController::class, 'index']);
 Route::get('/store/image/{store}', [StoreController::class, 'show_image']);
 Route::post('/store/search', [StoreController::class, 'search']);
 Route::post('/store/search_category', [StoreController::class, 'search_category']);
 Route::get('/store/{store}', [StoreController::class, 'show']);
-<<<<<<< HEAD
-Route::post('/store', [StoreController::class, 'store']);
-=======
 Route::get('/store/products/{store}', [StoreController::class, 'products']);
->>>>>>> b615e8f7af2946b2f2d85dbda5980e3a858c993c
 Route::put('/store/{store}', [StoreController::class, 'update']);
 Route::delete('/store/{store}', [StoreController::class, 'destroy']);
 

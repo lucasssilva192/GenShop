@@ -11,7 +11,8 @@ class AddressController extends Controller
 {
     public function index()
     {
-        return response()->json(Address::all());
+        $customer_id = Customer::custumerID(auth('sanctum')->user()->id);
+        return response()->json(Address::where('customer_id', $customer_id));
     }
 
     public function store(Request $request)

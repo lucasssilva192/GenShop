@@ -70,7 +70,7 @@ class CadastroEnderecoActivity : AppCompatActivity() {
         val compemento = binding.txtComplemento.text.toString()
         val numero = binding.txtNumero.text.toString()
 
-        var endereco = Endereco(nome, cep, estado, cidade, enderecoDetalhe, compemento, numero, "1")
+        var endereco = Endereco(null, nome, cep, estado, cidade, enderecoDetalhe, compemento, numero, "1")
         API().endereco.cadastrar("Bearer ${Sessao.usuario?.token}", endereco).enqueue(callback)
     }
 

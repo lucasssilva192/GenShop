@@ -16,12 +16,9 @@ import com.teyvat.genshop.menu.configuracoes.*
 import com.teyvat.genshop.menu.pesquisa.FavoritosFragment
 import com.teyvat.genshop.menu.pesquisa.PedidosFragment
 import com.teyvat.genshop.menu.pesquisa.PesquisaFragment
-<<<<<<< HEAD
-=======
 import com.teyvat.genshop.menu.pesquisa.PesquisaLojaFragment
 import com.teyvat.genshop.models.Cliente
 import com.teyvat.genshop.models.Loja
->>>>>>> b615e8f7af2946b2f2d85dbda5980e3a858c993c
 import com.teyvat.genshop.models.Usuario
 import com.teyvat.genshop.utils.Sessao
 import com.teyvat.genshop.utils.Utilitarios
