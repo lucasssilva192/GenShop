@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\API\Category;
 use App\Models\API\Product;
+use GrahamCampbell\ResultType\Result;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -16,53 +18,8 @@ class ProductController extends Controller
         return response()->json(Product::all());
     }
 
-
-    public function store(Request $request)
-    {
-        if($request->image)
-        {
-            $image = $request->file('image')->store('product');
-            $image = "storage/" . $image;
-        }
-        else
-        {
-            $image = "storage/product/imagem.jpg";
-        }
-        $product = Product::create([
-            'store_id' => $request->store_id,
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-            'picture' => $image
-        ]);
-        return response()->json($product);
-    }
-
     public function show(Product $product)
-    {
-        return response()->json($product);
-    }
-
-    public function update(Request $request, Product $product)
-    {
-        if($request->image)
-        {
-            $image = $request->file('image')->store('product');
-            $image = "storage/" . $image;
-           if($product->image != "storage/product/imagem.jpg"){
-                Storage::delete(str_replace('storage/','',$product->image));}
-        }
-        else
-        {
-            $image = "storage/product/imagem.jpg";
-        }
-        $product = Product::update([
-            'store_id' => $request->store_id,
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-            'picture' => $image
-        ]);
+    {  
         return response()->json($product);
     }
 
@@ -70,6 +27,18 @@ class ProductController extends Controller
     {
         $path = public_path().'/img/products/'.$product->picture;
         return response()->file($path);
+    }
+
+    public function search(Request $request)
+    {
+        $products = Product::where('name', 'like', '%'.$request->name.'%')->get();
+        return response()->json($products);
+    }
+
+    public function search_category(Request $request)
+    {
+        $products = Product::where('category', 'like', '%'.$request->name.'%')->get();
+        return response()->json($products);
     }
 
     public function destroy(Product $product)

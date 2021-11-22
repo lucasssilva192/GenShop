@@ -1,8 +1,6 @@
     package com.teyvat.genshop.utils
 
-import android.content.Context
 import android.content.Intent
-import android.transition.Visibility
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -49,13 +47,14 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
             }
             if(binding is ItemProdutoBinding && item is Produto){
                 binding.txtNomeProduto.text = item.name
-                binding.txtCategoriaProd.text = item.category_id.toString()
+                binding.txtCategoriaProd.text = item.category
                 binding.txtPreco.text = item.price
                 Picasso.get().load("http://192.168.3.26/api/product/image/${item.id}").into(binding.imgProduto)
                 binding.root.setOnClickListener {
                     val intent = Intent(binding.root.context, ShowProdutoActivity::class.java)
                     intent.putExtra("nomeProd", item.name)
                     intent.putExtra("precoProd", item.price)
+                    intent.putExtra("categoriaProd", item.category)
                     intent.putExtra("id", item.id)
                     intent.putExtra("descProd", item.description)
                     binding.root.context.startActivity(intent)
@@ -63,6 +62,7 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
             }
             if(binding is ItemLojaBinding && item is Loja){
                 binding.txtNomeLoja.text = item.name
+                binding.txtCategoria.text = item.type
                 Picasso.get().load("http://192.168.3.26/api/store/image/${item.id}").into(binding.imgLoja)
                 binding.root.setOnClickListener {
                     val intent = Intent(binding.root.context, ShowLojaActivity::class.java)
@@ -75,7 +75,6 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
                     binding.root.context.startActivity(intent)
                 }
             }
-
         }
     }
 
