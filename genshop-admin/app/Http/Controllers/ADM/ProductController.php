@@ -26,7 +26,7 @@ class ProductController extends Controller
     {
         $store_id = Store::where('user_id',Auth()->user()->id)->first();
         if($store_id){
-            return view('product.create')->with(['categories' => Category::where('store_id', Auth()->user()->id)->get()]);
+            return view('product.create');
         } else {
             $products = null;
             return redirect(route('product.index', compact('products')));
@@ -35,6 +35,7 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+        //dd($request);
         $loja = Store::where('user_id', Auth()->user()->id)->first();
         $produto = new Product();
 
@@ -42,7 +43,7 @@ class ProductController extends Controller
         $produto->name = $request->nome;
         $produto->description = $request->descricao;
         $produto->price = $request->preco;
-        $produto->category_id = $request->category_id;
+        $produto->category = $request->category;
         if($request->hasFile('image') && $request->file('image')->isValid()){
             $requestImage = $request->image;
             $extension = $requestImage->extension();
@@ -58,13 +59,12 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-        $category = Category::find($product->category_id);
-        return view('product.show')->with(['product' => $product, 'category' => $category]);
+        return view('product.show')->with(['product' => $product]);
     }
 
     public function edit(Product $product)
     {
-        return view('product.edit')->with(['product' => $product, 'categories' => Category::where('store_id', Auth()->user()->id)->get()]);
+        return view('product.edit')->with(['product' => $product]);
     }
 
     public function update(Request $request, Product $product)
@@ -73,7 +73,7 @@ class ProductController extends Controller
         $produto->name = $request->nome;
         $produto->description = $request->descricao;
         $produto->price = $request->preco;
-        $produto->category_id = $request->category_id;
+        $produto->category = $request->category;
         if($request->hasFile('image') && $request->file('image')->isValid()){
             $requestImage = $request->image;
             $extension = $requestImage->extension();

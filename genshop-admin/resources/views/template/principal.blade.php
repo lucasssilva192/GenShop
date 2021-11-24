@@ -50,6 +50,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('category.index') }}">Categorias</a>
                         </li>
+                        @if(Auth()->user()->permissions == 3)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('user.index') }}">Usuários</a>
+                        </li>
+                        @endif
                     </ul>                                        
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">

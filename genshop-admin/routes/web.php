@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ADM\StoreController;
 use App\Http\Controllers\ADM\ProductController;
 use App\Http\Controllers\ADM\OrderController;
+use App\Http\Controllers\ADM\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('/order', OrderController::class);
     Route::resource('/store', StoreController::class);
     Route::resource('/category', CategoryController::class);
+    Route::resource('/user', UserController::class);
 });
 
 require __DIR__.'/auth.php';

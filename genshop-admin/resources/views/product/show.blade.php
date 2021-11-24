@@ -30,7 +30,7 @@
               <h6>Categoria:</h6>
             </p>
             <p class="card-text">
-            {{ $category->name }}
+            {{ $product->category }}
           </p>
             </div>
           </div>

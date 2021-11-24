@@ -2,14 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
+    android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".menu.pesquisa.PesquisaFragment">
+    tools:context=".PesquisaLojaFragment" >
 
     <LinearLayout
-        android:id="@+id/linearLayout8"
+        android:id="@+id/linearLayout9"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -21,17 +20,17 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/editBuscaProd"
+            android:id="@+id/editBuscaLoja"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="Ex.: Livro"
+            android:hint="Ex.: Ferraria"
             android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/btnBusca"
+            android:id="@+id/btnBuscaLoja"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -39,7 +38,7 @@
     </LinearLayout>
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup"
+        android:id="@+id/chipGroup2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -47,73 +46,76 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout9">
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chipComidasBebidas"
+            android:id="@+id/chipRestaurante"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            android:text="Comidas/Bebidas" />
+            android:text="Restaurante" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chipArmasUtilitarios"
+            android:id="@+id/chipFerraria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            android:text="Armas/Utilitários" />
+            android:text="Ferraria" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chipMuambas"
+            android:id="@+id/chipLembrancas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            android:text="Muambas" />
+            android:text="Lembranças" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chipIngredientes"
+            android:id="@+id/chipMercado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            android:text="Ingredientes" />
+            android:text="Mercado" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chipPocoes"
+            android:id="@+id/chipAlquimia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            android:text="Poções" />
+            android:text="Alquimia" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chipDecoracoesMoveis"
+            android:id="@+id/chipMoveis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            android:text="Decorações/Móveis" />
+            android:text="Móveis" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chipArvoresFlores"
+            android:id="@+id/chipPaisagismo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            android:text="Árvores/Flores" />
+            android:text="Paisagismo" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chipIscasVaras"
+            android:id="@+id/chipPesca"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            android:text="Iscas/Varas" />
+            android:text="Pesca" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTodos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tudo" />
     </com.google.android.material.chip.ChipGroup>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="409dp"
+        android:layout_height="609dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipGroup"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/chipGroup2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

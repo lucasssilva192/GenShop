@@ -16,6 +16,9 @@ import com.teyvat.genshop.menu.configuracoes.*
 import com.teyvat.genshop.menu.pesquisa.FavoritosFragment
 import com.teyvat.genshop.menu.pesquisa.PedidosFragment
 import com.teyvat.genshop.menu.pesquisa.PesquisaFragment
+import com.teyvat.genshop.menu.pesquisa.PesquisaLojaFragment
+import com.teyvat.genshop.models.Cliente
+import com.teyvat.genshop.models.Loja
 import com.teyvat.genshop.models.Usuario
 import com.teyvat.genshop.utils.Sessao
 import com.teyvat.genshop.utils.Utilitarios
@@ -113,16 +116,12 @@ class MenuActivity : AppCompatActivity() {
         binding.navigationView.setNavigationItemSelectedListener() {
             binding.drawerLayout.closeDrawers()
             when(it.itemId ) {
-                R.id.pesquisa -> {
+                R.id.produtos -> {
                     var frag = PesquisaFragment.newInstance()
                     supportFragmentManager.beginTransaction().replace(R.id.menuContainer, frag).commit()
                 }
-                R.id.produtos -> {
-                    var frag = ListaProdutoFragment.newInstance()
-                    supportFragmentManager.beginTransaction().replace(R.id.menuContainer, frag).commit()
-                }
                 R.id.lojas -> {
-                    var frag = LojasFragment.newInstance()
+                    var frag = PesquisaLojaFragment.newInstance()
                     supportFragmentManager.beginTransaction().replace(R.id.menuContainer, frag).commit()
                 }
                 R.id.favoritos -> {

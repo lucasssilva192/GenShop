@@ -3,6 +3,7 @@ package com.teyvat.genshop.models
 import java.util.*
 
 data class Cliente(
+    val id: Int? = null,
     var first_name: String,
     var last_name: String,
     var birth_date: String,

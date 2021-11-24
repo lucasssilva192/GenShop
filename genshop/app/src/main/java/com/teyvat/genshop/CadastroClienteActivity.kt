@@ -74,9 +74,9 @@ class CadastroClienteActivity : AppCompatActivity() {
         val dataNascimento = binding.txtDataNascimento.text.toString()
         val cpf = binding.txtCPF.text.toString()
         val telefone = binding.txtTelefone.text.toString()
-        val celular = binding.txtTelefone.text.toString()
+        val celular = binding.txtCelular.text.toString()
 
-        var cliente = Cliente(nome, sobrenome, dataNascimento, cpf, telefone, celular);
+        var cliente = Cliente(null, nome, sobrenome, dataNascimento, cpf, telefone, celular);
         API().cliente.cadastrar("Bearer ${Sessao.usuario?.token}",cliente).enqueue(callback)
     }
 
