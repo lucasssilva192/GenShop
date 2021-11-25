@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
                     break;
                 case 3:
                     $name = 'Henrique Pereira';
-                    $email = 'henriquepereira@gmail.com';
+                    $email = 'keeneyefalcon@outlook.com';
                     $password = '123456789';
                     break;
             }

@@ -46,6 +46,7 @@
           <option value="6">Móveis</option>
           <option value="7">Paisagismo</option>
           <option value="8">Pesca</option>
+          <option value="9">Livraria</option>
         </select>
         </div>
 
