@@ -171,13 +171,13 @@ class StoresSeeder extends Seeder
 
             [
                 'user_id' => 1,
-                'name' => 'Mestre Lu',
+                'name' => 'Carpintaria de Fanmu',
                 'cnpj' => mt_rand(10000000000000, 99999999999999),
                 'cellphone' => mt_rand(15900000000, 15999999999),
                 'telephone' => mt_rand(1500000000, 1599999999),
                 'type' => 'Móveis',
                 'profile_pic' => '...',
-                'address' => 'Estuário de Qiongji, Liyue'
+                'address' => 'Vila Qingce, Liyue'
             ],
 
             [
@@ -248,7 +248,7 @@ class StoresSeeder extends Seeder
 
             [
                 'user_id' => 1,
-                'name' => 'Mestre Zhang',
+                'name' => 'Ferro de Hanfeng',
                 'cnpj' => mt_rand(10000000000000, 99999999999999),
                 'cellphone' => mt_rand(15900000000, 15999999999),
                 'telephone' => mt_rand(1500000000, 1599999999),

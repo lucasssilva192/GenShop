@@ -36,6 +36,7 @@
             <option value="Decorações/Móveis">Decorações / Móveis</option>
             <option value="Árvores/Flores">Árvores / Flores</option>
             <option value="Iscas/Varas">Iscas / Varas</option>
+            <option value="Livros">Livros</option>
         </select>
         </div>
         <div class="form-group mb-4">
