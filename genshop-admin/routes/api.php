@@ -62,14 +62,15 @@ Route::get('/address/{address}', [AddressController::class, 'show']);
 Route::put('/address/{address}', [AddressController::class, 'update']);
 Route::delete('/address/{address}', [AddressController::class, 'destroy']);
 
-Route::post('/cart', [CartController::class, 'store']);
-Route::get('/cart', [CartController::class, 'index']);
+Route::post('/cart/{cart}', [CartController::class, 'add']);
 Route::get('/cart/{cart}', [CartController::class, 'show']);
-Route::put('/cart/{cart}', [CartController::class, 'update']);
+Route::put('/cart/remove', [CartController::class, 'remove']);
 Route::delete('/cart/{cart}', [CartController::class, 'destroy']);
 
 Route::post('/order', [OrderController::class, 'store']);
 Route::get('/order', [OrderController::class, 'index']);
+Route::put('/order/products', [OrderController::class, 'products']);
+Route::post('/order/finish_order', [OrderController::class, 'finish_order']);
 Route::get('/order/{order}', [OrderController::class, 'show']);
 Route::put('/order/{order}', [OrderController::class, 'update']);
 Route::delete('/order/{order}', [OrderController::class, 'destroy']);

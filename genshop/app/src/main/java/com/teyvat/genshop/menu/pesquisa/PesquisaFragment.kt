@@ -36,6 +36,9 @@ class PesquisaFragment : Fragment() {
             requisicaoPesquisa(busca)
         }
 
+        binding.chipTodos.setOnClickListener {
+            pesquisa_categoria("")
+        }
         binding.chipArmasUtilitarios.setOnClickListener {
             pesquisa_categoria("Armas/Utilitários")
         }

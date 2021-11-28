@@ -83,6 +83,7 @@ class MenuActivity : AppCompatActivity() {
                 Sessao.usuario = Usuario(usuario,email,token)
 
             Log.d("Cliente", "${Sessao.cliente?.first_name} - ${Sessao.cliente?.cpf}")
+            Log.d("ID", "${Sessao.usuario?.token}")
             Log.d("Endereco", "${Sessao.endereco?.name} - ${Sessao.endereco?.address}")
         }
 
@@ -118,6 +119,10 @@ class MenuActivity : AppCompatActivity() {
             when(it.itemId ) {
                 R.id.produtos -> {
                     var frag = PesquisaFragment.newInstance()
+                    supportFragmentManager.beginTransaction().replace(R.id.menuContainer, frag).commit()
+                }
+                R.id.carrinho -> {
+                    var frag = CarrinhoFragment.newInstance()
                     supportFragmentManager.beginTransaction().replace(R.id.menuContainer, frag).commit()
                 }
                 R.id.lojas -> {

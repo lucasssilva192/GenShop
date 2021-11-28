@@ -53,6 +53,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('user.index') }}">Usuários</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('stores.index') }}">Lojas</a>
+                        </li>
                         @endif
                     </ul>                                        
                     <ul class="navbar-nav ms-auto">

@@ -6,6 +6,8 @@ use App\Http\Controllers\ADM\StoreController;
 use App\Http\Controllers\ADM\ProductController;
 use App\Http\Controllers\ADM\OrderController;
 use App\Http\Controllers\ADM\UserController;
+use App\Http\Controllers\ADM\CartController;
+use App\Http\Controllers\ADM\StoresController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('/store', StoreController::class);
     Route::resource('/category', CategoryController::class);
     Route::resource('/user', UserController::class);
+    Route::resource('/stores', StoresController::class);
+
+    //Route::get('/store/stores', [StoreController::class, 'stores'])->name('store.stores');
+    //Route::post('/store/{store}', [StoreController::class, 'show_store'])->name('store.show_store');
+    //Route::post('/store/{store}', [StoreController::class, 'edit_store'])->name('store.edit_store');
 });
 
 require __DIR__.'/auth.php';

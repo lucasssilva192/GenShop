@@ -4,13 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
     app:cardElevation="3dp"
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout5"
-        android:layout_width="400dp"
-        android:layout_height="match_parent">
+        android:layout_width="350dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
 
 
         <androidx.cardview.widget.CardView
@@ -42,6 +46,7 @@
             android:layout_marginTop="16dp"
             android:text="Nome do Produto"
             android:textAlignment="viewStart"
+            android:textColor="#000000"
             android:textSize="20dp"
             app:layout_constraintStart_toEndOf="@+id/imgBorder"
             app:layout_constraintTop_toTopOf="parent" />

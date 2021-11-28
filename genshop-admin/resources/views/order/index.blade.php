@@ -1,3 +1,5 @@
+@php use App\Models\ADM\Customer; @endphp
+
 @extends('template.principal')
 
 @section('content')
@@ -10,21 +12,28 @@
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Preço</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Valor da compra</th>
             <th scope="col">Status</th>
             <th scope="col">Opções</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>X</td>
-            <td>Y</td>
-            <td>Z</td>
-            <td>
-              <a href="#" class="btn btn-primary btn-sm">Visualizar</a>
-              <a href="#" class="btn btn-primary btn-sm">Editar</a>
-            </td>
-          </tr>
+          @foreach($orders as $order)
+            <tr>
+              <td>{{$order->id}}</td>
+              <td>
+                @php $customer = Customer::where('id', $order->customer_id)->first(); @endphp
+                {{$customer->first_name}} {{$customer->last_name}}
+              </td>
+              <td>{{$order->price}}</td>
+              <td>{{$order->status}}</td>
+              <td>
+              <a href="{{route('order.show', $order->id)}}" class="btn btn-primary btn-sm">Visualizar</a>
+              <a href="{{route('order.edit', $order->id)}}" class="btn btn-primary btn-sm">Atualizar Status</a>
+              </td>
+            </tr>
+          @endforeach
         </tbody>
       </table>
     </div>
