@@ -4,10 +4,10 @@
 
 <body>
   <div class="container py-5">
-    <div class="card container-sm p-4">
+    <div class="card container-sm p-4 bg-card">
       <form method="POST" action="{{ Route('store.store') }}" enctype="multipart/form-data">
         @csrf
-        <h1> Lojas </h1>
+        <h1 class="text-center pb-4"> Cadastrar Loja </h1>
         <input type="text" name="user_id" id="user_id" class="d-none" value="{{Auth()->user()->id}}" />
 
         <div class="form-outline mb-4">
@@ -46,6 +46,7 @@
           <option value="6">Móveis</option>
           <option value="7">Paisagismo</option>
           <option value="8">Pesca</option>
+          <option value="9">Livraria</option>
         </select>
         </div>
 

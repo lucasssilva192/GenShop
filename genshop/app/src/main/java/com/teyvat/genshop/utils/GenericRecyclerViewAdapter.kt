@@ -21,6 +21,14 @@ import com.teyvat.genshop.models.Endereco
 import com.teyvat.genshop.models.EnumTipoEndereco
 import com.teyvat.genshop.models.Loja
 import com.teyvat.genshop.models.Produto
+import com.google.gson.JsonObject
+import com.squareup.picasso.Picasso
+import com.teyvat.genshop.ShowCompraActivity
+import com.teyvat.genshop.ShowLojaActivity
+import com.teyvat.genshop.ShowProdutoActivity
+import com.teyvat.genshop.api.API
+import com.teyvat.genshop.databinding.*
+import com.teyvat.genshop.models.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -66,7 +74,9 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
                 binding.txtNomeProduto.text = item.name
                 binding.txtCategoriaProd.text = item.category
                 binding.txtPreco.text = item.price
+                val idProduto = item.id
                 Picasso.get().load("http://192.168.3.26/api/product/image/${item.id}").into(binding.imgProduto)
+                val quantidade = 1
                 binding.root.setOnClickListener {
                     val intent = Intent(binding.root.context, ShowProdutoActivity::class.java)
                     intent.putExtra("nomeProd", item.name)
@@ -75,6 +85,9 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
                     intent.putExtra("id", item.id)
                     intent.putExtra("descProd", item.description)
                     binding.root.context.startActivity(intent)
+                }
+                binding.imageView2.setOnClickListener {
+                    Utilitarios.addAoCarrinho(binding.root, idProduto!!, quantidade)
                 }
             }
             if(binding is ItemLojaBinding && item is Loja){
@@ -89,6 +102,43 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
                     intent.putExtra("celular", item.cellphone)
                     intent.putExtra("endereco", item.address)
                     intent.putExtra("id", item.id)
+                    binding.root.context.startActivity(intent)
+                }
+            }
+            if(binding is ItemCarrinhoBinding && item is Produto){
+                binding.txtNomeProduto.text = item.name
+                binding.txtValor.text = item.price
+                binding.editQuantidade.setText((item.quantity).toString())
+                val idProduto = item.c_id
+                Picasso.get().load("http://192.168.3.26/api/product/image/${idProduto}").into(binding.imgProduto)
+                binding.btnRemover.setOnClickListener {
+                    Utilitarios.remover_do_carrinho(binding.root, idProduto!!, 1)
+                    binding.editQuantidade.setText((binding.editQuantidade.text.toString().toInt() - 1).toString())
+                }
+                binding.btnAdicionar.setOnClickListener {
+                    Utilitarios.addAoCarrinho(binding.root, idProduto!!, 1)
+                    binding.editQuantidade.setText((binding.editQuantidade.text.toString().toInt() + 1).toString())
+                }
+
+            }
+            if(binding is ItemPedidoProduoBinding && item is ProdCompra){
+                Log.e("PRODUTOS", "${item.name}")
+                binding.txtNomeProduto.text = item.name
+                binding.txtQtd.text = (item.qtd).toString()
+                binding.txtPreco.text = item.price
+                val idProduto = item.c_id
+                Picasso.get().load("http://192.168.3.26/api/product/image/${idProduto}").into(binding.imgProduto)
+            }
+            if(binding is ItemCompraBinding && item is Compra)
+            {
+                binding.txtPedido.setText("Pedido #" + item.id)
+                binding.root.setOnClickListener {
+                    val intent = Intent(binding.root.context, ShowCompraActivity::class.java)
+                    intent.putExtra("id", item.id)
+                    intent.putExtra("price", item.price)
+                    intent.putExtra("status", item.status)
+                    intent.putExtra("address", item.address_id)
+                    intent.putExtra("pagto", item.pagto)
                     binding.root.context.startActivity(intent)
                 }
             }
@@ -112,6 +162,15 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
             EnumTipoLista.ListaLoja.valor -> {
                 genericBinding = ItemLojaBinding.inflate(layoutInflater, parent, false)
             }
+            EnumTipoLista.ListaCarrinho.valor -> {
+                genericBinding = ItemCarrinhoBinding.inflate(layoutInflater, parent, false)
+            }
+            EnumTipoLista.ListaPedidoProduto.valor -> {
+                genericBinding = ItemPedidoProduoBinding.inflate(layoutInflater, parent, false)
+            }
+            EnumTipoLista.ListaCompra.valor -> {
+                genericBinding = ItemCompraBinding.inflate(layoutInflater, parent, false)
+            }
         }
 
         return GenericViewHolder(genericBinding)
@@ -132,5 +191,7 @@ enum class EnumTipoLista(val valor: Int) {
     ListaLoja(2),
     ListaPedido(3),
     ListaProduto(4),
-    ListaCarrinho(5)
+    ListaCarrinho(5),
+    ListaPedidoProduto(6),
+    ListaCompra(7)
 }

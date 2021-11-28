@@ -41,10 +41,10 @@ class ShowLojaActivity : AppCompatActivity() {
         id = intent.getIntExtra("id", 0)
 
         binding.txtNomeLoja.text = nomeLoja
-        binding.txtTipoLoja.text = tipoLoja
-        binding.txtCelular.text = celularLoja
-        binding.txtTelefone.text = telefoneLoja
-        binding.txtEndereco.text = enderecoLoja
+        binding.txtTipoLoja.text = "Categoria: " + tipoLoja
+        binding.txtCelular.text = "Celular: " + celularLoja
+        binding.txtTelefone.text = "Telefone: " + telefoneLoja
+        binding.txtEndereco.text = "Endereço: " + enderecoLoja
         Picasso.get().load("http://192.168.3.26/api/store/image/${id}").into(binding.imgLoja)
 
         pegarProdutos()
