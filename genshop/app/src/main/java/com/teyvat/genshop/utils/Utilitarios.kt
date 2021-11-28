@@ -25,6 +25,10 @@ object Utilitarios {
             .show()
     }
 
+    fun snackBarRequestFaliure(view: View){
+        Snackbar.make(view, "Falha ao conectar com a internet", Snackbar.LENGTH_LONG).show()
+    }
+
     fun aplicarTemaEscuro(context: Context, delegate: AppCompatDelegate){
         val temaEscuro = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("tema_escuro", true)
         if(temaEscuro){

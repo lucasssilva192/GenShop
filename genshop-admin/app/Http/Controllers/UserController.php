@@ -21,14 +21,14 @@ class UserController extends Controller
 
         $user = User::where('email', $request->email)->first();
         //Caso necessario validar durações do tokens para gerar novos.
-        if(!$user || !Hash::check($request->password, $user->password)){
+        //if(!$user || !Hash::check($request->password, $user->password)){
+        if(!$user || $request->password != $user->password){
             error_log($request->email);
             return response()->json([
                 'error' => 'Credenciais invalidas'
             ], 401);
         }
         else{
-            //error_log($request);
             $data = [
                 'name' => $user->name,
                 'email' => $user->email,

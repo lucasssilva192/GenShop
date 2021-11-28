@@ -1,27 +1,34 @@
     package com.teyvat.genshop.utils
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
+import com.teyvat.genshop.CadastroEnderecoActivity
 import com.teyvat.genshop.ShowLojaActivity
 import com.teyvat.genshop.ShowProdutoActivity
+import com.teyvat.genshop.api.API
 import com.teyvat.genshop.databinding.ItemEnderecoBinding
 import com.teyvat.genshop.databinding.ItemLojaBinding
 import com.teyvat.genshop.databinding.ItemProdutoBinding
 import com.teyvat.genshop.models.Endereco
+import com.teyvat.genshop.models.EnumTipoEndereco
 import com.teyvat.genshop.models.Loja
 import com.teyvat.genshop.models.Produto
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
     /*
     *  Parametros para utilizar o binding generico
     *  lista => A lista pode ser passado qualquer tipo de lista
     *  tipoLista => Utilizar o enum abaixo para passar o tipo. Ex: EnumTipoLista.ListaEndereco.valor
-    *
     */
 class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) : RecyclerView.Adapter<GenericRecyclerViewAdapter.GenericViewHolder>() {
 
@@ -37,12 +44,22 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
             if(binding is ItemEnderecoBinding && item is Endereco){
                 binding.txtNomeEndereco.text = item.cep
                 binding.txtEndereco.text = "${item.address} - ${item.cep}"
-                if(item.main.equals("Não")){
+                if(item.main.equals(EnumTipoEndereco.NaoSelecionado.valor)){
                     binding.iconeAtivo.isVisible = false
                 }
 
+                binding.btnExcluir.setOnClickListener(){
+                    UtilitariosAPI.removeEndereco(binding.root, item)
+                }
+
+                binding.btnAlterar.setOnClickListener(){
+                    val intent = Intent(binding.root.context, CadastroEnderecoActivity::class.java)
+                    intent.putExtra("endereco", item)
+                    binding.root.context.startActivity(intent)
+                }
+
                 binding.root.setOnClickListener(){
-                    Toast.makeText(binding.root.context, "Cliclou no endereço ${item.address}", Toast.LENGTH_LONG).show()
+                    UtilitariosAPI.escolherEndereco(binding.root, item)
                 }
             }
             if(binding is ItemProdutoBinding && item is Produto){

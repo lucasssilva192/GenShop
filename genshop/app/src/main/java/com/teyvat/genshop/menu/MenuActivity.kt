@@ -82,8 +82,7 @@ class MenuActivity : AppCompatActivity() {
             if(usuario != null && token != null && email != null)
                 Sessao.usuario = Usuario(usuario,email,token)
 
-            Log.d("Cliente", "${Sessao.cliente?.first_name} - ${Sessao.cliente?.cpf}")
-            Log.d("Endereco", "${Sessao.endereco?.name} - ${Sessao.endereco?.address}")
+            Log.d("Usuario", "${Sessao.usuario?.token}")
         }
 
         return Sessao.usuario != null
