@@ -4,10 +4,10 @@
 
 <body>
   <div class="container py-5">
-    <div class="card container-sm p-4">
+    <div class="card container-sm p-4 bg-card">
       <form method="POST" action="{{ Route('product.store') }}" enctype="multipart/form-data">
         @csrf
-        <h1 class="pb-4">Cadastrar Produto</h1>
+        <h1 class="text-center pb-4">Cadastrar Produto</h1>
         <input type="text" name="store_id" id="store_id" class="d-none" value="1" />
 
         <div class="form-outline mb-4">
@@ -36,6 +36,7 @@
             <option value="Decorações/Móveis">Decorações / Móveis</option>
             <option value="Árvores/Flores">Árvores / Flores</option>
             <option value="Iscas/Varas">Iscas / Varas</option>
+            <option value="Livros">Livros</option>
         </select>
         </div>
         <div class="form-group mb-4">

@@ -38,9 +38,9 @@
     }
   }
 
-  .navbar .nav-link {
+  /* .navbar .nav-link {
     color: black !important;
-  }
+  } */
 </style>
 @endsection
 
@@ -49,7 +49,7 @@
 <body>
   <div class="container py-5">
     <x-guest-layout>
-      <div class="card container-sm p-4">
+      <div class="card container-sm p-4 bg-card">
         <x-slot name="logo">
         </x-slot>
 

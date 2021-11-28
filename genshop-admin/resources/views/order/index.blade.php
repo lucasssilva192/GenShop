@@ -6,8 +6,8 @@
 
 <body>
   <div class="container py-5">
-    <div class="card container-sm p-4">
-      <h1> Pedidos </h1>
+    <div class="card container-sm p-4 bg-card">
+      <h1 class="text-center pb-4"> Pedidos </h1>
       <table class="table">
         <thead>
           <tr>

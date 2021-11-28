@@ -1,0 +1,26 @@
+.bg-card{
+    background-color: #f2efeb;
+}
+
+.btn-primary{
+    background-color: #393b40 !important;
+    color: #b2966a !important;
+}
+
+.btn-primary:hover{
+    background-color: #191b1f !important;
+}
+
+@media (min-width: 768px){
+    .card-login {
+        width: 648px;
+        margin: auto;
+    }
+}
+
+.logo-genshop{
+    fill: white;
+    width: 200px;
+    height: 65px;
+    margin-right: auto;
+}
