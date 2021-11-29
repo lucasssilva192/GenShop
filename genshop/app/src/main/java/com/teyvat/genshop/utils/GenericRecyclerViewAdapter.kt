@@ -9,12 +9,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.snackbar.Snackbar
-import com.squareup.picasso.Picasso
 import com.teyvat.genshop.CadastroEnderecoActivity
-import com.teyvat.genshop.ShowLojaActivity
-import com.teyvat.genshop.ShowProdutoActivity
-import com.teyvat.genshop.api.API
-import com.teyvat.genshop.databinding.ItemEnderecoBinding
 import com.teyvat.genshop.databinding.ItemLojaBinding
 import com.teyvat.genshop.databinding.ItemProdutoBinding
 import com.teyvat.genshop.models.Endereco
@@ -24,9 +19,8 @@ import com.teyvat.genshop.models.Produto
 import com.google.gson.JsonObject
 import com.squareup.picasso.Picasso
 import com.teyvat.genshop.ShowCompraActivity
-import com.teyvat.genshop.ShowLojaActivity
 import com.teyvat.genshop.ShowProdutoActivity
-import com.teyvat.genshop.api.API
+import com.teyvat.genshop.ShowLojaActivity
 import com.teyvat.genshop.databinding.*
 import com.teyvat.genshop.models.*
 import retrofit2.Call

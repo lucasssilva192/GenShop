@@ -651,7 +651,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Cebola',
                 'price' => 3.50,
                 'description' => 'Cebola',
-                'picture' => '...',
+                'picture' => 'cebola.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -660,7 +660,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Leite',
                 'price' => 2.50,
                 'description' => 'Leite integral',
-                'picture' => 'cebola.png',
+                'picture' => 'leite.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -669,7 +669,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Tomate',
                 'price' => 3,
                 'description' => 'Tomate',
-                'name' => 'Tomate',
+                'picture' => 'tomate.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -705,7 +705,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Arroz',
                 'price' => 5.50,
                 'description' => 'Arroz tipo 1',
-                'picture' => '...',
+                'picture' => 'arroz.png',
                 'category' => 'Ingredientes'
             ],
 
