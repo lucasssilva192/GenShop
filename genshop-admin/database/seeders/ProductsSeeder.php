@@ -1094,7 +1094,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Árvore Cuihua',
                 'price' => 80,
                 'description' => 'Madeira de lei de folhas verdes e vida longa',
-                'picture' => '...',
+                'picture' => 'cuihua.png',
                 'category' => 'Árvores/Flores'
             ],
 
@@ -1103,7 +1103,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'O Ganso Errante em Si',
                 'price' => 80,
                 'description' => 'Bordo de Amur de cores vermelhas',
-                'picture' => '...',
+                'picture' => 'ganso.png',
                 'category' => 'Árvores/Flores'
             ],
 
@@ -1112,7 +1112,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Entre Nove Passos',
                 'price' => 120,
                 'description' => 'Árvore de Sakura alta, reta e com coloração arroxeada',
-                'picture' => '...',
+                'picture' => 'sakura.png',
                 'category' => 'Árvores/Flores'
             ],
         ];
