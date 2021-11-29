@@ -21,7 +21,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Suco de Gancho de Lobo',
                 'price' => 15.00,
                 'description' => 'Suco de gancho de lobo com gelo',
-                'picture' => '...',
+                'picture' => 'suco_gancho.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -30,7 +30,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Bebida de Bagas e Menta',
                 'price' => 15.00,
                 'description' => 'Bebida de menta adornada com baga',
-                'picture' => '...',
+                'picture' => 'bagas_menta.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -39,7 +39,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Sidra de Maçã',
                 'price' => 15.00,
                 'description' => 'Suco de maçã levemente gaseificado',
-                'picture' => '...',
+                'picture' => 'sidra_maca.png',
                 'category' => 'Comidas/Bebidas'
             ],
             
@@ -49,7 +49,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Emaranhador do Vento',
                 'price' => 250,
                 'description' => 'Vara de pescar customizada com a bênção do Arconte Anemo',
-                'picture' => '...',
+                'picture' => 'vara_mond.png',
                 'category' => 'Iscas/Varas'
             ],
 
@@ -58,7 +58,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Isca de Frutas',
                 'price' => 1.99,
                 'description' => 'Isca feita com Fruto do Pôr do Sol e Trigo',
-                'picture' => '...',
+                'picture' => 'isca_frutas.png',
                 'category' => 'Iscas/Varas'
             ],
 
@@ -67,7 +67,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Isca de Milhete Vermelho',
                 'price' => 4.50,
                 'description' => 'Isca feita com Dendróbio e Carne',
-                'picture' => '...',
+                'picture' => 'isca_milhete.png',
                 'category' => 'Iscas/Varas'
             ],
 
@@ -76,7 +76,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Isca de Verme Falso',
                 'price' => 8.90,
                 'description' => 'Isca em forma de minhoca com aroma de frutas',
-                'picture' => '...',
+                'picture' => 'isca_minhoca.png',
                 'category' => 'Iscas/Varas'
             ],
 
@@ -85,7 +85,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Isca de Mosca Falsa',
                 'price' => 10,
                 'description' => 'Isca de cores vibrantes sem cheiro',
-                'picture' => '...',
+                'picture' => 'isca_mosca.png',
                 'category' => 'Iscas/Varas'
             ],
 
@@ -95,7 +95,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Ovo Frito de Teyvat',
                 'price' => 1.80,
                 'description' => 'Ovo frito',
-                'picture' => '...',
+                'picture' => 'ovo_frito.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -104,7 +104,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Espeto de Frango com Cogumelos',
                 'price' => 4.50,
                 'description' => 'Espeto grelhado de frango e cogumelos',
-                'picture' => '...',
+                'picture' => 'espeto.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -113,7 +113,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Pão de Pescador',
                 'price' => 9.20,
                 'description' => 'Torrada coberta com cebola',
-                'picture' => '...',
+                'picture' => 'pao_pescador.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -123,7 +123,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Água de Banho da Barbara',
                 'price' => 300,
                 'description' => 'Um souvenir requintado para os fãs da maior idol de Teyvat',
-                'picture' => '...',
+                'picture' => 'agua_banho.png',
                 'category' => 'Muamba'
             ],
 
@@ -133,7 +133,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Óleo Essencial Flamejante',
                 'price' => 20,
                 'description' => 'Poção para aumentar o dano Pyro',
-                'picture' => '...',
+                'picture' => 'pocao_fogo.png',
                 'category' => 'Poções'
             ],
 
@@ -142,7 +142,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Óleo Essencial de Torrente',
                 'price' => 20,
                 'description' => 'Poção para aumentar o dano Hydro',
-                'picture' => '...',
+                'picture' => 'pocao_agua.png',
                 'category' => 'Poções'
             ],
 
@@ -151,7 +151,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Óleo Essencial Congelante',
                 'price' => 20,
                 'description' => 'Poção para aumentar o dano Cryo',
-                'picture' => '...',
+                'picture' => 'pocao_gelo.png',
                 'category' => 'Poções'
             ],
 
@@ -160,7 +160,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Óleo Essencial Vendaval',
                 'price' => 20,
                 'description' => 'Poção para aumentar o dano Anemo',
-                'picture' => '...',
+                'picture' => 'pocao_vento.png',
                 'category' => 'Poções'
             ],
 
@@ -169,7 +169,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Óleo Essencial Chocante',
                 'price' => 20,
                 'description' => 'Poção para aumentar o dano Electro',
-                'picture' => '...',
+                'picture' => 'pocao_raio.png',
                 'category' => 'Poções'
             ],
 
@@ -178,7 +178,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Óleo Essencial de Rocha',
                 'price' => 20,
                 'description' => 'Poção para aumentar o dano Geo',
-                'picture' => '...',
+                'picture' => 'pocao_pedra.png',
                 'category' => 'Poções'
             ],
 
@@ -188,16 +188,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Protótipo de Espada do Território do Norte',
                 'price' => 225,
                 'description' => 'Protótipo para criação de espada',
-                'picture' => '...',
-                'category' => 'Muamba'
-            ],
-
-            [
-                'store_id' => 6,
-                'name' => 'Lembrança dos Quatro Ventos',
-                'price' => 500,
-                'description' => 'Constelação perdida do Viajante',
-                'picture' => '...',
+                'picture' => 'prototipo_espada.png',
                 'category' => 'Muamba'
             ],
 
@@ -207,7 +198,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Sal',
                 'price' => 2.50,
                 'description' => 'Sal refinado',
-                'picture' => '...',
+                'picture' => 'sal.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -216,7 +207,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Pimenta',
                 'price' => 4.50,
                 'description' => 'Pimenta moída',
-                'picture' => '...',
+                'picture' => 'pimenta.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -225,7 +216,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Cebola',
                 'price' => 3.50,
                 'description' => 'Cebola',
-                'picture' => '...',
+                'picture' => 'cebola.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -234,7 +225,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Leite',
                 'price' => 2.50,
                 'description' => 'Leite integral',
-                'picture' => '...',
+                'picture' => 'leite.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -243,7 +234,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Tomate',
                 'price' => 3,
                 'description' => 'Tomate',
-                'picture' => '...',
+                'picture' => 'tomate.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -252,7 +243,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Repolho',
                 'price' => 2,
                 'description' => 'Repolho',
-                'picture' => '...',
+                'picture' => 'repolho.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -261,7 +252,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Batata',
                 'price' => 2.50,
                 'description' => 'Batata',
-                'picture' => '...',
+                'picture' => 'batata.png',
                 'category' => 'Ingredientes'
             ],
             
@@ -270,7 +261,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Trigo',
                 'price' => 3.50,
                 'description' => 'Trigo',
-                'picture' => '...',
+                'picture' => 'trigo.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -280,7 +271,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Flor Doce',
                 'price' => 2,
                 'description' => 'Flor de aroma forte com sabor doce',
-                'picture' => '...',
+                'picture' => 'flor_doce.png',
                 'category' => 'Árvores/Flores'
             ],
 
@@ -289,7 +280,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Cecília',
                 'price' => 10,
                 'description' => 'Flor rara encontrada em locais com ventos fortes',
-                'picture' => '...',
+                'picture' => 'cecilia.png',
                 'category' => 'Árvores/Flores'
             ],
 
@@ -298,7 +289,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Lâmpada de Grama',
                 'price' => 10,
                 'description' => 'Flor selvagem que emite luz à noite',
-                'picture' => '...',
+                'picture' => 'lampada_grama.png',
                 'category' => 'Árvores/Flores'
             ],
 
@@ -307,7 +298,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Moinho de Vento Aster',
                 'price' => 10,
                 'description' => 'Flor símbolo de Mondstadt, descrita como a flor que adora o vento',
-                'picture' => '...',
+                'picture' => 'moinho_aster.png',
                 'category' => 'Árvores/Flores'
             ],
 
@@ -316,7 +307,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Lótus de Leite',
                 'price' => 10,
                 'description' => 'Flor que cresce perto de fontes de água',
-                'picture' => '...',
+                'picture' => 'lotus_leite.png',
                 'category' => 'Árvores/Flores'
             ],
 
@@ -326,7 +317,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Protótipo Rancor',
                 'price' => 500,
                 'description' => 'Antiga espada longa descoberta na Forja do Penhasco Obscuro',
-                'picture' => '...',
+                'picture' => 'rancor.png',
                 'category' => 'Armas/Utilitários'
             ],
 
@@ -335,7 +326,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Protótipo',
                 'price' => 500,
                 'description' => 'Protótipo de arco descoberto na Forja do Penhasco Obscuro',
-                'picture' => '...',
+                'picture' => 'crescente.png',
                 'category' => 'Armas/Utilitários'
             ],
 
@@ -344,7 +335,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Protótipo Arcaico',
                 'price' => 500,
                 'description' => 'Espadão antigo descoberto na Forja do Penhasco Obscuro',
-                'picture' => '...',
+                'picture' => 'arcaico.png',
                 'category' => 'Armas/Utilitários'
             ],
 
@@ -353,7 +344,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Protótipo Âmbar',
                 'price' => 500,
                 'description' => 'Catalisador dourado guardado secretamente na Forja do Penhasco Obscuro',
-                'picture' => '...',
+                'picture' => 'ambar.png',
                 'category' => 'Armas/Utilitários'
             ],
 
@@ -362,7 +353,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Protótipo Estelar',
                 'price' => 500,
                 'description' => 'Lança descoberta na Forja do Penhasco Obscuro',
-                'picture' => '...',
+                'picture' => 'estelar.png',
                 'category' => 'Armas/Utilitários'
             ],
 
@@ -372,7 +363,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Placa de Madeira Morta',
                 'price' => 150,
                 'description' => 'Placa utilizada pela Guilda de Aventureiros para marcar seus acampamentos',
-                'picture' => '...',
+                'picture' => 'placa.png',
                 'category' => 'Decorações/Móveis'
             ],
 
@@ -381,7 +372,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Tenda com Proteção Contra Raios',
                 'price' => 300,
                 'description' => 'Tenda espaçosa equipada com para-raios',
-                'picture' => '...',
+                'picture' => 'tenda_raio.png',
                 'category' => 'Decorações/Móveis'
             ],
 
@@ -390,7 +381,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Tenda Simples para Uma Pessoa',
                 'price' => 100,
                 'description' => 'Tenda confortável para uma pessoa',
-                'picture' => '...',
+                'picture' => 'tenda.png',
                 'category' => 'Decorações/Móveis'
             ],
 
@@ -400,7 +391,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Tofu de Amêndoas',
                 'price' => 15.50,
                 'description' => 'Pedaços de tofu com amêndoas',
-                'picture' => '...',
+                'picture' => 'tofu_amendoa.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -409,7 +400,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Enroladinho de Carne com Matsutake',
                 'price' => 17.75,
                 'description' => 'Carne moída envolta por matsutake',
-                'picture' => '...',
+                'picture' => 'enroladinho',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -418,7 +409,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Frango de Pimenta de Jueyun',
                 'price' => 19.25,
                 'description' => 'Tiras de frango frio com molho de pimenta de jueyun',
-                'picture' => '...',
+                'picture' => 'frango_jueyun.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -427,7 +418,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Macarrão com Delícias das Montanhas',
                 'price' => 15.50,
                 'description' => 'Macarrão ao molho de carne e legumes',
-                'picture' => '...',
+                'picture' => 'macarrao_montanha',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -437,7 +428,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Flor de Seda',
                 'price' => 10,
                 'description' => 'Flor utilizada para confeccção de tecidos',
-                'picture' => '...',
+                'picture' => 'seda.png',
                 'category' => 'Árvores/Flores'
             ],
 
@@ -446,7 +437,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Violeta',
                 'price' => 10,
                 'description' => 'Pequena flor com forte vitalidade e cores vibrantes',
-                'picture' => '...',
+                'picture' => 'violeta.png',
                 'category' => 'Árvores/Flores'
             ],
 
@@ -456,7 +447,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Fardos do Aventureiro',
                 'price' => 80,
                 'description' => 'Pilha de itens usados por um aventureiro',
-                'picture' => '...',
+                'picture' => 'fardo.png',
                 'category' => 'Decorações/Móveis'
             ],
 
@@ -466,7 +457,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Rex Incognito',
                 'price' => 15,
                 'description' => 'Romance que retrata as excursões de Rex lapis no mundo mortal',
-                'picture' => '...',
+                'picture' => 'rex_incognito.png',
                 'category' => 'Livros'
             ],
 
@@ -475,7 +466,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Pérola de Coração',
                 'price' => 15,
                 'description' => 'A jornada de um homem para encontrar o homem que devolveu a pulseira de pérolas de Zixin',
-                'picture' => '...',
+                'picture' => 'perola_coracao.png',
                 'category' => 'Livros'
             ],
 
@@ -484,7 +475,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Espada Solitária em Terra Estéril',
                 'price' => 30,
                 'description' => 'Romance de artes marciais de um mundo sem alquimia e poderes elementais',
-                'picture' => '...',
+                'picture' => 'espada_solitaria.png',
                 'category' => 'Livros'
             ],
 
@@ -493,7 +484,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'A Queda de Shenxiao',
                 'price' => 30,
                 'description' => 'Uma jornada épica em busca da alabarda do Rei Deus',
-                'picture' => '...',
+                'picture' => 'shenxiao.png',
                 'category' => 'Livros'
             ],
 
@@ -503,7 +494,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Protótipo de Arco do Território do Norte',
                 'price' => 225,
                 'description' => 'Protótipo para criação de arco',
-                'picture' => '...',
+                'picture' => 'prototipo_arco.png',
                 'category' => 'Muamba'
             ],
 
@@ -512,7 +503,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Protótipo de Espadão do Território do Norte',
                 'price' => 225,
                 'description' => 'Protótipo para criação de espadão',
-                'picture' => '...',
+                'picture' => 'prototipo_espadao.png',
                 'category' => 'Muamba'
             ],
 
@@ -521,7 +512,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Protótipo de Catalisador do Território do Norte',
                 'price' => 225,
                 'description' => 'Protótipo para criação de catalisador',
-                'picture' => '...',
+                'picture' => 'prototipo_catalisador.png',
                 'category' => 'Muamba'
             ],
 
@@ -530,7 +521,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Protótipo de Lança do Território do Norte',
                 'price' => 225,
                 'description' => 'Protótipo para criação de lança',
-                'picture' => '...',
+                'picture' => 'prototipo_lança.png',
                 'category' => 'Muamba'
             ],
 
@@ -540,7 +531,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Ovo Frito de Teyvat',
                 'price' => 1.80,
                 'description' => 'Ovo frito',
-                'picture' => '...',
+                'picture' => 'ovo_frito.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -549,7 +540,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Espeto de Frango com Cogumelos',
                 'price' => 4.50,
                 'description' => 'Espeto grelhado de frango e cogumelos',
-                'picture' => '...',
+                'picture' => 'espeto.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -558,7 +549,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Pão de Pescador',
                 'price' => 9.20,
                 'description' => 'Torrada coberta com cebola',
-                'picture' => '...',
+                'picture' => 'pao_pescador.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -568,7 +559,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Iguarias do Porto de Pedra',
                 'price' => 19.25,
                 'description' => 'Vegatais típicos de Liyue fritos',
-                'picture' => '...',
+                'picture' => 'iguarias_porto.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -577,7 +568,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Macarrão com Delícias das Montanhas',
                 'price' => 21.50,
                 'description' => 'Macarrão ao molho de carne e legumes',
-                'picture' => '...',
+                'picture' => 'macarrao_montanha.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -586,7 +577,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Porco Curado com Matsutake',
                 'price' => 72.75,
                 'description' => 'Carne de porco frita com molho de matsutake picante',
-                'picture' => '...',
+                'picture' => 'porco_curado.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -595,7 +586,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Carne de Tianshu',
                 'price' => 120,
                 'description' => 'Corte nobre de carne defumado e assado',
-                'picture' => '...',
+                'picture' => 'carne_tianshu.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -605,7 +596,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Macarrão com Peixe Frito',
                 'price' => 13.75,
                 'description' => 'Macarrão de arroz frito e peixe pré-cozido',
-                'picture' => '...',
+                'picture' => 'macarrao_peixe.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -614,7 +605,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Almôndegas Douradas de Camarão',
                 'price' => 57,
                 'description' => 'Camarão frito envolto em batatas crocantes',
-                'picture' => '...',
+                'picture' => 'almondegas_camarao.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -623,7 +614,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Ovo de Lua Cheia',
                 'price' => 57.75,
                 'description' => 'Bolinhos de camarão e peixe cozidos a vapor',
-                'picture' => '...',
+                'picture' => 'ovo_lua.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -632,7 +623,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Caranguejo Dourado',
                 'price' => 122,
                 'description' => 'Caranguejo cozido em pedaços',
-                'picture' => '...',
+                'picture' => 'caranguejo.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -642,7 +633,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Sal',
                 'price' => 2.50,
                 'description' => 'Sal refinado',
-                'picture' => '...',
+                'picture' => 'sal.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -651,7 +642,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Pimenta',
                 'price' => 4.50,
                 'description' => 'Pimenta moída',
-                'picture' => '...',
+                'picture' => 'pimenta.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -669,7 +660,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Leite',
                 'price' => 2.50,
                 'description' => 'Leite integral',
-                'picture' => '...',
+                'picture' => 'cebola.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -678,7 +669,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Tomate',
                 'price' => 3,
                 'description' => 'Tomate',
-                'picture' => '...',
+                'name' => 'Tomate',
                 'category' => 'Ingredientes'
             ],
 
@@ -687,7 +678,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Repolho',
                 'price' => 2,
                 'description' => 'Repolho',
-                'picture' => '...',
+                'picture' => 'repolho.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -696,7 +687,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Batata',
                 'price' => 2.50,
                 'description' => 'Batata',
-                'picture' => '...',
+                'picture' => 'batata.png',
                 'category' => 'Ingredientes'
             ],
             
@@ -705,7 +696,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Trigo',
                 'price' => 3.50,
                 'description' => 'Trigo',
-                'picture' => '...',
+                'picture' => 'trigo.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -723,7 +714,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Camarão',
                 'price' => 10,
                 'description' => 'Camarão fresco',
-                'picture' => '...',
+                'picture' => 'camarao.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -732,7 +723,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Tofu',
                 'price' => 6.50,
                 'description' => 'Tofu fresco',
-                'picture' => '...',
+                'picture' => 'tofu.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -741,7 +732,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Amêndoa',
                 'price' => 4.50,
                 'description' => 'Pacote de amêndoas',
-                'picture' => '...',
+                'picture' => 'amendoa.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -751,7 +742,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Espinho de Ferro',
                 'price' => 500,
                 'description' => 'Espada exótica, leve, ágil e afiada',
-                'picture' => '...',
+                'picture' => 'espinho.png',
                 'category' => 'Armas/Utilitários'
             ],
 
@@ -760,7 +751,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Arco Composto',
                 'price' => 500,
                 'description' => 'Arco de liga metálica com rodas que esticam a corda',
-                'picture' => '...',
+                'picture' => 'composto.png',
                 'category' => 'Armas/Utilitários'
             ],
 
@@ -769,7 +760,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Sombra Branca',
                 'price' => 500,
                 'description' => 'Espadão exótico com uma lâmina que ficou sem corte',
-                'picture' => '...',
+                'picture' => 'sombra.png',
                 'category' => 'Armas/Utilitários'
             ],
 
@@ -778,7 +769,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Mappa Mare',
                 'price' => 500,
                 'description' => 'Um mapa bastante detalhado sobre as águas ao redor de Teyvat',
-                'picture' => '...',
+                'picture' => 'mappa.png',
                 'category' => 'Armas/Utilitários'
             ],
 
@@ -787,7 +778,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Pique Crescente',
                 'price' => 500,
                 'description' => 'Uma arma exótica com uma lâmina comprida no topo e uma crescente na parte de baixo',
-                'picture' => '...',
+                'picture' => 'pique.png',
                 'category' => 'Armas/Utilitários'
             ],
 
@@ -797,7 +788,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Realizador de Desejos',
                 'price' => 250,
                 'description' => 'Vara de pescar de bambu feita por um eremita de Liyue',
-                'picture' => '...',
+                'picture' => 'vara_liyue.png',
                 'category' => 'Iscas/Varas'
             ], 
             
@@ -806,7 +797,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Piscina da Nuvem de Espíritos',
                 'price' => 1000,
                 'description' => 'Lago artificial para criação de peixes',
-                'picture' => '...',
+                'picture' => 'aquario.png',
                 'category' => 'Iscas/Varas'
             ],
 
@@ -816,7 +807,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Narukawa Ukai',
                 'price' => 250,
                 'description' => 'Vara criada para celebrar o método de pesca Ukai',
-                'picture' => '...',
+                'picture' => 'vara_inazuma.png',
                 'category' => 'Iscas/Varas'
             ], 
             
@@ -825,7 +816,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'A Fisgada',
                 'price' => 500,
                 'description' => 'Antigo tridente utilizado por um famoso bandido de Inazuma',
-                'picture' => '...',
+                'picture' => 'fisgada.png',
                 'category' => 'Iscas/Varas'
             ],
 
@@ -835,7 +826,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Lâmina Amenoma Kageuta',
                 'price' => 500,
                 'description' => 'Uma lâmina que dizem ter sido feita sob encomenda por um samurai',
-                'picture' => '...',
+                'picture' => 'amenoma.png',
                 'category' => 'Armas/Utilitários'
             ],
 
@@ -844,7 +835,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Arco Quebra-Demônios',
                 'price' => 500,
                 'description' => 'Arco de guerra utilizado por uma bruxa do templo',
-                'picture' => '...',
+                'picture' => 'hamayumi.png',
                 'category' => 'Armas/Utilitários'
             ],
 
@@ -853,7 +844,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Espada Grande de Katsuragi',
                 'price' => 500,
                 'description' => 'Espadão forjado em Tatarasuna',
-                'picture' => '...',
+                'picture' => 'nagamasa.png',
                 'category' => 'Armas/Utilitários'
             ],
 
@@ -862,7 +853,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Anel de Hakushin',
                 'price' => 500,
                 'description' => 'Catalisador que guarda a memória de Kitsune Saiguu',
-                'picture' => '...',
+                'picture' => 'hakushin.png',
                 'category' => 'Armas/Utilitários'
             ],
 
@@ -871,7 +862,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Lança Cruzada de Kitain',
                 'price' => 500,
                 'description' => 'Lança especial que foi usada por um guerreiro famoso que guardava o Tatarigami',
-                'picture' => '...',
+                'picture' => 'kitain.png',
                 'category' => 'Armas/Utilitários'
             ],
 
@@ -881,7 +872,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Cozido Misto do Mercado Delicioso',
                 'price' => 74.25,
                 'description' => 'Sopa leve com ingredientes locais de Inazuma',
-                'picture' => '...',
+                'picture' => 'cozido.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -890,7 +881,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Pizza de Cogumelos',
                 'price' => 60.75,
                 'description' => 'Pizza coberta de queijo e cogumelos',
-                'picture' => '...',
+                'picture' => 'pizza.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -899,7 +890,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Pizza de Cogumelos Especial',
                 'price' => 60.75,
                 'description' => 'Pizza coberta de queijo, cogumelos e melão de lavanda',
-                'picture' => '...',
+                'picture' => 'pizza_especial.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -909,7 +900,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Hex & Hound',
                 'price' => 30,
                 'description' => 'A história de uma grande maga e seu fiel companheiro canino',
-                'picture' => '...',
+                'picture' => 'hex.png',
                 'category' => 'Livros'
             ],
 
@@ -918,7 +909,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'A Lenda da Espada',
                 'price' => 30,
                 'description' => 'Romance que retrata uma guerra em meio ao mar de estrelas que giram ao contrário',
-                'picture' => '...',
+                'picture' => 'lenda_espada.png',
                 'category' => 'Livros'
             ],
 
@@ -927,7 +918,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Flores para a Princesa Fischl',
                 'price' => 30,
                 'description' => 'Edição de colecionador que reúne todos os volumes do best-seller aclamado pelo público',
-                'picture' => '...',
+                'picture' => 'fischl.png',
                 'category' => 'Livros'
             ],
 
@@ -937,7 +928,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Ovo Frito de Teyvat',
                 'price' => 1.80,
                 'description' => 'Ovo frito',
-                'picture' => '...',
+                'picture' => 'ovo_frito.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -946,7 +937,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Espeto de Frango com Cogumelos',
                 'price' => 4.50,
                 'description' => 'Espeto grelhado de frango e cogumelos',
-                'picture' => '...',
+                'picture' => 'espeto.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -955,7 +946,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Pão de Pescador',
                 'price' => 9.20,
                 'description' => 'Torrada coberta com cebola',
-                'picture' => '...',
+                'picture' => 'pao_pescador.png',
                 'category' => 'Comidas/Bebidas'
             ],
 
@@ -965,7 +956,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Sal',
                 'price' => 2.50,
                 'description' => 'Sal refinado',
-                'picture' => '...',
+                'picture' => 'sal.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -974,7 +965,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Pimenta',
                 'price' => 4.50,
                 'description' => 'Pimenta moída',
-                'picture' => '...',
+                'picture' => 'pimenta.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -983,7 +974,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Cebola',
                 'price' => 3.50,
                 'description' => 'Cebola',
-                'picture' => '...',
+                'picture' => 'cebola.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -992,7 +983,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Leite',
                 'price' => 2.50,
                 'description' => 'Leite integral',
-                'picture' => '...',
+                'picture' => 'leite.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -1001,7 +992,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Tomate',
                 'price' => 3,
                 'description' => 'Tomate',
-                'picture' => '...',
+                'picture' => 'tomate.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -1010,7 +1001,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Repolho',
                 'price' => 2,
                 'description' => 'Repolho',
-                'picture' => '...',
+                'picture' => 'repolho.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -1019,7 +1010,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Batata',
                 'price' => 2.50,
                 'description' => 'Batata',
-                'picture' => '...',
+                'picture' => 'batata.png',
                 'category' => 'Ingredientes'
             ],
             
@@ -1028,7 +1019,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Trigo',
                 'price' => 3.50,
                 'description' => 'Trigo',
-                'picture' => '...',
+                'picture' => 'trigo.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -1037,7 +1028,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Arroz',
                 'price' => 5.50,
                 'description' => 'Arroz tipo 1',
-                'picture' => '...',
+                'picture' => 'arroz.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -1046,7 +1037,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Camarão',
                 'price' => 10,
                 'description' => 'Camarão fresco',
-                'picture' => '...',
+                'picture' => 'camarao.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -1055,7 +1046,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Tofu',
                 'price' => 6.50,
                 'description' => 'Tofu fresco',
-                'picture' => '...',
+                'picture' => 'tofu.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -1065,7 +1056,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Leite de Dango',
                 'price' => 15,
                 'description' => 'Leite batido com dango',
-                'picture' => '...',
+                'picture' => 'leite_dango.png',
                 'category' => 'Ingredientes'
             ],
 
@@ -1075,7 +1066,7 @@ class ProductsSeeder extends Seeder
                 'name' => 'Cama Suave Como a Brisa',
                 'price' => 250,
                 'description' => 'Cama padrão dos dormitórios dos Cavaleiros de Favonius',
-                'picture' => '...',
+                'picture' => 'cama.png',
                 'category' => 'Decorações/Móveis'
             ],
 
@@ -1083,8 +1074,8 @@ class ProductsSeeder extends Seeder
                 'store_id' => 33,
                 'name' => 'Fogão Portátil',
                 'price' => 100,
-                'description' => 'Forgão leve e conveniente para ser levado para qualquer ambiente',
-                'picture' => '...',
+                'description' => 'Fogão leve e conveniente para ser levado para qualquer ambiente',
+                'picture' => 'fogao.png',
                 'category' => 'Decorações/Móveis'
             ],
 
@@ -1093,14 +1084,14 @@ class ProductsSeeder extends Seeder
                 'name' => 'Mesa Redonda de Cedro Vermelho',
                 'price' => 150,
                 'description' => 'Mesa de centro redonda',
-                'picture' => '...',
+                'picture' => 'mesa.png',
                 'category' => 'Decorações/Móveis'
             ],
 
             /* Chubby */
             [
                 'store_id' => 34,
-                'name' => 'Árvore Chihua',
+                'name' => 'Árvore Cuihua',
                 'price' => 80,
                 'description' => 'Madeira de lei de folhas verdes e vida longa',
                 'picture' => '...',
