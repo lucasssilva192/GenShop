@@ -9,5 +9,7 @@ data class Produto(
 	val description: String? = null,
 	val created_at: String? = null,
 	val id: Int? = null,
-	val picture: String? = null
+	val picture: String? = null,
+	val quantity: Int? = null,
+	val c_id: Int? = null
 )

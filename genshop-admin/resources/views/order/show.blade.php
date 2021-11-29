@@ -1,3 +1,4 @@
+@php use App\Models\ADM\Customer; @endphp
 @extends('template.principal')
 
 @section('content')
@@ -6,36 +7,43 @@
     <div class="row g-0 p-3">
       <div class="col-md-7">
         <div class="card-body">
-          <h2 class="card-title">{{ $store->name }}</h2>
+          <h2 class="card-title">Pedido #{{ $order->id }}</h2>
           <p class="card-text mt-n0">
-          <h6>CNPJ:</h6>
-          </p>
-          <p class="card-text">
-            {{ $store->cnpj }}
+          <h6>@php $customer = Customer::where('id', $order->customer_id)->first(); @endphp
+              Cliente que comprou: {{$customer->first_name}} {{$customer->last_name}}</h6>
           </p>
           <div class="d-flex align-items-center bg-light mb-3" style="height: 100px;">
-            <div class="col">
               <p class="card-text">
-              <h6>Celular:</h6>
+              <h6>Valor Total:  {{$order->price}}</h6>
               </p>
-              <p class="card-text">
-                {{ $store->cellphone }}
-              </p>
-            </div>
-            <div class="col">
-              <p class="card-text">
-              <h6>Telefone:</h6>
-              </p>
-              <p class="card-text">
-                {{ $store->telephone }}
-              </p>
-            </div>
           </div>
-          <p class="card-text mt-n0">
-          <h6>Endereço:</h6>
-          </p>
-          <p class="card-text">
-            {{ $store->address }}
+          <div class="d-flex align-items-center bg-light mb-3" style="height: 100px;">
+              <p class="card-text">
+              <h6>Produtos da compra:</h6>
+              </p>
+              <div>
+              </div>
+          </div>
+          <div class="d-flex align-items-center bg-light mb-3" style="height: 100px;">
+          <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Preço</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach($products as $product)
+            <tr>
+              <td>{{$product->id}}</td>
+              <td>{{$product->name}}</td>
+              <td>{{$product->price}}</td>
+            </tr>
+          @endforeach
+        </tbody>
+      </table>
+          </div>
           </p>
         </div>
       </div>

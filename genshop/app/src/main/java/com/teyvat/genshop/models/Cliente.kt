@@ -1,7 +1,5 @@
 package com.teyvat.genshop.models
 
-import java.util.*
-
 data class Cliente(
     val id: Int? = null,
     var first_name: String,

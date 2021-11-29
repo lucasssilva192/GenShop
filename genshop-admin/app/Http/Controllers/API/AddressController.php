@@ -12,7 +12,7 @@ class AddressController extends Controller
     public function index()
     {
         $customer_id = Customer::custumerID(auth('sanctum')->user()->id);
-        return response()->json(Address::where('customer_id', $customer_id));
+        return response()->json(Address::where('customer_id', $customer_id)->get());
     }
 
     public function store(Request $request)
@@ -39,6 +39,18 @@ class AddressController extends Controller
     public function update(Request $request, Address $address)
     {
         $address->update($request->all());
+        return response()->json($address);
+    }
+
+    public function changemain(Address $address)
+    {
+        $addressOld = Address::where('main', "1")->first();
+        $address->main = "1";
+        $address->save();
+
+        $addressOld->main = "0";
+        $addressOld->save();
+
         return response()->json($address);
     }
 

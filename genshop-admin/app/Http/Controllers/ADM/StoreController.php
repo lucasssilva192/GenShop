@@ -22,8 +22,6 @@ class StoreController extends Controller
 
     public function store(Request $request)
     {
-
-
         $loja = new Store();
         $loja->user_id = $request->user_id;
         $loja->name = $request->nome;
@@ -104,5 +102,21 @@ class StoreController extends Controller
         $store->delete();
         session()->flash('success', 'Loja excluída com sucesso');
         return redirect(route('store.index'));
+    }
+
+    public function stores()
+    {
+        dd('a');
+        
+    }
+
+    public function show_store(Store $store)
+    {
+        return view('store.show_store')->with('store', $store);
+    }
+
+    public function edit_store(Store $store)
+    {
+        return view('store.edit_store')->with('store', $store);
     }
 }

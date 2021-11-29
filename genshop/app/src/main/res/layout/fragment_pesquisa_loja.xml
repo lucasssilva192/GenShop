@@ -37,79 +37,95 @@
             android:text="Buscar" />
     </LinearLayout>
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup2"
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/chipGroup2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout9">
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipRestaurante"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checkable="true"
-            android:text="Restaurante" />
+            android:orientation="vertical">
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipFerraria"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:text="Ferraria" />
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp">
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipLembrancas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:text="Lembranças" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipTodos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tudo" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipMercado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:text="Mercado" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipRestaurante"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="Restaurante" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipAlquimia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:text="Alquimia" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipFerraria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="Ferraria" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipMoveis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:text="Móveis" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipLembrancas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="Lembranças" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipPaisagismo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:text="Paisagismo" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipMercado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="Mercado" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipPesca"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:text="Pesca" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipAlquimia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="Alquimia" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipTodos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tudo" />
-    </com.google.android.material.chip.ChipGroup>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipMoveis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="Móveis" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipPaisagismo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="Paisagismo" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipPesca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="Pesca" />
+
+            </com.google.android.material.chip.ChipGroup>
+        </LinearLayout>
+    </HorizontalScrollView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -117,5 +133,6 @@
         android:layout_height="609dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipGroup2" />
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models\API;
+namespace App\Models\ADM;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cart extends Model
+class Stores extends Model
 {
     use HasFactory;
-    protected $fillable = ['quantity', 'customer_id', 'product_id'];
+    protected $table = "stores";
 }
