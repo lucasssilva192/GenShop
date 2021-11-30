@@ -11,7 +11,8 @@ class CustomerController extends Controller
 {
     public function index()
     {
-        return response()->json(Customer::all());
+        $customer_id = Customer::custumerID(auth('sanctum')->user()->id);
+        return response()->json(Customer::where('id', $customer_id)->first());
     }
 
     public function store(Request $request)

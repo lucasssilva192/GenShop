@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.core.widget.doOnTextChanged
 import com.teyvat.genshop.R
 import com.teyvat.genshop.databinding.ActivityMenuBinding
 import com.teyvat.genshop.databinding.FragmentDadosBinding
@@ -20,6 +21,13 @@ class DadosFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentDadosBinding.inflate(inflater)
 
+        binding.txtNome.doOnTextChanged{ text, start, before, count -> binding.txtNomeLayout.isErrorEnabled = false  }
+        binding.txtSobrenome.doOnTextChanged{ text, start, before, count -> binding.txtSobrenomeLayout.isErrorEnabled = false  }
+        binding.txtDataNascimento.doOnTextChanged{ text, start, before, count -> binding.txtDataNascimentoLayout.isErrorEnabled = false  }
+        binding.txtCPF.doOnTextChanged{ text, start, before, count -> binding.txtCPFLayout.isErrorEnabled = false  }
+        binding.txtTelefone.doOnTextChanged{ text, start, before, count -> binding.txtTelefoneLayout.isErrorEnabled = false  }
+        binding.txtCelular.doOnTextChanged{ text, start, before, count -> binding.txtCelularLayout.isErrorEnabled = false  }
+
         binding.btnAtualizar.setOnClickListener{
             ativaDesativaAlteracao(true)
         }
@@ -28,12 +36,17 @@ class DadosFragment : Fragment() {
             ativaDesativaAlteracao(false)
         }
 
+        binding.btnGravar.setOnClickListener{
+            if(validarFormulario()) {
+                atualizarDados()
+            }
+        }
+
         return binding.root
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance() = DadosFragment()
+    fun preencherFormulario() {
+
     }
 
     fun ativaDesativaAlteracao(estado: Boolean){
@@ -103,5 +116,10 @@ class DadosFragment : Fragment() {
         else {
             return true
         }
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() = DadosFragment()
     }
 }

@@ -12,30 +12,6 @@ import retrofit2.Response
 
 object UtilitariosAPI {
 
-    fun listarEnderecos(listaEnderecos: List<Endereco>) {
-        val callback = object: Callback<List<Endereco>> {
-            override fun onResponse(call: Call<List<Endereco>>, response: Response<List<Endereco>>) {
-                if(response.isSuccessful){
-                    val enderecos = response.body()
-                    enderecos?.let {
-                        listaEnderecos.clear()
-                        listaEnderecos.addAll(it)
-                        adapter.notifyDataSetChanged()
-                    }
-                } else {
-                    val error = response.errorBody().toString()
-                    Utilitarios.snackBar(binding.root, error, Snackbar.LENGTH_LONG)
-                    Log.e("ERROR", response.errorBody().toString())
-                }
-            }
-            override fun onFailure(call: Call<List<Endereco>>, t: Throwable) {
-                Utilitarios.snackBar(binding.root, "Não foi possível listar os endereços", Snackbar.LENGTH_LONG)
-            }
-        }
-
-        API().endereco.listar("Bearer ${Sessao.usuario?.token}").enqueue(callback)
-    }
-
     fun escolherEndereco(view: View, endereco: Endereco) {
         val callback = object: Callback<Endereco> {
             override fun onResponse(call: Call<Endereco>, response: Response<Endereco>) {
@@ -69,7 +45,7 @@ object UtilitariosAPI {
             }
         }
 
-        API().endereco.remover(1,"Bearer ${Sessao.usuario?.token}").enqueue(callback)
+        API().endereco.remover(endereco.id!!,"Bearer ${Sessao.usuario?.token}").enqueue(callback)
     }
 
 

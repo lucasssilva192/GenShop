@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\API\Address;
+use App\Models\API\Customer;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -75,6 +77,23 @@ class UserController extends Controller
                     'token' => $user->createToken($request->device_name)->plainTextToken];
                 return response()->json($data);
             }
+        }
+    }
+
+    function loginToken(){
+        $user = User::where('id', auth('sanctum')->user()->id)->first();
+        //$customer_id = Customer::custumerID(auth('sanctum')->user()->id);
+        //$customer = Customer::where('id', $customer_id)->first();
+        //$address = Address::where('customer_id', $customer_id)->where('main', "1")->first();
+        if($user) {
+            return response()->json([
+                'success' => 'Usuario encontrato.'
+            ]);
+        }
+        else {
+            return response()->json([
+                'error' => 'Usuario não encontrato.'
+            ], 401);
         }
     }
 }
