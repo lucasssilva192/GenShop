@@ -22,7 +22,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(11900000000, 11999999999),
                 'telephone' => mt_rand(1100000000, 1199999999),
                 'type' => 'Restaurante',
-                'profile_pic' => '...',
+                'profile_pic' => 'anjos.png',
                 'address' => 'Cidade de Mondstadt, Mondstadt'
             ],
 
@@ -33,7 +33,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(11900000000, 11999999999),
                 'telephone' => mt_rand(1100000000, 1199999999),
                 'type' => 'Pesca',
-                'profile_pic' => '...',
+                'profile_pic' => 'pesca_mond.png',
                 'address' => 'Lago de Sidra, Mondstadt'
             ],
         
@@ -44,7 +44,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(11900000000, 11999999999),
                 'telephone' => mt_rand(1100000000, 1199999999),
                 'type' => 'Restaurante',
-                'profile_pic' => '...',
+                'profile_pic' => 'cervo.png',
                 'address' => 'Cidade de Mondstadt, Mondstadt'
             ],
 
@@ -55,7 +55,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(11900000000, 11999999999),
                 'telephone' => mt_rand(1100000000, 1199999999),
                 'type' => 'Lembranças',
-                'profile_pic' => '...',
+                'profile_pic' => 'hopkins.png',
                 'address' => 'Vale Termal, Mondstadt'
             ],
 
@@ -66,7 +66,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(11900000000, 11999999999),
                 'telephone' => mt_rand(1100000000, 1199999999),
                 'type' => 'Alquimia',
-                'profile_pic' => '...',
+                'profile_pic' => 'timaeus.png',
                 'address' => 'Cidade de Mondstadt, Mondstadt'
             ],
             
@@ -77,7 +77,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(11900000000, 11999999999),
                 'telephone' => mt_rand(1100000000, 1199999999),
                 'type' => 'Lembranças',
-                'profile_pic' => '...',
+                'profile_pic' => 'vento.png',
                 'address' => 'Cidade de Mondstadt, Mondstadt'
             ],
 
@@ -88,7 +88,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(11900000000, 11999999999),
                 'telephone' => mt_rand(1100000000, 1199999999),
                 'type' => 'Mercado',
-                'profile_pic' => '...',
+                'profile_pic' => 'loja_mond.png',
                 'address' => 'Cidade de Mondstadt, Mondstadt'
             ],
 
@@ -99,7 +99,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(11900000000, 11999999999),
                 'telephone' => mt_rand(1100000000, 1199999999),
                 'type' => 'Paisagismo',
-                'profile_pic' => '...',
+                'profile_pic' => 'flores.png',
                 'address' => 'Cidade de Mondstadt, Mondstadt'
             ],
         
@@ -110,7 +110,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(11900000000, 11999999999),
                 'telephone' => mt_rand(1100000000, 1199999999),
                 'type' => 'Ferraria',
-                'profile_pic' => '...',
+                'profile_pic' => 'wagnao.png',
                 'address' => 'Cidade de Mondstadt, Mondstadt'
             ],
 
@@ -121,7 +121,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(11900000000, 11999999999),
                 'telephone' => mt_rand(1100000000, 1199999999),
                 'type' => 'Móveis',
-                'profile_pic' => '...',
+                'profile_pic' => 'goethe.png',
                 'address' => 'Cidade de Mondstadt, Mondstadt'
             ],
         
@@ -132,7 +132,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(11900000000, 11999999999),
                 'telephone' => mt_rand(1100000000, 1199999999),
                 'type' => 'Restaurante',
-                'profile_pic' => '...',
+                'profile_pic' => 'gato.png',
                 'address' => 'Cidade de Mondstadt, Mondstadt'
             ],
         
@@ -143,7 +143,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(11900000000, 11999999999),
                 'telephone' => mt_rand(1100000000, 1199999999),
                 'type' => 'Restaurante',
-                'profile_pic' => '...',
+                'profile_pic' => 'adega.png',
                 'address' => 'Terras Altas das Lamentações, Mondstadt'
             ],
         
@@ -154,7 +154,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(15900000000, 15999999999),
                 'telephone' => mt_rand(1500000000, 1599999999),
                 'type' => 'Restaurante',
-                'profile_pic' => '...',
+                'profile_pic' => 'wangshu.png',
                 'address' => 'Estuário de Qiongji, Liyue'
             ],
 
@@ -165,7 +165,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(15900000000, 15999999999),
                 'telephone' => mt_rand(1500000000, 1599999999),
                 'type' => 'Paisagismo',
-                'profile_pic' => '...',
+                'profile_pic' => 'goldet.png',
                 'address' => 'Estuário de Qiongji, Liyue'
             ],
 
@@ -176,7 +176,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(15900000000, 15999999999),
                 'telephone' => mt_rand(1500000000, 1599999999),
                 'type' => 'Móveis',
-                'profile_pic' => '...',
+                'profile_pic' => 'mestre_lu.png',
                 'address' => 'Vila Qingce, Liyue'
             ],
 
@@ -187,7 +187,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(15900000000, 15999999999),
                 'telephone' => mt_rand(1500000000, 1599999999),
                 'type' => 'Livraria',
-                'profile_pic' => '...',
+                'profile_pic' => 'biblioteca.png',
                 'address' => 'Porto de Liyue, Liyue'
             ],
         
@@ -198,7 +198,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(15900000000, 15999999999),
                 'telephone' => mt_rand(1500000000, 1599999999),
                 'type' => 'Lembranças',
-                'profile_pic' => '...',
+                'profile_pic' => 'pastelaria.png',
                 'address' => 'Porto de Liyue, Liyue'
             ],
         
@@ -209,7 +209,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(15900000000, 15999999999),
                 'telephone' => mt_rand(1500000000, 1599999999),
                 'type' => 'Restaurante',
-                'profile_pic' => '...',
+                'profile_pic' => 'wanmin.png',
                 'address' => 'Porto de Liyue, Liyue'
             ],
 
@@ -220,7 +220,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(15900000000, 15999999999),
                 'telephone' => mt_rand(1500000000, 1599999999),
                 'type' => 'Restaurante',
-                'profile_pic' => '...',
+                'profile_pic' => 'liuli.png',
                 'address' => 'Porto de Liyue, Liyue'
             ],
 
@@ -231,7 +231,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(15900000000, 15999999999),
                 'telephone' => mt_rand(1500000000, 1599999999),
                 'type' => 'Restaurante',
-                'profile_pic' => '...',
+                'profile_pic' => 'xinyue.png',
                 'address' => 'Porto de Liyue, Liyue'
             ],
 
@@ -242,7 +242,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(15900000000, 15999999999),
                 'telephone' => mt_rand(1500000000, 1599999999),
                 'type' => 'Mercado',
-                'profile_pic' => '...',
+                'profile_pic' => 'segunda_vida.png',
                 'address' => 'Porto de Liyue, Liyue'
             ],
 
@@ -253,7 +253,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(15900000000, 15999999999),
                 'telephone' => mt_rand(1500000000, 1599999999),
                 'type' => 'Ferraria',
-                'profile_pic' => '...',
+                'profile_pic' => 'zhang.png',
                 'address' => 'Porto de Liyue, Liyue'
             ],
 
@@ -264,7 +264,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(15900000000, 15999999999),
                 'telephone' => mt_rand(1500000000, 1599999999),
                 'type' => 'Pesca',
-                'profile_pic' => '...',
+                'profile_pic' => 'pesca_liyue.png',
                 'address' => 'Porto de Liyue, Liyue'
             ],
 
@@ -275,7 +275,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(24900000000, 24999999999),
                 'telephone' => mt_rand(2400000000, 2499999999),
                 'type' => 'Pesca',
-                'profile_pic' => '...',
+                'profile_pic' => 'pesca_inazuma.png',
                 'address' => 'Planície Byakko, Inazuma'
             ],
 
@@ -286,7 +286,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(24900000000, 24999999999),
                 'telephone' => mt_rand(2400000000, 2499999999),
                 'type' => 'Ferraria',
-                'profile_pic' => '...',
+                'profile_pic' => 'amenoma.png',
                 'address' => 'Cidade de Inazuma, Inazuma'
             ],
 
@@ -297,7 +297,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(24900000000, 24999999999),
                 'telephone' => mt_rand(2400000000, 2499999999),
                 'type' => 'Restaurante',
-                'profile_pic' => '...',
+                'profile_pic' => 'kiminami.png',
                 'address' => 'Cidade de Inazuma, Inazuma'
             ],
 
@@ -308,7 +308,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(24900000000, 24999999999),
                 'telephone' => mt_rand(2400000000, 2499999999),
                 'type' => 'Livraria',
-                'profile_pic' => '...',
+                'profile_pic' => 'editora.png',
                 'address' => 'Cidade de Inazuma, Inazuma'
             ],
 
@@ -319,7 +319,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(24900000000, 24999999999),
                 'telephone' => mt_rand(2400000000, 2499999999),
                 'type' => 'Restaurante',
-                'profile_pic' => '...',
+                'profile_pic' => 'restaurante.png',
                 'address' => 'Cidade de Inazuma, Inazuma'
             ],
 
@@ -330,7 +330,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(24900000000, 24999999999),
                 'telephone' => mt_rand(2400000000, 2499999999),
                 'type' => 'Lembranças',
-                'profile_pic' => '...',
+                'profile_pic' => 'netsuke.png',
                 'address' => 'Cidade de Inazuma, Inazuma'
             ],
 
@@ -341,7 +341,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(24900000000, 24999999999),
                 'telephone' => mt_rand(2400000000, 2499999999),
                 'type' => 'Mercado',
-                'profile_pic' => '...',
+                'profile_pic' => 'mercearia.png',
                 'address' => 'Cidade de Inazuma, Inazuma'
             ],
 
@@ -352,7 +352,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(24900000000, 24999999999),
                 'telephone' => mt_rand(2400000000, 2499999999),
                 'type' => 'Restaurante',
-                'profile_pic' => '...',
+                'profile_pic' => 'tomoki.png',
                 'address' => 'Cidade de Inazuma, Inazuma'
             ],
 
@@ -363,7 +363,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(24900000000, 24999999999),
                 'telephone' => mt_rand(2400000000, 2499999999),
                 'type' => 'Restaurante',
-                'profile_pic' => '...',
+                'profile_pic' => 'uyuu.png',
                 'address' => 'Cidade de Inazuma, Inazuma'
             ],
 
@@ -374,7 +374,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(84900000000, 84999999999),
                 'telephone' => mt_rand(8400000000, 8499999999),
                 'type' => 'Móveis',
-                'profile_pic' => '...',
+                'profile_pic' => 'tubby.png',
                 'address' => 'Bule de Relachá'
             ],
 
@@ -385,7 +385,7 @@ class StoresSeeder extends Seeder
                 'cellphone' => mt_rand(84900000000, 84999999999),
                 'telephone' => mt_rand(8400000000, 8499999999),
                 'type' => 'Paisagismo',
-                'profile_pic' => '...',
+                'profile_pic' => 'chubby.png',
                 'address' => 'Bule de Relachá'
             ]
         ];
