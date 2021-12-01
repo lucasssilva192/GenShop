@@ -86,7 +86,6 @@ class UserController extends Controller
             $data = [
                 'name' => $user->name,
                 'email' => $user->email,
-                'password' => $user->password,
                 'token' => ""];
             return response()->json($data);
         }
