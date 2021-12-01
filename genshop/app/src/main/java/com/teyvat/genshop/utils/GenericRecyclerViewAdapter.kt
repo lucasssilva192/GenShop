@@ -51,7 +51,7 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
                 }
 
                 binding.btnExcluir.setOnClickListener(){
-                    UtilitariosAPI.removeEndereco(binding.root, item)
+                    //UtilitariosAPI.removeEndereco(binding.root, item)
                 }
 
                 binding.btnAlterar.setOnClickListener(){
@@ -61,7 +61,7 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
                 }
 
                 binding.root.setOnClickListener(){
-                    UtilitariosAPI.escolherEndereco(binding.root, item)
+                    //UtilitariosAPI.escolherEndereco(binding.root, item)
                 }
             }
             if(binding is ItemProdutoBinding && item is Produto){

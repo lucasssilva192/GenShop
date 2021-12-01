@@ -11,7 +11,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 object UtilitariosAPI {
-
+/*
     fun listarEnderecos(listaEnderecos: List<Endereco>) {
         val callback = object: Callback<List<Endereco>> {
             override fun onResponse(call: Call<List<Endereco>>, response: Response<List<Endereco>>) {
@@ -72,5 +72,5 @@ object UtilitariosAPI {
         API().endereco.remover(1,"Bearer ${Sessao.usuario?.token}").enqueue(callback)
     }
 
-
+*/
 }
