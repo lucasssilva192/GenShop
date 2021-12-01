@@ -72,8 +72,8 @@ class EnderecosFragment : Fragment() {
         listaEndereco.forEach { endereco ->
             val itemBinding = ItemEnderecoBinding.inflate(layoutInflater)
 
-            itemBinding.txtNomeEndereco.text = endereco.cep
-            itemBinding.txtEndereco.text = "${endereco.address} - ${endereco.cep}"
+            itemBinding.txtNomeEndereco.text = endereco.name
+            itemBinding.txtEndereco.text = "${endereco.address}, ${endereco.number} - ${endereco.city} - ${endereco.state}, ${endereco.cep}"
             if (endereco.main.equals(EnumTipoEndereco.NaoSelecionado.valor)) {
                 itemBinding.iconeAtivo.isVisible = false
             }

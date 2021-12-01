@@ -17,6 +17,7 @@ import com.teyvat.genshop.models.Produto
 import com.teyvat.genshop.utils.EnumTipoLista
 import com.teyvat.genshop.utils.GenericRecyclerViewAdapter
 import com.teyvat.genshop.utils.Sessao
+import com.teyvat.genshop.utils.Utilitarios
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,6 +31,7 @@ class FinalizarPedidoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityFinalizarPedidoBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
+        Utilitarios.aplicarTema(this, delegate)
         setContentView(binding.root)
 
         adapter = GenericRecyclerViewAdapter(listaProdutos, EnumTipoLista.ListaPedidoProduto.valor)
@@ -42,7 +44,7 @@ class FinalizarPedidoActivity : AppCompatActivity() {
         binding.txtEndereco.text = "SERA SALVO NA SESSAO"
         binding.txtPreco.setText("Preço total: R$ " + order?.price)
         binding.txtNumPed.setText("Pedido #" + order?.id)
-        binding.txtEndereco.setText("${Sessao.endereco?.address} ${Sessao.endereco?.number}")
+        binding.txtEndereco.setText("${Sessao.endereco?.address}, ${Sessao.endereco?.number} - ${Sessao.endereco?.city} - ${Sessao.endereco?.state}, ${Sessao.endereco?.cep}")
 
         carrega_carrinho(order?.id)
 
@@ -90,7 +92,7 @@ class FinalizarPedidoActivity : AppCompatActivity() {
                 if(response.isSuccessful){
                     Log.e("REQUISICAO DEU CERTO", response.body().toString())
                     Snackbar.make(binding.recyclerView, "Pedido efetuado com sucesso", Snackbar.LENGTH_LONG).show()
-                    val intent = Intent(binding.root.context, FragmentPedidosBinding::class.java)
+                    val intent = Intent(binding.root.context, MenuActivity::class.java)
                     binding.root.context.startActivity(intent)
                 } else {
                     Log.e("REQUISICAO DEU MEIO CERTO", response.code().toString())

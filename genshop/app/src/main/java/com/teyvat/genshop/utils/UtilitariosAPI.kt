@@ -55,12 +55,10 @@ object UtilitariosAPI {
             override fun onResponse(call: Call<Endereco>, response: Response<Endereco>) {
                 if(response.isSuccessful) {
                     Sessao.endereco = response.body()
-                    Log.d("Cliente", Sessao.cliente!!.id.toString())
-                    Log.d("Endereço", Sessao.endereco!!.id.toString())
                 }
                 else {
                     val error = response.errorBody().toString()
-                    Utilitarios.snackBar(view, error, Snackbar.LENGTH_LONG)
+                    Utilitarios.snackBar(view, "Sem endereço, cadastrado", Snackbar.LENGTH_LONG)
                 }
             }
             override fun onFailure(call: Call<Endereco>, t: Throwable) {
@@ -80,7 +78,7 @@ object UtilitariosAPI {
                 }
                 else {
                     val error = response.errorBody().toString()
-                    Utilitarios.snackBar(view, error, Snackbar.LENGTH_LONG)
+                    Utilitarios.snackBar(view, "Cadastro de cliente não completo. Complete seus dados no menu.", Snackbar.LENGTH_LONG)
                 }
             }
             override fun onFailure(call: Call<Cliente>, t: Throwable) {

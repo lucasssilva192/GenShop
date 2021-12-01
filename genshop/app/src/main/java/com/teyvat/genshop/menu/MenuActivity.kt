@@ -47,7 +47,9 @@ class MenuActivity : AppCompatActivity() {
         gerarBotoes()
         configurarMenu();
         //#endregion
-        delegate
+
+        var frag = PesquisaFragment.newInstance()
+        supportFragmentManager.beginTransaction().replace(R.id.menuContainer, frag).commit()
 
     }
 
@@ -93,74 +95,13 @@ class MenuActivity : AppCompatActivity() {
                 }
             }
         }
+        else {
+            val usuarioPref = getSharedPreferences("UsuarioInfo", Context.MODE_PRIVATE).edit()
+            usuarioPref.clear()
+            usuarioPref.commit()
+        }
 
         return Sessao.usuario != null
-    }
-
-    fun logarComToken(){
-        //#region Endereço
-        val callbackEndereco = object : Callback<Endereco> {
-            override fun onResponse(call: Call<Endereco>, response: Response<Endereco>) {
-                if(response.isSuccessful) {
-                    Sessao.endereco = response.body()
-                    Log.d("Cliente", Sessao.cliente!!.id.toString())
-                    Log.d("Endereço", Sessao.endereco!!.id.toString())
-                }
-                else {
-                    val error = response.errorBody().toString()
-                    Utilitarios.snackBar(binding.root, error, Snackbar.LENGTH_LONG)
-                }
-            }
-            override fun onFailure(call: Call<Endereco>, t: Throwable) {
-                Utilitarios.snackBar(binding.root, "Falha ao conectar com o servidor. ${t.message}", Snackbar.LENGTH_LONG)
-                Log.e("ERROR","${t.message}")
-            }
-        }
-        //#endregion
-
-        //#region Cliente
-        val callbackCliente = object : Callback<Cliente> {
-            override fun onResponse(call: Call<Cliente>, response: Response<Cliente>) {
-                if(response.isSuccessful) {
-                    Sessao.cliente = response.body()
-                    Utilitarios.snackBar(binding.root, "Bem-vindo ${Sessao.cliente!!.first_name}", Snackbar.LENGTH_LONG)
-                    API().endereco.listarPrincipal("Bearer ${Sessao.usuario?.token}").enqueue(callbackEndereco)
-                }
-                else {
-                    val error = response.errorBody().toString()
-                    Utilitarios.snackBar(binding.root, error, Snackbar.LENGTH_LONG)
-                }
-            }
-            override fun onFailure(call: Call<Cliente>, t: Throwable) {
-                Utilitarios.snackBar(binding.root, "Falha ao conectar com o servidor. ${t.message}", Snackbar.LENGTH_LONG)
-                Log.e("ERROR","${t.message}")
-            }
-        }
-
-        //#endregion
-
-        //#region Usuario
-        val callbackUsuario = object : Callback<Usuario> {
-            override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
-                if(response.isSuccessful) {
-                    val usuario = response.body()
-                    Sessao.usuario!!.name = usuario!!.name
-                    Sessao.usuario!!.email = usuario!!.email
-                    Log.d("Token", Sessao.usuario!!.token)
-                    API().cliente.listar("Bearer ${Sessao.usuario?.token}").enqueue(callbackCliente)
-                }
-                else {
-                    val error = response.errorBody().toString()
-                    Utilitarios.snackBar(binding.root, error, Snackbar.LENGTH_LONG)
-                }
-            }
-            override fun onFailure(call: Call<Usuario>, t: Throwable) {
-                Utilitarios.snackBar(binding.root, "Falha ao conectar com o servidor. ${t.message}", Snackbar.LENGTH_LONG)
-                Log.e("ERROR","${t.message}")
-            }
-        }
-        API().usuario.logarToken("Bearer ${Sessao.usuario?.token}").enqueue(callbackUsuario)
-        //#endregion
     }
 
     fun configurarMenu(){
@@ -221,6 +162,11 @@ class MenuActivity : AppCompatActivity() {
                 }
                 R.id.sair -> {
                     Sessao.usuario = null
+                    Sessao.cliente =  null
+                    Sessao.endereco = null
+                    val usuarioPref = getSharedPreferences("UsuarioInfo", Context.MODE_PRIVATE).edit()
+                    usuarioPref.clear()
+                    usuarioPref.commit()
                     Utilitarios.abrirTela(this, LoginActivity::class.java)
                 }
                 R.id.entrar -> {

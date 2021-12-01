@@ -31,6 +31,7 @@ class ShowEnderecoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityShowEnderecoBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
+        Utilitarios.aplicarTema(this, delegate)
         setContentView(binding.root)
 
         cadastro = intent.getBooleanExtra("cadastro", false)
@@ -175,7 +176,7 @@ class ShowEnderecoActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     response.body()?.let {
                         preencherEnderecoViaCEP(it)
-                        binding.txtNumero.requestFocus()
+                        binding.txtComplemento.requestFocus()
                     }
                 }
                 else {
@@ -194,7 +195,6 @@ class ShowEnderecoActivity : AppCompatActivity() {
         binding.txtEstado.setText(viaCEP.uf)
         binding.txtCidade.setText(viaCEP.localidade)
         binding.txtEndereco.setText(viaCEP.logradouro)
-        binding.txtComplemento.setText(viaCEP.complemento)
     }
 
 }

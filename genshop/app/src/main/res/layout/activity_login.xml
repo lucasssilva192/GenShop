@@ -24,15 +24,15 @@
 
         <ImageView
             android:id="@+id/ImgLogo"
-            android:layout_width="100dp"
+            android:layout_width="175dp"
             android:layout_height="100dp"
             android:layout_marginTop="32dp"
+            android:contentDescription="TODO"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_dendro"
-            android:contentDescription="TODO" />
+            app:srcCompat="@drawable/ic_genshopblack" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtUsuarioLayout"
@@ -120,6 +120,7 @@
             android:text="ESQUECI MINHA SENHA"
             android:textColor="#673AB7"
             android:textSize="11sp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtSenhaLayout" />
 
