@@ -54,6 +54,21 @@ class AddressController extends Controller
         return response()->json($address);
     }
 
+    public function showmain()
+    {
+        $customer_id = Customer::custumerID(auth('sanctum')->user()->id);
+        $address = Address::where('customer_id', $customer_id)->where('main', "1")->first();
+        if($address){
+            return response()->json($address);
+        }
+        else{
+            return response()->json([
+                'Endereço não encontrato.'
+            ], 401);
+        }
+
+    }
+
     public function destroy(Address $address)
     {
         $address->delete();

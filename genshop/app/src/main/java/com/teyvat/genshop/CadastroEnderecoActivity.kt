@@ -24,7 +24,7 @@ class CadastroEnderecoActivity : AppCompatActivity() {
         binding = ActivityCadastroEnderecoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.txtNome.doOnTextChanged{ text, start, before, count -> binding.txtNomeLayout.isErrorEnabled = false  }
+        //binding.txtNome.doOnTextChanged{ text, start, before, count -> binding.txtNomeLayout.isErrorEnabled = false  }
         binding.txtCep.doOnTextChanged{ text, start, before, count -> binding.txtCepLayout.isErrorEnabled = false  }
         binding.txtEstado.doOnTextChanged{ text, start, before, count -> binding.txtEstadoLayout.isErrorEnabled = false  }
         binding.txtCidade.doOnTextChanged{ text, start, before, count -> binding.txtCidadeLayout.isErrorEnabled = false  }
@@ -53,12 +53,10 @@ class CadastroEnderecoActivity : AppCompatActivity() {
                 else {
                     val error = response.errorBody().toString()
                     Utilitarios.snackBar(binding.root, error, Snackbar.LENGTH_LONG)
-                    Log.e("ERROR", response.errorBody().toString())
                 }
             }
             override fun onFailure(call: Call<Endereco>, t: Throwable) {
                 Utilitarios.snackBar(binding.root, "Falha ao conectar com o servidor. ${t.message}", Snackbar.LENGTH_LONG)
-                Log.e("ERROR","${t.message}")
             }
         }
 
@@ -82,7 +80,7 @@ class CadastroEnderecoActivity : AppCompatActivity() {
 
     fun validarFormulario(): Boolean {
         if (binding.txtCep.text.isNullOrEmpty()) {
-            binding.txtCepLayout.error = "Digite o Sobrenome"
+            binding.txtCepLayout.error = "Digite um CEP valido"
             binding.txtCep.requestFocus()
             return false
         }

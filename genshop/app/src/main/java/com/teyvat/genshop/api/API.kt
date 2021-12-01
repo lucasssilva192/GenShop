@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 class API() { //val context: Context
-    private val baseUrl = "http://192.168.3.26:80"
+    private val baseUrl = "http://192.168.0.19:80"
     private val timeout = 30L
 
     private val retrofit: Retrofit
