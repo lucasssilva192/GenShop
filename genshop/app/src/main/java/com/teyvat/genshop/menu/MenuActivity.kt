@@ -24,6 +24,7 @@ import com.teyvat.genshop.models.Loja
 import com.teyvat.genshop.models.Usuario
 import com.teyvat.genshop.utils.Sessao
 import com.teyvat.genshop.utils.Utilitarios
+import com.teyvat.genshop.utils.UtilitariosAPI
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -88,7 +89,7 @@ class MenuActivity : AppCompatActivity() {
                 Sessao.usuario = Usuario(usuario,email,token)
 
                 if(Sessao.cliente == null && Sessao.endereco == null){
-                    //logarComToken()
+                    UtilitariosAPI.logarComToken(binding.root)
                 }
             }
         }
@@ -97,23 +98,69 @@ class MenuActivity : AppCompatActivity() {
     }
 
     fun logarComToken(){
-        val callback = object : Callback<Any> {
-            override fun onResponse(call: Call<Any>, response: Response<Any>) {
+        //#region Endereço
+        val callbackEndereco = object : Callback<Endereco> {
+            override fun onResponse(call: Call<Endereco>, response: Response<Endereco>) {
                 if(response.isSuccessful) {
-                    response.body()
-                    Utilitarios.snackBar(binding.root, "Bem-vindo ${Sessao.usuario!!.name} - Token: ${Sessao.usuario!!.token}}", Snackbar.LENGTH_LONG)
+                    Sessao.endereco = response.body()
+                    Log.d("Cliente", Sessao.cliente!!.id.toString())
+                    Log.d("Endereço", Sessao.endereco!!.id.toString())
                 }
                 else {
                     val error = response.errorBody().toString()
                     Utilitarios.snackBar(binding.root, error, Snackbar.LENGTH_LONG)
                 }
             }
-            override fun onFailure(call: Call<Any>, t: Throwable) {
+            override fun onFailure(call: Call<Endereco>, t: Throwable) {
                 Utilitarios.snackBar(binding.root, "Falha ao conectar com o servidor. ${t.message}", Snackbar.LENGTH_LONG)
                 Log.e("ERROR","${t.message}")
             }
         }
-        API().usuario.logarToken("Bearer ${Sessao.usuario?.token}").enqueue(callback)
+        //#endregion
+
+        //#region Cliente
+        val callbackCliente = object : Callback<Cliente> {
+            override fun onResponse(call: Call<Cliente>, response: Response<Cliente>) {
+                if(response.isSuccessful) {
+                    Sessao.cliente = response.body()
+                    Utilitarios.snackBar(binding.root, "Bem-vindo ${Sessao.cliente!!.first_name}", Snackbar.LENGTH_LONG)
+                    API().endereco.listarPrincipal("Bearer ${Sessao.usuario?.token}").enqueue(callbackEndereco)
+                }
+                else {
+                    val error = response.errorBody().toString()
+                    Utilitarios.snackBar(binding.root, error, Snackbar.LENGTH_LONG)
+                }
+            }
+            override fun onFailure(call: Call<Cliente>, t: Throwable) {
+                Utilitarios.snackBar(binding.root, "Falha ao conectar com o servidor. ${t.message}", Snackbar.LENGTH_LONG)
+                Log.e("ERROR","${t.message}")
+            }
+        }
+
+        //#endregion
+
+        //#region Usuario
+        val callbackUsuario = object : Callback<Usuario> {
+            override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
+                if(response.isSuccessful) {
+                    val usuario = response.body()
+                    Sessao.usuario!!.name = usuario!!.name
+                    Sessao.usuario!!.email = usuario!!.email
+                    Log.d("Token", Sessao.usuario!!.token)
+                    API().cliente.listar("Bearer ${Sessao.usuario?.token}").enqueue(callbackCliente)
+                }
+                else {
+                    val error = response.errorBody().toString()
+                    Utilitarios.snackBar(binding.root, error, Snackbar.LENGTH_LONG)
+                }
+            }
+            override fun onFailure(call: Call<Usuario>, t: Throwable) {
+                Utilitarios.snackBar(binding.root, "Falha ao conectar com o servidor. ${t.message}", Snackbar.LENGTH_LONG)
+                Log.e("ERROR","${t.message}")
+            }
+        }
+        API().usuario.logarToken("Bearer ${Sessao.usuario?.token}").enqueue(callbackUsuario)
+        //#endregion
     }
 
     fun configurarMenu(){

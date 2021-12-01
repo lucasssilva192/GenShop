@@ -22,7 +22,6 @@ import com.teyvat.genshop.models.Produto
 import com.google.gson.JsonObject
 import com.teyvat.genshop.*
 import com.teyvat.genshop.api.API
-import com.squareup.picasso.Picasso
 import com.teyvat.genshop.ShowCompraActivity
 import com.teyvat.genshop.ShowProdutoActivity
 import com.teyvat.genshop.ShowLojaActivity

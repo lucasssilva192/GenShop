@@ -82,17 +82,16 @@ class UserController extends Controller
 
     function loginToken(){
         $user = User::where('id', auth('sanctum')->user()->id)->first();
-        //$customer_id = Customer::custumerID(auth('sanctum')->user()->id);
-        //$customer = Customer::where('id', $customer_id)->first();
-        //$address = Address::where('customer_id', $customer_id)->where('main', "1")->first();
         if($user) {
-            return response()->json([
-                'success' => 'Usuario encontrato.'
-            ]);
+            $data = [
+                'name' => $user->name,
+                'email' => $user->email,
+                'token' => ""];
+            return response()->json($data);
         }
         else {
             return response()->json([
-                'error' => 'Usuario não encontrato.'
+                'Usuario não encontrato.'
             ], 401);
         }
     }

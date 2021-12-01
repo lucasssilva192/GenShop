@@ -62,6 +62,7 @@ Route::get('/address', [AddressController::class, 'index']);
 Route::get('/address/{address}', [AddressController::class, 'show']);
 Route::put('/address/{address}', [AddressController::class, 'update']);
 Route::put('/address/main/{address}', [AddressController::class, 'changemain']);
+Route::post('/address/main', [AddressController::class, 'showmain']);
 Route::delete('/address/{address}', [AddressController::class, 'destroy']);
 
 Route::post('/cart/{cart}', [CartController::class, 'add']);

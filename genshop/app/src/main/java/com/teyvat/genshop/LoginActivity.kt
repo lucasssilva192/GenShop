@@ -17,6 +17,7 @@ import retrofit2.Response
 import android.content.Context
 import com.google.gson.JsonObject
 import com.teyvat.genshop.api.API
+import com.teyvat.genshop.utils.UtilitariosAPI
 
 
 class LoginActivity : AppCompatActivity() {

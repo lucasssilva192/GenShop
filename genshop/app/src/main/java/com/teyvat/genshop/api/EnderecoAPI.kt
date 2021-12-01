@@ -22,4 +22,7 @@ interface EnderecoAPI {
 
     @GET("/api/address")
     fun listar(@Header("Authorization") token: String): Call<List<Endereco>>
+
+    @POST("/api/address/main")
+    fun listarPrincipal(@Header("Authorization") token: String): Call<Endereco>
 }

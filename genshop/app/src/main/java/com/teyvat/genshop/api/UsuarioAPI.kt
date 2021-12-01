@@ -17,5 +17,5 @@ interface UsuarioAPI {
     fun cadastrar(@Body request: JsonObject): Call<Usuario>
 
     @GET("/api/logintoken")
-    fun logarToken(@Header("Authorization") token: String): Call<Sessao>
+    fun logarToken(@Header("Authorization") token: String): Call<Usuario>
 }
