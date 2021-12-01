@@ -31,7 +31,7 @@ class LojasFragment : Fragment() {
         adapter = GenericRecyclerViewAdapter(listaLojas, EnumTipoLista.ListaLoja.valor)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(activity)
-
+        atualizarLojas()
         return binding.root
     }
 

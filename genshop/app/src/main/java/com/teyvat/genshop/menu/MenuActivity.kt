@@ -12,16 +12,22 @@ import com.teyvat.genshop.R
 import com.teyvat.genshop.databinding.ActivityMenuBinding
 import com.google.android.material.snackbar.Snackbar
 import com.teyvat.genshop.LoginActivity
+import com.teyvat.genshop.api.API
 import com.teyvat.genshop.menu.configuracoes.*
 import com.teyvat.genshop.menu.pesquisa.FavoritosFragment
 import com.teyvat.genshop.menu.pesquisa.PedidosFragment
 import com.teyvat.genshop.menu.pesquisa.PesquisaFragment
 import com.teyvat.genshop.menu.pesquisa.PesquisaLojaFragment
 import com.teyvat.genshop.models.Cliente
+import com.teyvat.genshop.models.Endereco
 import com.teyvat.genshop.models.Loja
 import com.teyvat.genshop.models.Usuario
 import com.teyvat.genshop.utils.Sessao
 import com.teyvat.genshop.utils.Utilitarios
+import com.teyvat.genshop.utils.UtilitariosAPI
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MenuActivity : AppCompatActivity() {
     lateinit var binding: ActivityMenuBinding
@@ -41,7 +47,9 @@ class MenuActivity : AppCompatActivity() {
         gerarBotoes()
         configurarMenu();
         //#endregion
-        delegate
+
+        var frag = PesquisaFragment.newInstance()
+        supportFragmentManager.beginTransaction().replace(R.id.menuContainer, frag).commit()
 
     }
 
@@ -79,13 +87,18 @@ class MenuActivity : AppCompatActivity() {
             val token = usuarioPref.getString("token", null)
             val email = usuarioPref.getString("email", null)
 
-            if(usuario != null && token != null && email != null)
+            if(usuario != null && token != null && email != null){
                 Sessao.usuario = Usuario(usuario,email,token)
 
-            Log.d("Usuario", "${Sessao.usuario?.token}")
-            Log.d("Cliente", "${Sessao.cliente?.first_name} - ${Sessao.cliente?.cpf}")
-            Log.d("ID", "${Sessao.usuario?.token}")
-            Log.d("Endereco", "${Sessao.endereco?.name} - ${Sessao.endereco?.address}")
+                if(Sessao.cliente == null && Sessao.endereco == null){
+                    UtilitariosAPI.logarComToken(binding.root)
+                }
+            }
+        }
+        else {
+            val usuarioPref = getSharedPreferences("UsuarioInfo", Context.MODE_PRIVATE).edit()
+            usuarioPref.clear()
+            usuarioPref.commit()
         }
 
         return Sessao.usuario != null
@@ -93,10 +106,7 @@ class MenuActivity : AppCompatActivity() {
 
     fun configurarMenu(){
         if(verificaUsuarioLogado()){
-            Utilitarios.snackBar(binding.root, "Bem-vindo ${Sessao.usuario!!.name} - Token: ${Sessao.usuario!!.token}}", Snackbar.LENGTH_LONG)
             binding.navigationView.menu.findItem(R.id.entrar).setVisible(false)
-
-            binding.navigationView.menu.findItem(R.id.favoritos).setVisible(true)
             binding.navigationView.menu.findItem(R.id.pedidos).setVisible(true)
             binding.navigationView.menu.findItem(R.id.dados).setVisible(true)
             binding.navigationView.menu.findItem(R.id.enderecos).setVisible(true)
@@ -105,13 +115,13 @@ class MenuActivity : AppCompatActivity() {
         //Caso nao esteja logado
         else {
             binding.navigationView.menu.findItem(R.id.entrar).setVisible(true)
-
-            binding.navigationView.menu.findItem(R.id.favoritos).setVisible(false)
             binding.navigationView.menu.findItem(R.id.pedidos).setVisible(false)
             binding.navigationView.menu.findItem(R.id.dados).setVisible(false)
             binding.navigationView.menu.findItem(R.id.enderecos).setVisible(false)
             binding.navigationView.menu.findItem(R.id.sair).setVisible(false)
         }
+        binding.navigationView.menu.findItem(R.id.favoritos).setVisible(false)
+        binding.navigationView.menu.findItem(R.id.suporte).setVisible(false)
     }
 
     fun gerarBotoes(){
@@ -152,6 +162,11 @@ class MenuActivity : AppCompatActivity() {
                 }
                 R.id.sair -> {
                     Sessao.usuario = null
+                    Sessao.cliente =  null
+                    Sessao.endereco = null
+                    val usuarioPref = getSharedPreferences("UsuarioInfo", Context.MODE_PRIVATE).edit()
+                    usuarioPref.clear()
+                    usuarioPref.commit()
                     Utilitarios.abrirTela(this, LoginActivity::class.java)
                 }
                 R.id.entrar -> {

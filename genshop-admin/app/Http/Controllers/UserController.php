@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\API\Address;
+use App\Models\API\Customer;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -21,8 +23,8 @@ class UserController extends Controller
 
         $user = User::where('email', $request->email)->first();
         //Caso necessario validar durações do tokens para gerar novos.
-        //if(!$user || !Hash::check($request->password, $user->password)){
-        if(!$user || $request->password != $user->password){
+        if(!$user || !Hash::check($request->password, $user->password)){
+        //if(!$user || $request->password != $user->password){
             error_log($request->email);
             return response()->json([
                 'error' => 'Credenciais invalidas'
@@ -55,7 +57,7 @@ class UserController extends Controller
             $user = [
                 'name' => $request->name,
                 'email' => $request->email,
-                'password' => $request->password,
+                'password' => Hash::make($request->password),
                 'device_name' => $request->device_name,
                 'permissions' => '1'
             ];
@@ -75,6 +77,22 @@ class UserController extends Controller
                     'token' => $user->createToken($request->device_name)->plainTextToken];
                 return response()->json($data);
             }
+        }
+    }
+
+    function loginToken(){
+        $user = User::where('id', auth('sanctum')->user()->id)->first();
+        if($user) {
+            $data = [
+                'name' => $user->name,
+                'email' => $user->email,
+                'token' => ""];
+            return response()->json($data);
+        }
+        else {
+            return response()->json([
+                'Usuario não encontrato.'
+            ], 401);
         }
     }
 }

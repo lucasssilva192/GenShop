@@ -15,7 +15,12 @@ class OrderController extends Controller
     public function index()
     {
         $store = Store::where('user_id', Auth()->user()->id)->first();
-        return view('order.index')->with('orders', Order::where('store_id', $store->id)->get());
+        if($store){
+            return view('order.index')->with('orders', Order::where('store_id', $store->id)->get());
+        } else {
+            $store = Store::where('user_id', Auth()->user()->id)->first();
+            return view('store.index')->with('store');
+        }
     }
 
 

@@ -11,6 +11,7 @@ import com.teyvat.genshop.api.API
 import com.teyvat.genshop.databinding.ActivityShowProdutoBinding
 import com.teyvat.genshop.models.Produto
 import com.teyvat.genshop.utils.Sessao
+import com.teyvat.genshop.utils.Utilitarios
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,6 +22,7 @@ class ShowProdutoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityShowProdutoBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
+        Utilitarios.aplicarTema(this, delegate)
         setContentView(binding.root)
 
         val nomeProd = intent.getStringExtra("nomeProd")

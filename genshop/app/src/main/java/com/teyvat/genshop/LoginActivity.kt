@@ -17,6 +17,7 @@ import retrofit2.Response
 import android.content.Context
 import com.google.gson.JsonObject
 import com.teyvat.genshop.api.API
+import com.teyvat.genshop.utils.UtilitariosAPI
 
 
 class LoginActivity : AppCompatActivity() {
@@ -25,6 +26,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
+        Utilitarios.aplicarTema(this, delegate)
         setContentView(binding.root)
 
         binding.txtUsuario.doOnTextChanged { text, start, before, count -> binding.txtUsuarioLayout.isErrorEnabled = false }
@@ -66,9 +68,8 @@ class LoginActivity : AppCompatActivity() {
                     Utilitarios.abrirTela(this@LoginActivity, MenuActivity::class.java)
                 }
                 else {
-                    val error = response.errorBody().toString()
                     Utilitarios.snackBar(binding.root, "Credenciais Invalidas", Snackbar.LENGTH_LONG)
-                    Log.e("ERROR", response.errorBody().toString())
+                    Log.e("ERROR", response.body().toString())
                 }
             }
             override fun onFailure(call: Call<Usuario>, t: Throwable) {

@@ -95,7 +95,7 @@ object Utilitarios {
     }
 
     fun aplicarTema(context: Context, delegate: AppCompatDelegate){
-        aplicarTemaEscuro(context, delegate)
+        /*aplicarTemaEscuro(context, delegate)
 
         val corTema = PreferenceManager.getDefaultSharedPreferences(context).getString("tema_selecionado", "Default")
         when(corTema){
@@ -120,6 +120,6 @@ object Utilitarios {
             "Dendro" -> {
                 context.setTheme(R.style.Theme_GenShop_Dendro)
             }
-        }
+        }*/
     }
 }

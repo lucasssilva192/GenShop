@@ -47,9 +47,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('order.index') }}">Pedidos</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('category.index') }}">Categorias</a>
-                        </li>
                         @if(Auth()->user()->permissions == 3)
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('user.index') }}">Usuários</a>

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.JsonObject
+import com.teyvat.genshop.CadastroClienteActivity
 import com.teyvat.genshop.FinalizarPedidoActivity
 import com.teyvat.genshop.R
 import com.teyvat.genshop.ShowLojaActivity
@@ -43,7 +44,11 @@ class CarrinhoFragment : Fragment() {
         carregaCarrinho()
 
         binding.btnFinalizar.setOnClickListener {
-            finalizaCompra()
+            if(Sessao.endereco != null){
+                finalizaCompra()
+            } else {
+
+            }
         }
 
         return binding.root
@@ -60,7 +65,8 @@ class CarrinhoFragment : Fragment() {
                         adapter.notifyDataSetChanged()
                     }
                 } else {
-
+                    val intent = Intent(binding.root.context, CadastroClienteActivity::class.java)
+                    binding.root.context.startActivity(intent)
                 }
             }
             override fun onFailure(call: Call<List<Produto>>, t: Throwable) {
@@ -81,13 +87,14 @@ class CarrinhoFragment : Fragment() {
                     binding.root.context.startActivity(intent)
                 } else {
                     Snackbar.make(binding.recyclerView, "Não foi possível finalizar sua compra", Snackbar.LENGTH_LONG).show()
+                    Log.e("FALHA", "${response.code()}")
                 }
             }
             override fun onFailure(call: Call<Compra>, t: Throwable) {
                 Snackbar.make(binding.recyclerView, "Não foi possível finalizar sua compra", Snackbar.LENGTH_LONG).show()
+                Log.e("ERRO", "${t}")
             }
         }
-        Log.e("ERRO-TIRAR-DO-CARRINHO", "${"Bearer ${Sessao.usuario?.token}"}")
         API().carrinho.finalizar_compra("Bearer ${Sessao.usuario?.token}").enqueue(callback)
     }
 

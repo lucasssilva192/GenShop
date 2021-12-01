@@ -14,7 +14,7 @@ interface ClienteAPI {
     @GET("/api/customer")
     fun listar(@Header("Authorization") token: String): Call<Cliente>
 
-    @PUT("/api/customer/{id}")
-    fun atualizar(@Path("id") id: Int, @Header("Authorization") token: String, @Body request: Cliente): Call<Cliente>
+    @PUT("/api/customer/{customer}")
+    fun atualizar(@Path("customer") id: Int, @Header("Authorization") token: String, @Body request: Cliente): Call<Cliente>
 
 }

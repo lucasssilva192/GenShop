@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
             //
             $table->integer('store_id');
             //
-            $table->integer('address_id');
+            $table->string('address');
             //
             $table->decimal('price', 8,2);
             $table->string('status');

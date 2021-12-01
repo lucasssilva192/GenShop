@@ -11,13 +11,18 @@ interface EnderecoAPI {
     @POST("/api/address")
     fun cadastrar(@Header("Authorization") token: String, @Body request: Endereco): Call<Endereco>
 
+    @PUT("/api/address/main/{address}")
+    fun mudarMain(@Path("address") id: Int, @Header("Authorization") token: String): Call<Endereco>
+
+    @DELETE("/api/address/{address}")
+    fun remover(@Path("address") id: Int, @Header("Authorization") token: String): Call<Endereco>
+
+    @PUT("/api/address/{address}")
+    fun atualizar(@Path("address") id: Int, @Header("Authorization") token: String, @Body request: Endereco): Call<Endereco>
+
     @GET("/api/address")
     fun listar(@Header("Authorization") token: String): Call<List<Endereco>>
 
-    @PUT("/api/address/main/{id}")
-    fun mudarMain(@Path("id") id: Int, @Header("Authorization") token: String): Call<Endereco>
-
-    @DELETE("/api/address/{address}")
-    fun remover(@Path("id") id: Int, @Header("Authorization") token: String): Call<Endereco>
-
+    @POST("/api/address/main")
+    fun listarPrincipal(@Header("Authorization") token: String): Call<Endereco>
 }

@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
 Route::get('/product', [ProductController::class, 'index']);
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/register', [UserController::class, 'register']);
+Route::get('/logintoken', [UserController::class, 'loginToken']);
 
 Route::post('/store', [StoreController::class, 'store']);
 Route::get('/store', [StoreController::class, 'index']);
@@ -61,6 +62,7 @@ Route::get('/address', [AddressController::class, 'index']);
 Route::get('/address/{address}', [AddressController::class, 'show']);
 Route::put('/address/{address}', [AddressController::class, 'update']);
 Route::put('/address/main/{address}', [AddressController::class, 'changemain']);
+Route::post('/address/main', [AddressController::class, 'showmain']);
 Route::delete('/address/{address}', [AddressController::class, 'destroy']);
 
 Route::post('/cart/{cart}', [CartController::class, 'add']);

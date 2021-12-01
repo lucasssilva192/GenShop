@@ -34,7 +34,7 @@ class OrderController extends Controller
             $compra = new Order();
             $compra->customer_id = $customer_id;
             $compra->store_id = $id;
-            $compra->address_id = 0;
+            $compra->address = " ";
             $compra->pagto = " ";
             $compra->price = $valor_compra;
             $compra->status = " ";
@@ -68,6 +68,7 @@ class OrderController extends Controller
         $order = Order::where('customer_id', $customer_id)->where('id', $request['order_id'])->first();
         $order->status = "Pedido efetuado";
         $order->pagto = $request['pagto'];
+        $order->address =  $request['address'];
         $order->save();
         return response()->json($order);
     }

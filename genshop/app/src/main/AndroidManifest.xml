@@ -13,30 +13,29 @@
         android:theme="@style/Theme.GenShop"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ShowEnderecoActivity"
+            android:exported="true"
+            android:parentActivityName=".menu.MenuActivity" />
+        <activity
             android:name=".ShowCompraActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".menu.MenuActivity" />
         <activity
             android:name=".FinalizarPedidoActivity"
-            android:exported="true" />
-        <activity
-            android:name=".CadastroEnderecoActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".menu.MenuActivity" />
         <activity
             android:name=".ShowLojaActivity"
             android:exported="true"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".menu.MenuActivity" />
         <activity
             android:name=".ShowProdutoActivity"
             android:exported="true"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".menu.MenuActivity" />
         <activity
             android:name=".menu.MenuActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".LoginActivity"
@@ -51,8 +50,17 @@
             android:exported="true"
             android:parentActivityName=".LoginActivity" />
         <activity
+            android:name=".CadastroEnderecoActivity"
+            android:exported="true"
+            android:parentActivityName=".LoginActivity" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

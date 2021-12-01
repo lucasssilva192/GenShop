@@ -14,6 +14,7 @@ import com.teyvat.genshop.models.Produto
 import com.teyvat.genshop.utils.EnumTipoLista
 import com.teyvat.genshop.utils.GenericRecyclerViewAdapter
 import com.teyvat.genshop.utils.Sessao
+import com.teyvat.genshop.utils.Utilitarios
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,6 +29,7 @@ class ShowCompraActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityShowCompraBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
+        Utilitarios.aplicarTema(this, delegate)
         setContentView(binding.root)
 
         adapter = GenericRecyclerViewAdapter(listaProdutos, EnumTipoLista.ListaPedidoProduto.valor)
@@ -37,15 +39,14 @@ class ShowCompraActivity : AppCompatActivity() {
         val id = intent.getIntExtra("id", 0)
         val valor = intent.getStringExtra("price")
         val status = intent.getStringExtra("status")
-        val endereco = intent.getIntExtra("address", 0)
+        val endereco = intent.getStringExtra("address")
         val pagto = intent.getStringExtra("pagto")
 
         binding.txtSts.setText("Status: " + status)
-        binding.txtEndereco.setText("Endereço de entrega: " + endereco.toString())
+        binding.txtEndereco.setText("Endereço de entrega: " + endereco)
         binding.txtPreco.setText("Valor final: " + valor)
         binding.txtNumPed.setText("Pedido #" + id.toString())
         binding.txtFormaPagto.setText("Pagamento: " + pagto)
-
         pegarProdutos(id)
     }
 
