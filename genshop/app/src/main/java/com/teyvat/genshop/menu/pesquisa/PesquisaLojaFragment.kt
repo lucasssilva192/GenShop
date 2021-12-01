@@ -30,6 +30,8 @@ class PesquisaLojaFragment : Fragment() {
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(activity)
 
+        requisicaoPesquisa("")
+
         binding.btnBuscaLoja.setOnClickListener {
             val busca = binding.editBuscaLoja.text.toString()
             requisicaoPesquisa(busca)

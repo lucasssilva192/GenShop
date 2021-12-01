@@ -31,6 +31,8 @@ class PesquisaFragment : Fragment() {
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(activity)
 
+        requisicaoPesquisa("")
+
         binding.btnBusca.setOnClickListener {
             val busca = binding.editBuscaProd.text.toString()
             requisicaoPesquisa(busca)
@@ -42,7 +44,7 @@ class PesquisaFragment : Fragment() {
         binding.chipArmasUtilitarios.setOnClickListener {
             pesquisa_categoria("Armas/Utilitários")
         }
-        binding.chipComidasBebidas.setOnCloseIconClickListener {
+        binding.chipComidasBebidas.setOnClickListener {
             pesquisa_categoria("Comidas/Bebidas")
         }
         binding.chipMuambas.setOnClickListener {
