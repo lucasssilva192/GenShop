@@ -9,6 +9,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.gson.JsonObject
 import com.teyvat.genshop.api.API
 import com.teyvat.genshop.databinding.ActivityFinalizarPedidoBinding
+import com.teyvat.genshop.databinding.FragmentPedidosBinding
 import com.teyvat.genshop.menu.MenuActivity
 import com.teyvat.genshop.models.Compra
 import com.teyvat.genshop.models.ProdCompra
@@ -89,7 +90,7 @@ class FinalizarPedidoActivity : AppCompatActivity() {
                 if(response.isSuccessful){
                     Log.e("REQUISICAO DEU CERTO", response.body().toString())
                     Snackbar.make(binding.recyclerView, "Pedido efetuado com sucesso", Snackbar.LENGTH_LONG).show()
-                    val intent = Intent(binding.root.context, MenuActivity::class.java)
+                    val intent = Intent(binding.root.context, FragmentPedidosBinding::class.java)
                     binding.root.context.startActivity(intent)
                 } else {
                     Log.e("REQUISICAO DEU MEIO CERTO", response.code().toString())
