@@ -1,7 +1,7 @@
 package com.teyvat.genshop.models
 
 data class Cliente(
-    val id: Int? = null,
+    var id: Int? = null,
     var first_name: String,
     var last_name: String,
     var birth_date: String,

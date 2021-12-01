@@ -26,6 +26,7 @@ class CadastroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCadastroBinding.inflate(layoutInflater)
+        Utilitarios.aplicarTema(this, delegate)
         setContentView(binding.root)
 
         binding.txtUsuario.doOnTextChanged{ text, start, before, count -> binding.txtUsuarioLayout.isErrorEnabled = false  }
@@ -57,7 +58,7 @@ class CadastroActivity : AppCompatActivity() {
                 }
                 else {
                     val error = response.errorBody().toString()
-                    Utilitarios.snackBar(binding.root, "Credenciais Invalidas", Snackbar.LENGTH_LONG)
+                    Utilitarios.snackBar(binding.root, "Erro ao cadastrar", Snackbar.LENGTH_LONG)
                     Log.e("ERROR", response.errorBody().toString())
                 }
             }
@@ -106,6 +107,11 @@ class CadastroActivity : AppCompatActivity() {
         }
         else if (binding.txtSenha.text.isNullOrEmpty()) {
             binding.txtSenhaLayout.error = "Digite a Senha"
+            binding.txtSenha.requestFocus()
+            return false
+        }
+        else if (binding.txtSenha.text.toString().length < 8) {
+            binding.txtSenhaLayout.error = "A senha deve ter no minimo 8 digitos"
             binding.txtSenha.requestFocus()
             return false
         }

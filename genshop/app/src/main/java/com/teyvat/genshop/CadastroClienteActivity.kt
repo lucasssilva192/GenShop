@@ -29,6 +29,7 @@ class CadastroClienteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCadastroClienteBinding.inflate(layoutInflater)
+        Utilitarios.aplicarTema(this, delegate)
         setContentView(binding.root)
 
         binding.txtNome.doOnTextChanged{ text, start, before, count -> binding.txtNomeLayout.isErrorEnabled = false  }

@@ -13,6 +13,7 @@ class CustomerController extends Controller
     {
         $customer_id = Customer::custumerID(auth('sanctum')->user()->id);
         $customer = Customer::where('id', $customer_id)->first();
+        $customer->birth_date = date('d-m-Y',strtotime($customer->birth_date));
         if($customer) {
             return response()->json($customer);
         }
@@ -53,15 +54,19 @@ class CustomerController extends Controller
 
     public function update(Request $request, Customer $customer)
     {
-        $customer = Customer::where('id', $request['id'])->update([
+        $customer_id = Customer::custumerID(auth('sanctum')->user()->id);
+        $customer = Customer::where('id', $customer_id)->update([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
-            'birth_date' => $request->birth_date,
+            'birth_date' => date('Y-m-d',strtotime($request->birth_date)),
             'cpf' => $request->cpf,
             'cellphone' => $request->cellphone,
             'telephone' => $request->telephone,
-            'profile_pic' => $request->profile_pic
+            'profile_pic' => 'abc' /*$request->profile_pic*/
         ]);
+
+        $customer = Customer::where('id', $customer_id)->first();
+        $customer->birth_date = date('d-m-Y',strtotime($customer->birth_date));
         return response()->json($customer);
     }
 

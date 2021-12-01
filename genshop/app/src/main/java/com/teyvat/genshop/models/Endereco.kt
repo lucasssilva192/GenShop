@@ -3,7 +3,7 @@ package com.teyvat.genshop.models
 import java.io.Serializable
 
 data class Endereco(
-    val id: Int? = null,
+    var id: Int? = null,
     var name: String,
     var cep: String,
     var state: String,

@@ -6,10 +6,12 @@ import android.util.Log
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.snackbar.Snackbar
 import com.teyvat.genshop.api.API
+import com.teyvat.genshop.api.ViaCepRetrofit
 import com.teyvat.genshop.databinding.ActivityCadastroEnderecoBinding
 import com.teyvat.genshop.menu.MenuActivity
 import com.teyvat.genshop.models.Cliente
 import com.teyvat.genshop.models.Endereco
+import com.teyvat.genshop.models.ViaCEP
 import com.teyvat.genshop.utils.Sessao
 import com.teyvat.genshop.utils.Utilitarios
 import retrofit2.Call
@@ -22,14 +24,20 @@ class CadastroEnderecoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCadastroEnderecoBinding.inflate(layoutInflater)
+        Utilitarios.aplicarTema(this, delegate)
         setContentView(binding.root)
 
-        //binding.txtNome.doOnTextChanged{ text, start, before, count -> binding.txtNomeLayout.isErrorEnabled = false  }
         binding.txtCep.doOnTextChanged{ text, start, before, count -> binding.txtCepLayout.isErrorEnabled = false  }
         binding.txtEstado.doOnTextChanged{ text, start, before, count -> binding.txtEstadoLayout.isErrorEnabled = false  }
         binding.txtCidade.doOnTextChanged{ text, start, before, count -> binding.txtCidadeLayout.isErrorEnabled = false  }
         binding.txtEndereco.doOnTextChanged{ text, start, before, count -> binding.txtEnderecoLayout.isErrorEnabled = false  }
         binding.txtNumero.doOnTextChanged{ text, start, before, count -> binding.txtNumeroLayout.isErrorEnabled = false  }
+
+        binding.txtCep.setOnFocusChangeListener { view, b ->
+            if(!b){
+                requisitaViaCep()
+            }
+        }
 
         binding.btnCadastrarEndereco.setOnClickListener(){
             if(validarFormulario()){
@@ -109,4 +117,30 @@ class CadastroEnderecoActivity : AppCompatActivity() {
         }
     }
 
+    fun requisitaViaCep() {
+        val callback = object: Callback<ViaCEP> {
+            override fun onResponse(call: Call<ViaCEP>, response: Response<ViaCEP>) {
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        preencherEnderecoViaCEP(it)
+                        binding.txtComplemento.requestFocus()
+                    }
+                }
+                else {
+                    Utilitarios.snackBar(binding.root, "Não foi possível buscar o cep informado", Snackbar.LENGTH_SHORT)
+                }
+            }
+            override fun onFailure(call: Call<ViaCEP>, t: Throwable) {
+                Utilitarios.snackBarRequestFaliure(binding.root)
+            }
+        }
+
+        ViaCepRetrofit().viacep.buscarCep(binding.txtCep.text.toString()).enqueue(callback)
+    }
+
+    fun preencherEnderecoViaCEP(viaCEP: ViaCEP){
+        binding.txtEstado.setText(viaCEP.uf)
+        binding.txtCidade.setText(viaCEP.localidade)
+        binding.txtEndereco.setText(viaCEP.logradouro)
+    }
 }

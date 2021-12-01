@@ -23,8 +23,8 @@ class UserController extends Controller
 
         $user = User::where('email', $request->email)->first();
         //Caso necessario validar durações do tokens para gerar novos.
-        //if(!$user || !Hash::check($request->password, $user->password)){
-        if(!$user || $request->password != $user->password){
+        if(!$user || !Hash::check($request->password, $user->password)){
+        //if(!$user || $request->password != $user->password){
             error_log($request->email);
             return response()->json([
                 'error' => 'Credenciais invalidas'
@@ -57,7 +57,7 @@ class UserController extends Controller
             $user = [
                 'name' => $request->name,
                 'email' => $request->email,
-                'password' => $request->password,
+                'password' => Hash::make($request->password),
                 'device_name' => $request->device_name,
                 'permissions' => '1'
             ];
@@ -86,6 +86,7 @@ class UserController extends Controller
             $data = [
                 'name' => $user->name,
                 'email' => $user->email,
+                'password' => $user->password,
                 'token' => ""];
             return response()->json($data);
         }
