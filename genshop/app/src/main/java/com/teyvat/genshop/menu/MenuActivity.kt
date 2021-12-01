@@ -48,6 +48,9 @@ class MenuActivity : AppCompatActivity() {
         configurarMenu();
         //#endregion
 
+        var frag = PesquisaFragment.newInstance()
+        supportFragmentManager.beginTransaction().replace(R.id.menuContainer, frag).commit()
+
     }
 
     override fun onResume() {
