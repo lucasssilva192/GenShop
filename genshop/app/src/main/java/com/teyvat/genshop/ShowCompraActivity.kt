@@ -37,15 +37,14 @@ class ShowCompraActivity : AppCompatActivity() {
         val id = intent.getIntExtra("id", 0)
         val valor = intent.getStringExtra("price")
         val status = intent.getStringExtra("status")
-        val endereco = intent.getIntExtra("address", 0)
+        val endereco = intent.getStringExtra("address")
         val pagto = intent.getStringExtra("pagto")
 
         binding.txtSts.setText("Status: " + status)
-        binding.txtEndereco.setText("Endereço de entrega: " + endereco.toString())
+        binding.txtEndereco.setText("Endereço de entrega: " + endereco)
         binding.txtPreco.setText("Valor final: " + valor)
         binding.txtNumPed.setText("Pedido #" + id.toString())
         binding.txtFormaPagto.setText("Pagamento: " + pagto)
-
         pegarProdutos(id)
     }
 

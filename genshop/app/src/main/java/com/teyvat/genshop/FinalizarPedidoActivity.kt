@@ -9,6 +9,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.gson.JsonObject
 import com.teyvat.genshop.api.API
 import com.teyvat.genshop.databinding.ActivityFinalizarPedidoBinding
+import com.teyvat.genshop.menu.MenuActivity
 import com.teyvat.genshop.models.Compra
 import com.teyvat.genshop.models.ProdCompra
 import com.teyvat.genshop.models.Produto
@@ -40,6 +41,7 @@ class FinalizarPedidoActivity : AppCompatActivity() {
         binding.txtEndereco.text = "SERA SALVO NA SESSAO"
         binding.txtPreco.setText("Preço total: R$ " + order?.price)
         binding.txtNumPed.setText("Pedido #" + order?.id)
+        binding.txtEndereco.setText("${Sessao.endereco?.address} ${Sessao.endereco?.number}")
 
         carrega_carrinho(order?.id)
 
@@ -87,7 +89,7 @@ class FinalizarPedidoActivity : AppCompatActivity() {
                 if(response.isSuccessful){
                     Log.e("REQUISICAO DEU CERTO", response.body().toString())
                     Snackbar.make(binding.recyclerView, "Pedido efetuado com sucesso", Snackbar.LENGTH_LONG).show()
-                    val intent = Intent(binding.root.context, MainActivity::class.java)
+                    val intent = Intent(binding.root.context, MenuActivity::class.java)
                     binding.root.context.startActivity(intent)
                 } else {
                     Log.e("REQUISICAO DEU MEIO CERTO", response.code().toString())
@@ -102,6 +104,7 @@ class FinalizarPedidoActivity : AppCompatActivity() {
         var requisao = JsonObject()
         requisao.addProperty("order_id", id)
         requisao.addProperty("pagto", pagto)
+        requisao.addProperty("address", "${Sessao.endereco?.address} ${Sessao.endereco?.number}")
         API().carrinho.fecha_compra("Bearer ${Sessao.usuario?.token}", requisao).enqueue(callback)
     }
 }

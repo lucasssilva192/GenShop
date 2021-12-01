@@ -166,8 +166,6 @@ class MenuActivity : AppCompatActivity() {
     fun configurarMenu(){
         if(verificaUsuarioLogado()){
             binding.navigationView.menu.findItem(R.id.entrar).setVisible(false)
-
-            binding.navigationView.menu.findItem(R.id.favoritos).setVisible(true)
             binding.navigationView.menu.findItem(R.id.pedidos).setVisible(true)
             binding.navigationView.menu.findItem(R.id.dados).setVisible(true)
             binding.navigationView.menu.findItem(R.id.enderecos).setVisible(true)
@@ -176,13 +174,13 @@ class MenuActivity : AppCompatActivity() {
         //Caso nao esteja logado
         else {
             binding.navigationView.menu.findItem(R.id.entrar).setVisible(true)
-
-            binding.navigationView.menu.findItem(R.id.favoritos).setVisible(false)
             binding.navigationView.menu.findItem(R.id.pedidos).setVisible(false)
             binding.navigationView.menu.findItem(R.id.dados).setVisible(false)
             binding.navigationView.menu.findItem(R.id.enderecos).setVisible(false)
             binding.navigationView.menu.findItem(R.id.sair).setVisible(false)
         }
+        binding.navigationView.menu.findItem(R.id.favoritos).setVisible(false)
+        binding.navigationView.menu.findItem(R.id.suporte).setVisible(false)
     }
 
     fun gerarBotoes(){

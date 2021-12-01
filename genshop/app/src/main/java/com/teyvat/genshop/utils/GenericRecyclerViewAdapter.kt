@@ -86,7 +86,13 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
                     binding.root.context.startActivity(intent)
                 }
                 binding.imageView2.setOnClickListener {
-                    Utilitarios.addAoCarrinho(binding.root, idProduto!!, quantidade)
+                    if(Sessao.cliente != null){
+                        Utilitarios.addAoCarrinho(binding.root, idProduto!!, quantidade)
+                    }
+                    else{
+                        val intent = Intent(binding.root.context, CadastroClienteActivity::class.java)
+                        binding.root.context.startActivity(intent)
+                    }
                 }
             }
             //#endregion
@@ -148,7 +154,7 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
                     intent.putExtra("id", item.id)
                     intent.putExtra("price", item.price)
                     intent.putExtra("status", item.status)
-                    intent.putExtra("address", item.address_id)
+                    intent.putExtra("address", item.address)
                     intent.putExtra("pagto", item.pagto)
                     binding.root.context.startActivity(intent)
                 }
