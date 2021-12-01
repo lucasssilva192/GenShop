@@ -116,21 +116,28 @@ class GenericRecyclerViewAdapter(val lista: List<out Any>, val tipoLista: Int) :
             //#endregion
 
             //#region Binding Carrinho - Produto
-            if(binding is ItemCarrinhoBinding && item is Produto){
-                binding.txtNomeProduto.text = item.name
-                binding.txtValor.text = item.price
-                binding.editQuantidade.setText((item.quantity).toString())
-                val idProduto = item.c_id
-                Picasso.get().load("http://192.168.3.26/api/product/image/${idProduto}").into(binding.imgProduto)
-                binding.btnRemover.setOnClickListener {
-                    Utilitarios.remover_do_carrinho(binding.root, idProduto!!, 1)
-                    binding.editQuantidade.setText((binding.editQuantidade.text.toString().toInt() - 1).toString())
-                }
-                binding.btnAdicionar.setOnClickListener {
-                    Utilitarios.addAoCarrinho(binding.root, idProduto!!, 1)
-                    binding.editQuantidade.setText((binding.editQuantidade.text.toString().toInt() + 1).toString())
-                }
-
+            if(binding is ItemCarrinhoBinding && item is Produto) {
+                    binding.txtNomeProduto.text = item.name
+                    binding.txtValor.text = item.price
+                    binding.editQuantidade.setText((item.quantity).toString())
+                    val qt = binding.editQuantidade.text.toString().toInt()
+                    val idProduto = item.c_id
+                    Picasso.get().load("http://192.168.3.26/api/product/image/${idProduto}")
+                        .into(binding.imgProduto)
+                    if (qt > 0) {
+                        binding.btnRemover.setOnClickListener {
+                            Utilitarios.remover_do_carrinho(binding.root, idProduto!!, 1)
+                            binding.editQuantidade.setText(
+                                (binding.editQuantidade.text.toString().toInt() - 1).toString()
+                            )
+                        }
+                    }
+                    binding.btnAdicionar.setOnClickListener {
+                        Utilitarios.addAoCarrinho(binding.root, idProduto!!, 1)
+                        binding.editQuantidade.setText(
+                            (binding.editQuantidade.text.toString().toInt() + 1).toString()
+                        )
+                    }
             }
             //#endregion
 

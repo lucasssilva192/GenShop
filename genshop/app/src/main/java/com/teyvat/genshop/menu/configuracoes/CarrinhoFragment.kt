@@ -32,6 +32,7 @@ class CarrinhoFragment : Fragment() {
     lateinit var adapter: GenericRecyclerViewAdapter
 
     val listaCarrinho = arrayListOf<Produto>()
+    var permiteFinalizar = true
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentCarrinhoBinding.inflate(inflater)
@@ -45,6 +46,7 @@ class CarrinhoFragment : Fragment() {
 
         binding.btnFinalizar.setOnClickListener {
             if(Sessao.endereco != null){
+            if(permiteFinalizar == true)
                 finalizaCompra()
             } else {
 
@@ -71,6 +73,7 @@ class CarrinhoFragment : Fragment() {
             }
             override fun onFailure(call: Call<List<Produto>>, t: Throwable) {
                 Snackbar.make(binding.recyclerView, "Não foi possível carregar os produtos do carrinho", Snackbar.LENGTH_LONG).show()
+                permiteFinalizar = false
             }
         }
         API().carrinho.ver_carrinho("Bearer ${Sessao.usuario?.token}").enqueue(callback)

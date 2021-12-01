@@ -9,6 +9,8 @@ use App\Models\API\Customer;
 use App\Models\API\ProductCart;
 use Illuminate\Http\Request;
 
+use function PHPUnit\Framework\isNull;
+
 class CartController extends Controller
 {
     public function add(Request $request)
@@ -19,7 +21,7 @@ class CartController extends Controller
         
         if($item){
             $item->update([
-                'quantity' => $item->quantity + 1
+                'quantity' => $item->quantity += 1
             ]);
         } else{
             $cart = Cart::create([
@@ -54,7 +56,11 @@ class CartController extends Controller
             $x = $x + 1;
             $y = $y + 1;
         }
-        return response()->json($teste2);
+        if($teste2 == null){
+            return response()->json("Carrinho vazio");
+        } else {
+            return response()->json($teste2);
+        }
     }
 
 
@@ -65,12 +71,20 @@ class CartController extends Controller
 
         $item = Cart::where([['product_id', '=',  $request['product_id']], ['customer_id', '=',   $customer_id]])->first();
 
+        if($item->quantity == 1){
+            $item->update([
+                'quantity' => $item->quantity = 0
+            ]);
+        }
         if($item->quantity > 1){
             $item->update([
-                'quantity' => $item->quantity - 1
+                'quantity' => $item->quantity -= 1
             ]);
-        } else {
+        }
+        if($item->quantity == 0){
             $item->delete();
+            $it = ProductCart::where('customer_id', $customer_id)->where('c_id', $request['product_id'])->first();
+            $it->delete();
         }
         return response()->json($item);
     }

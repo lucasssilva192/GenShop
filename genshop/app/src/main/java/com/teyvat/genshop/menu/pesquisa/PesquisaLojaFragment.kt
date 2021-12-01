@@ -115,6 +115,5 @@ class PesquisaLojaFragment : Fragment() {
         @JvmStatic
         fun newInstance() = PesquisaLojaFragment()
     }
-
 }
 

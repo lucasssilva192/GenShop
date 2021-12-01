@@ -53,6 +53,9 @@ class StoreController extends Controller
             case 8:
                 $loja->type = "Pesca";
                 break;
+            case 9:
+                $loja->type = "Livraria";
+                break;
         }
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $requestImage = $request->image;

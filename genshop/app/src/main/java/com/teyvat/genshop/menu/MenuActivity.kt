@@ -48,7 +48,7 @@ class MenuActivity : AppCompatActivity() {
         configurarMenu();
         //#endregion
 
-        var frag = PesquisaFragment.newInstance()
+        var frag = PesquisaLojaFragment.newInstance()
         supportFragmentManager.beginTransaction().replace(R.id.menuContainer, frag).commit()
 
     }
